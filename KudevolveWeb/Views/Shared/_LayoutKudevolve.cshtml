@@ -1,0 +1,512 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kudevolve | Devolution Online</title>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <link href="~/KudevolveUI/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/KudevolveUI/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/KudevolveUI/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="~/KudevolveUI/css/animate.css" rel="stylesheet">
+    <link href="~/KudevolveUI/css/style.css" rel="stylesheet">
+    <link href="~/KudevolveUI/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="~/KudevolveUI/toastr.css" rel="stylesheet" />
+   
+    <script src="~/KudevolveUI/toastr.js"></script>
+
+    <script type="text/javascript">
+        //Check whether the user is logged in or not through the log object
+        //if (!(sessionStorage.getItem("userlogged"))) {
+        //    window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
+        //}
+    </script>
+
+</head>
+
+<body class="boxed-layout">
+
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+
+                        @* Partial Login Page *@
+                        <div class="dropdown profile-element">
+                           
+                                <span>
+                                    <img alt="image" class="img-circle" src="~/KudevolveUI/img/profile_small.jpg">
+                                </span>
+                           
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs">
+                                        <strong class="font-bold">Jane Lumumba</strong>
+                                    </span> <span class="text-muted text-xs block">@@jane_lumumba <b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="mailbox.html">Mailbox</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">Logout</a></li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            KD
+                        </div>
+
+                    </li>
+                    <li>
+                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Noticeboard</span> </a>
+
+                    </li>
+                    <li>
+                        <a href="contacts2.html"><i class="fa fa-th-large"></i> <span class="nav-label">Friends/Influencers</span> </a>
+
+                    </li>
+
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Counties</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="graph_flot.html">My County</a></li>
+                            <li><a href="graph_morris.html">Kiambu</a></li>
+                            <li><a href="graph_rickshaw.html">Muranga</a></li>
+                            <li><a href="graph_peity.html">Nairobi</a></li>
+                            <li><a href="graph_sparkline.html">Kajiado</a></li>
+                            <li><a href="graph_sparkline.html">Wajir</a></li>
+                            <li><a href="graph_sparkline.html">Nyandarua</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Blog </span><span class="label label-warning pull-right"></span></a>
+
+                    </li>
+                    <li>
+                        <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">Posts </span><span class="label label-warning pull-right">16/24</span></a>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">Discussions</span><span class="fa arrow"></span></a>
+
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop"></i> <span class="nav-label">Petitions</span>  <span class="pull-right label label-primary">SPECIAL</span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="contacts.html">My Petitions</a></li>
+                            <li><a href="profile.html">In My County</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-files-o"></i> <span class="nav-label">Dev Plans</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="search_results.html">Create</a></li>
+                            <li><a href="lockscreen.html">View Some</a></li>
+                        </ul>
+                    </li>
+
+
+                    <li class="active">
+                        <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Leaderboards</span><span class="fa arrow"></span></a>
+
+                    </li>
+
+                    <li class="active">
+                        <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Groups</span><span class="fa arrow"></span></a>
+
+                    </li>
+
+
+                    <li class="active">
+                        <a href="#"><i class="fa fa-laptop"></i> <span class="nav-label">Leaderboards</span><span class="fa arrow"></span></a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i> <span class="nav-label">Feedback </span><span class="fa arrow"></span></a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">Wall</span>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-messages">
+                                <li>
+                                    <div class="dropdown-messages-box">
+                                        <a href="profile.html" class="pull-left">
+                                            <img alt="image" class="img-circle" src="~/KudevolveUI/img/a7.jpg">
+                                        </a>
+                                        <div class="media-body">
+                                            <small class="pull-right">46h ago</small>
+                                            <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                            <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="dropdown-messages-box">
+                                        <a href="profile.html" class="pull-left">
+                                            <img alt="image" class="img-circle" src="~/KudevolveUI/img/a4.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right text-navy">5h ago</small>
+                                            <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                            <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="dropdown-messages-box">
+                                        <a href="profile.html" class="pull-left">
+                                            <img alt="image" class="img-circle" src="~/KudevolveUI/img/profile.jpg">
+                                        </a>
+                                        <div class="media-body ">
+                                            <small class="pull-right">23h ago</small>
+                                            <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                            <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="text-center link-block">
+                                        <a href="mailbox.html">
+                                            <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                <li>
+                                    <a href="mailbox.html">
+                                        <div>
+                                            <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                            <span class="pull-right text-muted small">4 minutes ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="profile.html">
+                                        <div>
+                                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                            <span class="pull-right text-muted small">12 minutes ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="grid_options.html">
+                                        <div>
+                                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                            <span class="pull-right text-muted small">4 minutes ago</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="text-center link-block">
+                                        <a href="notifications.html">
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href="login.html">
+                                <i class="fa fa-sign-out"></i> Log out
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+
+
+
+            <div class="wrapper wrapper-content" style="padding-top: 0px;">
+                <div class="row animated fadeInRight">
+                    <div class="col-md-9">
+                        <div class="ibox float-e-margins">
+                            @RenderBody()
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-3">
+                        <div class="ibox float-e-margins">
+                           
+                            <div>
+                                <div class="ibox float-e-margins">
+                                    <div class="ibox-title">
+                                        <h5>Comments and tweets</h5>
+                                      
+                                    </div>
+                                    <div class="ibox-content no-padding">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">
+                                                <p><a class="text-info" href="#">@@Alan Marry</a> I belive that. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 1 minuts ago</small>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <p><a class="text-info" href="#">@@Stock Man</a> Check this stock chart. This price is crazy! </p>
+                                                <div class="text-center m">
+                                                    <span id="sparkline8"></span>
+                                                </div>
+                                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 hours ago</small>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <p><a class="text-info" href="#">@@Kevin Smith</a> Lorem ipsum unknown printer took a galley </p>
+                                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 minuts ago</small>
+                                            </li>
+                                            <li class="list-group-item ">
+                                                <p><a class="text-info" href="#">@@Jonathan Febrick</a> The standard chunk of Lorem Ipsum</p>
+                                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 1 hour ago</small>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <p><a class="text-info" href="#">@@Alan Marry</a> I belive that. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 1 minuts ago</small>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <p><a class="text-info" href="#">@@Kevin Smith</a> Lorem ipsum unknown printer took a galley </p>
+                                                <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 minuts ago</small>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ibox-content profile-content">
+                                    <h4><strong>Top Petitions</strong></h4>
+                                    <p><i class="fa fa-map-marker"></i> County: Kiambu</p>
+
+                                    <div class="form-group">
+                                        <label class="font-noraml">Other county</label>
+                                        <div class="input-group">
+                                            <select data-placeholder="Choose a Country..." class="chosen-select" style="width:200px;" tabindex="2">
+                                                <option value="United States">Kiambu</option>
+                                                <option value="United Kingdom">Nyeri</option>
+                                                <option value="Afghanistan">Muranga North</option>
+                                                <option value="Aland Islands">Muranga South</option>
+                                                <option value="Albania">Kajiado</option>
+                                                <option value="Algeria">Eldoret</option>
+                                                <option value="American Samoa">Kapsabet</option>
+                                                <option value="Andorra">Tinderet</option>
+                                                <option value="Angola">Kajiado South</option>
+                                                <option value="Anguilla">Migori</option>
+                                                <option value="Antarctica">Kisii</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+
+                                                <th>Title</th>
+                                                <th>Votes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+
+                                                <td>Samantha</td>
+                                                <td class="text-navy"> <i class="fa fa-level-up"></i> 10000 </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+
+                                                <td>Jacob</td>
+                                                <td class="text-warning"> <i class="fa fa-level-down"></i> 2300</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+
+                                                <td>Damien</td>
+                                                <td class="text-navy"> <i class="fa fa-level-up"></i> 1600 </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="user-button">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-share-square"></i> Share</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-comment"></i> Comment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mainly scripts -->
+    @*<script src="~/KudevolveUI/js/jquery-1.10.2.js"></script>*@
+    <script src="~/KudevolveUI/js/bootstrap.min.js"></script>
+    <script src="~/KudevolveUI/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/KudevolveUI/js/inspinia.js"></script>
+    <script src="~/KudevolveUI/js/plugins/pace/pace.min.js"></script>
+
+    <!-- Peity -->
+    <script src="~/KudevolveUI/js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- GITTER -->
+    <script src="~/KudevolveUI/js/plugins/gritter/jquery.gritter.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="~/KudevolveUI/js/plugins/iCheck/icheck.min.js"></script>
+    <!-- SUMMERNOTE -->
+    <script src="~/KudevolveUI/js/plugins/summernote/summernote.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+
+
+            $('.summernote').summernote();
+
+        });
+        var edit = function () {
+            $('.click2edit').summernote({ focus: true });
+        };
+        var save = function () {
+            var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+            $('.click2edit').destroy();
+        };
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            WinMove();
+            setTimeout(function () {
+                $.gritter.add({
+                    title: 'Welcome to Kudevolve',
+                    text: 'Go to <a href="mailbox.html" class="text-warning">Profile</a> to see your current profile and update'
+                });
+            }, 2000);
+
+
+            $('.chart').easyPieChart({
+                barColor: '#f8ac59',
+                //                scaleColor: false,
+                scaleLength: 5,
+                lineWidth: 4,
+                size: 80
+            });
+
+            $('.chart2').easyPieChart({
+                barColor: '#1c84c6',
+                //                scaleColor: false,
+                scaleLength: 5,
+                lineWidth: 4,
+                size: 80
+            });
+
+            var data1 = [
+                [0, 4], [1, 8], [2, 5], [3, 10], [4, 4], [5, 16], [6, 5], [7, 11], [8, 6], [9, 11], [10, 30], [11, 10], [12, 13], [13, 4], [14, 3], [15, 3], [16, 6]
+            ];
+            var data2 = [
+                [0, 1], [1, 0], [2, 2], [3, 0], [4, 1], [5, 3], [6, 1], [7, 5], [8, 2], [9, 3], [10, 2], [11, 1], [12, 0], [13, 2], [14, 8], [15, 0], [16, 0]
+            ];
+            $("#flot-dashboard-chart").length && $.plot($("#flot-dashboard-chart"), [
+                data1, data2
+            ],
+                    {
+                        series: {
+                            lines: {
+                                show: false,
+                                fill: true
+                            },
+                            splines: {
+                                show: true,
+                                tension: 0.4,
+                                lineWidth: 1,
+                                fill: 0.4
+                            },
+                            points: {
+                                radius: 0,
+                                show: true
+                            },
+                            shadowSize: 2
+                        },
+                        grid: {
+                            hoverable: true,
+                            clickable: true,
+                            tickColor: "#d5d5d5",
+                            borderWidth: 1,
+                            color: '#d5d5d5'
+                        },
+                        colors: ["#1ab394", "#464f88"],
+                        xaxis: {
+                        },
+                        yaxis: {
+                            ticks: 4
+                        },
+                        tooltip: false
+                    }
+            );
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+/* ============================================= */
+/* ======================== Color Change ===================== */
+/* ============================================= */
+
+
+/* ======================== Background Color ===================== */
+
+.highlight, .button, .button.dropdown.split > span, .button.dropdown.split:hover, .button.primary, div.alert-box, .label, .panel.callout, .user-control .notification, .login-modal .close-reveal-modal, .top-bar ul > li a.active, .tp-leftarrow:hover, .tp-rightarrow:hover, a.prev:hover, a.next:hover, .content_top, .service-icon img, .service:hover .service-sub, .hover-links a.view-item, .hover-links a.view-image, .content_bottom, div.progress .meter, .accordion-title.active, .ol-type1 > li:before, ul.pagination li.current a, .scrollup:hover, .toggle-view li:hover span, .service-block-icon, .left_pagination:hover, .all_pagination:hover, .right_pagination:hover, .post-date-type1 .post-date-day, .recent-post .post-date-type1 .post-date-day, .option-set li a.selected, ul.side-nav li.active a, .tabs.vertical dd.active a, .tabs.vertical li.active a{ background-color: #cccc00;}
+
+/* -- Background Color with !importratant -- */
+
+.arrow a:hover, .pricing_plan1:hover .plan_price, .pricing_plan2:hover .plan_price, .pricing_plan3:hover .plan_price, .pricing_plan4:hover .plan_price, .pricing-active .plan_price, .camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span { background-color: #cccc00 !important;}
+
+/* ======================== Text Color ===================== */
+
+.color, h1 span, h2 span, h3 span, h4 span, h5 span, h6 span, a, a:focus, .top_header a:hover, #logo h1 span, .caption.big_color, .service:hover .service-main, .work-item-content h5, .footer a:hover, .footer_bottom a:hover,dl.tabs dd a:hover, dl.tabs dd a:focus, .type1 a:hover, .type1 li:hover:before, .type2 a:hover, .type2 li:hover:before, .type3 a:hover, .type3 li:hover:before, .type4 a:hover, .type4 li:hover:before, .toggle-view li:hover h2, .member-name, .article_meta a:hover, .article_meta_type1 a:hover, .article_meta_type2 a:hover, .comment .author a:hover, .sidebar-widget a:hover {color : #cccc00;}
+
+/* ======================== Border Color ===================== */
+
+.maincontent h3, .work-item:hover, .footer h4, dl.tabs dd.active, .member-description, .member-social li, .portfolio-item:hover .portfolio-item-content, 
+.tabs.vertical dd.active, .tabs.vertical li.active{border-color:#cccc00;}

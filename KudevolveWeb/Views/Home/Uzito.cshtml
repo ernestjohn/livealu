@@ -1,0 +1,944 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" id="view" content="width=device-width minimum-scale=1, maximum-scale=1" />
+
+    <title>Kudevolve Home</title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="stylesheets/foundation.min.css">
+    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="stylesheets/style1.css">
+    <link rel="stylesheet" href="stylesheets/color1.css">
+
+    <!-- Plugins CSS -->
+    <link href="plugins/titan/css/jquery.titanlighbox.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <!-- Included JS Files (Compressed) -->
+    <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/foundation.min.js"></script>
+    <script src="javascripts/modernizr.foundation.js"></script>
+
+    <!-- Slider Revolution JS FILES  -->
+    <script type="text/javascript" src="plugins/slider-revolution/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="plugins/slider-revolution/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- Tooltips -->
+    <script type="text/javascript" src="javascripts/jquery.tipsy.js"></script>
+
+    <!-- CarouFredSel plugin -->
+    <script type="text/javascript" src="javascripts/jquery.carouFredSel-6.0.3-packed.js"></script>
+    <!-- optionally include helper plugins -->
+    <script type="text/javascript" src="javascripts/jquery.touchSwipe.min.js"></script>
+
+    <!-- Titan Lightbox -->
+    <script type="text/javascript" src="plugins/titan/js/prettify.js"></script>
+    <script type="text/javascript" src="plugins/titan/js/jquery.titanlighbox.js"></script>
+
+    <!-- Scripts Initialize -->
+    <script src="javascripts/app-head.js"></script>
+
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <!-- Region 1 Wrap -->
+
+    <div class="container region1wrap">
+
+        <!-- Top Header -->
+        <div class="row top_header">
+
+            <div class="six columns">
+
+                <ul class="link-list">
+                    <li><a href="#">Order Now</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+
+
+                <div class="login">
+                    <a href="#" class="button" data-reveal-id="Login">Login</a>
+                </div>
+
+
+            </div>
+
+            <div class="six columns">
+
+                <ul class="top_social">
+                    <li><a class="has-tipsy" href="http://twitter.com/" title="Twitter"><img src="images/social/Twitter.png" alt="Twitter"></a></li>
+                    <li><a class="has-tipsy" href="http://www.facebook.com/" title="Facebook"><img src="images/social/Facebook.png" alt="Facebook"></a>
+                    <li><a class="has-tipsy" href="http://google.com/" title="Google"><img src="images/social/Google.png" alt="Google+"></a></li>
+                    <li><a class="has-tipsy" href="http://www.LinkedIn.com/" title="LinkedIn"><img src="images/social/LinkedIn.png" alt="LinkedIn"></a></li>
+                    <li><a class="has-tipsy" href="http://www.Flickr.com/" title="Flickr"><img src="images/social/Flickr.png" alt="Flickr"></a></li>
+                    <li><a class="has-tipsy" href="http://vimeo.com/" title="Vimeo"><img src="images/social/Vimeo.png" alt="Vimeo"></a></li>
+                    <li><a class="has-tipsy" href="http://www.rss.com/" title="RSS"><img src="images/social/RSS.png" alt="RSS"></a></li>
+                </ul>
+
+            </div>
+
+        </div>
+        <!-- End Top Header -->
+
+    </div>
+
+    <!-- End Region 1 Wrap -->
+    <!-- Region 2 Wrap -->
+
+    <div class="container region2wrap">
+
+        <div class="row">
+
+            <!-- Logo -->
+
+            <div class="three columns">
+
+                <a href="index.html" id="logo"><h1>Ku<span>Devolve</span></h1></a>
+
+            </div>
+
+            <!-- End Logo -->
+            <!-- Main Navigation -->
+
+            <div class="nine columns">
+
+                <nav class="top-bar">
+
+                    <ul>
+                        <!-- Toggle Button Mobile -->
+                        <li class="name">
+                            <h1><a href="#"> Please select your page</a></h1>
+                        </li>
+                        <li class="toggle-topbar"><a href="#"></a></li>
+                        <!-- End Toggle Button Mobile -->
+                    </ul>
+
+
+
+                    <section>
+                        <!-- Nav Section -->
+                        <ul class="right">
+
+                            <li class="has-dropdown">
+                                <a class="active" href="index.html">Home</a>
+                                <ul class="dropdown">
+                                    <li><a href="index.html">Home Page - Default</a></li>
+                                    <li><a href="index-type1.html">Home Page Type 1</a></li>
+                                    <li><a href="index-type2.html">Home Page Type 2</a></li>
+                                    <li class="has-dropdown">
+                                        <a href="#">TouchM Sliders</a>
+                                        <ul class="dropdown">
+                                            <li><a href="index.html">Slider Revolution</a></li>
+                                            <li><a href="index-flexi.html">Flexislider</a></li>
+                                            <li><a href="index-camera.html">Camera Slider</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="#">Features</a>
+                                <ul class="dropdown">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="pricing.html">Pricing Tables</a></li>
+                                    <li><a href="shortcodes.html">Shortcodes</a></li>
+                                    <li><a href="notfound.html">404 Not Found</a></li>
+                                    <li><a href="under-construction.html">Under Construction</a></li>
+                                    <li class="has-dropdown">
+                                        <a href="#">Third Navigation Level</a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">This is a simple example</a></li>
+                                            <li><a href="#">Of the Third Level</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="#">Blog</a>
+                                <ul class="dropdown">
+                                    <li><a href="blog_sidebar_right.html">Blog Default</a></li>
+                                    <li><a href="blog_type1.html">Blog Type 1</a></li>
+                                    <li><a href="blog_type2.html">Blog Type 2</a></li>
+                                    <li><a href="blog_sidebar_right.html">Sidebar Right</a></li>
+                                    <li><a href="blog_sidebar_left.html">Sidebar Left</a></li>
+                                    <li><a href="blog_inner.html">Single Post</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has-dropdown">
+                                <a href="#">Portfolio</a>
+                                <ul class="dropdown">
+                                    <li><a href="portfolio_default.html">Portfolio Default (4 Columns)</a></li>
+                                    <li><a href="portfolio_type1.html" class="">Portfolio 2 Columns</a></li>
+                                    <li><a href="portfolio_type2.html">Portfolio 3 Columns</a></li>
+                                    <li><a href="portfolio_default.html">Portfolio 4 Columns</a></li>
+                                    <li><a href="single-project.html">Single Project</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="contact.html">Contact</a></li>
+
+                        </ul>
+                    </section><!-- End Nav Section -->
+
+                </nav>
+
+            </div>
+
+            <!-- End Main Navigation -->
+
+        </div>
+
+    </div>
+
+    <!-- End Region 2 Wrap -->
+    <!-- Region 3 Wrap -->
+
+    <div class="container region3wrap">
+
+        <!-- Main Slider -->
+        <div class="mainslider-container responsive">
+            <div class="mainslider">
+                <ul>
+
+
+                    <!-- SLIDE DOWN -->
+                    <li data-transition="slotfade-horizontal" data-slotamount="1" data-masterspeed="300" data-thumb="images/sliders/sliderrevolution/thumbs/thumb1.jpg">
+                        <img src="images/sliders/sliderrevolution/slides/slide_image1.jpg" alt="">
+                        <div class="caption lfr" data-x="560" data-y="20" data-speed="700" data-start="800" data-easing="easeOutExpo"><img src="images/sliders/sliderrevolution/slides/slide_image-ipad.png" alt=""></div>
+                        <div class="caption lfr" data-x="500" data-y="20" data-speed="700" data-start="1000" data-easing="easeOutExpo"><img src="images/sliders/sliderrevolution/slides/slide_image-iphone.png" alt=""></div>
+                        <div class="caption lfl big_white" data-x="100" data-y="130" data-speed="300" data-start="1200" data-easing="easeOutExpo">Amazing Touch Experience</div>
+                        <div class="caption lfl big_color" data-x="100" data-y="167" data-speed="300" data-start="1300" data-easing="easeOutExpo">Fully Responsive</div>
+                        <div class="caption lfl medium_grey" data-x="100" data-y="222" data-speed="300" data-start="1400" data-easing="easeOutExpo">Inventore veritatis et quasi architecto <br />beatae dicta sed ut perspiciatis unde omnis<br /> iste natus laudantium.</div>
+                        <div class="caption lfb" data-x="100" data-y="300" data-speed="300" data-start="1500" data-easing="easeOutExpo"><a href="#" class="button">Experience Now</a></div>
+                    </li>
+
+                    <!-- BOXFADE -->
+                    <li data-transition="boxfade" data-slotamount="5" data-masterspeed="300" data-thumb="images/sliders/sliderrevolution/thumbs/thumb2.jpg">
+                        <img src="images/sliders/sliderrevolution/slides/slide_image2.jpg" alt="">
+                        <div class="caption lfb big_white" data-x="400" data-y="80" data-speed="900" data-start="1700" data-easing="easeOutBack">Speed and Precision</div>
+                        <div class="caption lft big_color" data-x="400" data-y="117" data-speed="900" data-start="1900" data-easing="easeOutBack"><em>HTML5 &amp; CSS3</em></div>
+                        <div class="caption lfr medium_grey" data-x="400" data-y="165" data-speed="300" data-start="2500" data-easing="easeOutExpo">Accusantium et doloremque veritatis<br /> architecto eaque ipsa quae ab illo<br /> inventore veritatis perspiciatis.</div>
+                        <div class="caption sfb" data-x="550" data-y="240" data-speed="1000" data-start="3500" data-easing="easeOutBack"><a href="#" class="button">Wanna Test Drive?</a></div>
+                    </li>
+
+                    <!-- CURTAIN 3 -->
+                    <li data-transition="curtain-3" data-slotamount="20" data-masterspeed="300" data-thumb="images/sliders/sliderrevolution/thumbs/thumb3.jpg">
+                        <img src="images/sliders/sliderrevolution/slides/slide_image3.jpg" alt="">
+                        <div class="caption lfb" data-x="360" data-y="235" data-speed="900" data-start="700" data-easing="easeOutExpo"><img src="images/sliders/sliderrevolution/slides/hand.png" alt=""></div>
+                        <div class="caption sft big_color" data-x="460" data-y="120" data-speed="900" data-start="1200" data-easing="easeOutBack">Easy and Fast Customization</div>
+                        <div class="caption sft medium_text black" data-x="544" data-y="170" data-speed="900" data-start="1300" data-easing="easeOutBack">Buy TouchM on ThemeForest!</div>
+                    </li>
+
+                    <!-- SLIDE LEFT -->
+                    <li data-transition="slotslide-horizontal" data-slotamount="10" data-masterspeed="300" data-link="http://www.google.de" data-thumb="images/sliders/sliderrevolution/thumbs/thumb4.jpg">
+                        <img src="images/sliders/sliderrevolution/slides/slide_image4.jpg" alt="">
+                        <div class="caption lft big_white" data-x="400" data-y="120" data-speed="900" data-start="1200" data-easing="easeOutBack">Modern Premium Theme</div>
+                        <div class="caption lfb" data-x="380" data-y="180" data-speed="900" data-start="1700" data-easing="easeOutBack"><img src="images/sliders/sliderrevolution/slides/icon1.png" alt=""></div>
+                        <div class="caption lfb" data-x="540" data-y="180" data-speed="900" data-start="2000" data-easing="easeOutBack"><img src="images/sliders/sliderrevolution/slides/icon2.png" alt=""></div>
+                        <div class="caption lfb" data-x="690" data-y="180" data-speed="900" data-start="2300" data-easing="easeOutBack"><img src="images/sliders/sliderrevolution/slides/icon3.png" alt=""></div>
+                        <div class="caption lfr medium_grey" data-x="400" data-y="330" data-speed="300" data-start="2600" data-easing="easeOutExpo">Wanna learn more?</div>
+                        <div class="caption lfr medium_text" data-x="595" data-y="332" data-speed="300" data-start="2800" data-easing="easeOutExpo"><a href="#">Get in Touch</a></div>
+                    </li>
+
+
+                </ul>
+                <div class="tp-bannertimer"></div>
+            </div>
+        </div>
+
+        <!-- End Main Slider -->
+        <!-- Content Top -->
+        <div class="row content_top">
+
+
+
+            <div class="twelve columns">
+
+                <h2>We create custom-built, marketing-driven website solutions and online environments that ensure your brand delivers on form and functionality.</h2>
+
+            </div>
+
+
+
+        </div>
+        <!-- End Content Top -->
+
+    </div>
+
+    <!-- End Region 3 Wrap -->
+    <!-- Region 4 Wrap -->
+
+    <div class="container region4wrap">
+
+        <div class="row maincontent">
+
+            <!-- Main Content ( Middle Content) -->
+
+            <div class="twelve columns">
+
+                <div class="row">
+
+                    <div class="six columns">
+
+                        <div class="service-block">
+
+                            <div class="service-block-icon">
+                                <a href="#"><i class="icon-beaker"></i></a>
+                            </div>
+
+                            <div class="service-block-content">
+                                <h4>HTML5 Experiment</h4>
+                                <p>Accusantium et doloremque veritatis architecto, eaque ipsa quae ab illo inventore veritatis perspiciatis.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="six columns">
+
+                        <div class="service-block">
+
+                            <div class="service-block-icon">
+                                <a href="#"><i class="icon-magic"></i></a>
+                            </div>
+
+                            <div class="service-block-content">
+                                <h4>Magic CSS3</h4>
+                                <p>Accusantium et doloremque veritatis architecto, eaque ipsa quae ab illo inventore veritatis perspiciatis.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="six columns">
+
+                        <div class="service-block">
+
+                            <div class="service-block-icon">
+                                <a href="#"><i class="icon-cogs"></i></a>
+                            </div>
+
+                            <div class="service-block-content">
+                                <h4>Easy Customization</h4>
+                                <p>Accusantium et doloremque veritatis architecto, eaque ipsa quae ab illo inventore veritatis perspiciatis.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="six columns">
+
+                        <div class="service-block">
+
+                            <div class="service-block-icon">
+                                <a href="#"><i class="icon-cloud"></i></a>
+                            </div>
+
+                            <div class="service-block-content">
+                                <h4>Cloud Support</h4>
+                                <p>Accusantium et doloremque veritatis architecto, eaque ipsa quae ab illo inventore veritatis perspiciatis.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="twelve columns">
+                        <hr />
+                    </div>
+                </div>
+
+                <!-- Recent Work -->
+                <div class="row">
+
+                    <div class="twelve columns">
+
+                        <h3>Our Latest Works</h3>
+
+                        <!-- // // // // // // // // // // -->
+                        <div class="list_carousel">
+                            <div class="carousel_nav">
+                                <a class="prev" id="car_prev" href="#"><span>prev</span></a>
+                                <a class="next" id="car_next" href="#"><span>next</span></a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ul id="carousel-works">
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/1.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Skyde</a></h4>
+                                                <p>Travel far away to a old pirate space station.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Skyde</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="single-project.html" class="view-item"><span>&nbsp;</span></a>
+                                                <a class="titan-lb view-image" href="images/works/1.jpg" title="Skyde - Travel far away to a old pirate space station."><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/2.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Materialistic</a></h4>
+                                                <p>Another beatiful work done in a fast motion.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Materialistic</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="single-project.html" class="view-item"><span>&nbsp;</span></a>
+                                                <a class="titan-lb view-image" href="images/works/2.jpg" title="Materialistic - Inventore veritatis et quasi architecto beatae."><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/3.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Shadowgate Entrance</a></h4>
+                                                <p>Start moving and never look back you will.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Shadowgate Entrance</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="single-project.html" class="view-item"><span>&nbsp;</span></a>
+                                                <a class="titan-lb view-image" href="images/works/3.jpg" title="Shadowgate Entrance - Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium."><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/4.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Where The Forgotten</a></h4>
+                                                <p>The cold sky stands still, there is no wind...</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Where The Forgotten</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="single-project.html" class="view-item"><span>&nbsp;</span></a>
+                                                <a class="titan-lb view-image" href="images/works/4.jpg" title="Where The Forgotten - Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium."><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/5.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Skyde</a></h4>
+                                                <p>Travel far away to a pirate space station.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Skyde</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="#" class="view-item"><span>&nbsp;</span></a>
+                                                <a href="#" class="view-image"><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/6.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Materialistic</a></h4>
+                                                <p>Another beatiful work done in a fast motion.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Materialistic</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="#" class="view-item"><span>&nbsp;</span></a>
+                                                <a href="#" class="view-image"><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/7.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Shadowgate Entrance</a></h4>
+                                                <p>Start moving and never look back you will.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Shadowgate Entrance</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="#" class="view-item"><span>&nbsp;</span></a>
+                                                <a href="#" class="view-image"><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="work-item contentHover">
+
+                                        <div class="content">
+                                            <div class="work-item-image">
+                                                <img src="images/works/8.jpg" alt="" />
+                                            </div>
+
+                                            <div class="work-item-content">
+                                                <h4><a href="#">Where The Forgotten</a></h4>
+                                                <p>The cold sky stands still, there is no wind...</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="hover-content">
+                                            <h3><a href="#">Where The Forgotten</a></h3>
+                                            <p>Inventore veritatis et quasi architecto beatae dicta sed ut perspiciatis unde omnis iste natus laudantium.</p>
+                                            <div class="hover-links">
+                                                <a href="#" class="view-item"><span>&nbsp;</span></a>
+                                                <a href="#" class="view-image"><span>&nbsp;</span></a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- // // // // // // // // // // -->
+
+                    </div>
+
+                </div>
+                <!-- End Recent Work -->
+
+                <div class="row">
+                    <div class="twelve columns">
+                        <hr />
+                    </div>
+                </div>
+
+                <!-- Begin -->
+                <div class="row">
+
+                    <div class="eight columns">
+
+                        <h3>Latest Blog Posts</h3>
+
+                        <div class="row">
+
+                            <div class="four columns">
+
+                                <div class="recent-post">
+
+                                    <div class="img_default"><a class="titan-lb" href="images/works/10.jpg" title="Music Fly"><img src="images/works/10.jpg" alt="" /></a></div>
+                                    <h4><a href="blog_inner.html">Cras hendrerit elit eu neque varius rutrum</a></h4>
+
+                                    <div class="article_meta">
+                                        <ul class="link-list">
+                                            <li class="post-date "><span class="icon-calendar"></span><a href="blog-inner.html">Octomber 28, 2012</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</p>
+                                    <a href="blog_inner.html">Read More <i class="icon-circle-arrow-right"></i></a>
+
+                                </div>
+
+                            </div>
+
+                            <div class="four columns">
+
+                                <div class="recent-post">
+
+                                    <div class="img_default"><a class="titan-lb" href="images/works/11.jpg" title="Dark Shoot"><img src="images/works/11.jpg" alt="" /></a></div>
+                                    <h4><a href="blog_inner.html">Nullam dignissim arcu nunc, et tempor est</a></h4>
+
+                                    <div class="article_meta">
+                                        <ul class="link-list">
+                                            <li class="post-date "><span class="icon-calendar"></span><a href="blog-inner.html">Octomber 16, 2012</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</p>
+                                    <a href="blog_inner.html">Read More <i class="icon-circle-arrow-right"></i></a>
+
+                                </div>
+
+                            </div>
+
+                            <div class="four columns">
+
+                                <div class="recent-post">
+
+                                    <div class="img_default"><a class="titan-lb" href="images/works/9.jpg" title="Skyde - Travel far away to a old pirate space station."><img src="images/works/9.jpg" alt="" /></a></div>
+                                    <h4><a href="blog_inner.html">Duis consectetur sem nec risus ultricies</a></h4>
+
+                                    <div class="article_meta">
+                                        <ul class="link-list">
+                                            <li class="post-date "><span class="icon-calendar"></span><a href="blog-inner.html">Octomber 7, 2012</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt...</p>
+                                    <a href="blog_inner.html">Read More <i class="icon-circle-arrow-right"></i></a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="four columns">
+
+                        <h3>Testimonials</h3>
+
+                        <div class="list_carousel">
+                            <div class="carousel_nav">
+                                <a class="prev" id="car_prev2" href="#"><span>prev</span></a>
+                                <a class="next" id="car_next2" href="#"><span>next</span></a>
+                            </div>
+                            <div class="clearfix"></div>
+                            <ul class="carousel-type2">
+
+                                <li>
+
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-content">
+                                            <p>I do not fear computers. I fear the lack of them. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <p><a href="#">Isaac Asimov</a> - HTML5 Expert</p>
+                                    </div>
+
+                                    <hr />
+
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-content">
+                                            <p>I do not fear computers. I fear the lack of them. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <p><a href="#">Isaac Asimov</a> - HTML5 Expert</p>
+                                    </div>
+
+                                </li>
+
+                                <li>
+
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-content">
+                                            <p>I do not fear computers. I fear the lack of them. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <p><a href="#">Isaac Asimov</a> - HTML5 Expert</p>
+                                    </div>
+
+                                    <hr />
+
+                                    <div class="testimonial-item">
+                                        <div class="testimonial-content">
+                                            <p>I do not fear computers. I fear the lack of them. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                        </div>
+                                        <p><a href="#">Isaac Asimov</a> - HTML5 Expert</p>
+                                    </div>
+
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- End -->
+
+
+            </div>
+            <!-- End Main Content ( Middle Content) -->
+
+        </div>
+    </div>
+
+    <!-- End Region 4 Wrap -->
+    <!-- Region 9 Wrap -->
+
+    <div class="container region9wrap">
+
+        <!-- Bottom Content -->
+        <div class="row content_bottom">
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="eight columns">
+
+                <h2>Sign up for our newsletter</h2>
+                <p>Keep up-to-date with the latest news and updates by subscribing to our newsletter.</p>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+                <div class="row collapse newsletter-input">
+                    <div class="eight mobile-three columns">
+                        <input type="text" placeholder="Enter your email address" />
+                    </div>
+                    <div class="four mobile-one columns">
+                        <a href="#" class="button expand">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+        </div>
+        <!-- End Bottom Content -->
+        <!-- Footer -->
+        <div class="row footer">
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+
+                <h4>About Us</h4>
+                <p>We say what we do, we do what we say, and we're looking forward to prove it to you.</p>
+                <ul class="vcard">
+                    <li class="address">001 Some Street. Los Angeles, CA, 12345. USA</li>
+                    <li class="tel"><a href="1234567890">(123) 456-7890</a></li>
+                    <li class="email"><a href="office@TouchM.com">office@TouchM.com</a></li>
+                </ul>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+
+                <h4>Latest Posts</h4>
+
+                <ul class="footer-list">
+                    <li><a href="#">Mauris pellentesque laoreet lacus non condimentum.</a></li>
+                    <li><a href="#">Vestibulum vel diam orci vitae.</a></li>
+                    <li><a href="#">Suspendisse elementum magna sed lorem faucibus eleifend.</a></li>
+                    <li><a href="#">Phasellus placerat convallis congue.</a></li>
+                    <li><a href="#">Etiam vehicula lacus fringilla lacus tristique pretium.</a></li>
+                </ul>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+
+                <h4>Latest Tweets</h4>
+
+                <ul class="footer-list twitter">
+                    <li>4grafx  Go Mobile - 'Quickr – WordPress Responsive HTML 5 Premium Template'<a href="#">goo.gl/1HQER</a><a class="twit-date">28 minutes ago</a></li>
+                    <li>4grafx  20+ Enhancing CSS3 tools and generators <a href="#">goo.gl/1HQER</a><a class="twit-date">2 days ago</a></li>
+                </ul>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+        </div>
+        <!-- End Footer -->
+
+    </div>
+
+    <!-- End Region 9 Wrap -->
+    <!-- Region 10 Wrap -->
+
+    <div class="container region10wrap">
+
+        <div class="row footer_bottom">
+
+            <!-- Bottom -->
+            <!-- // // // // // // // // // // -->
+
+            <div class="six columns">
+
+                <p class="copyright">© 2012 TouchM by 4GraFx. All rights reserved</p>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="six columns">
+
+                <ul class="link-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Porfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+            <!-- Bottom -->
+
+        </div>
+    </div>
+
+    <!-- End Region 10 Wrap -->
+    <!-- Included JS Files (Uncompressed) -->
+    <!--
+
+    <script src="javascripts/jquery.js"></script>
+
+    <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
+
+    <script src="javascripts/jquery.foundation.forms.js"></script>
+
+    <script src="javascripts/jquery.foundation.reveal.js"></script>
+
+    <script src="javascripts/jquery.foundation.navigation.js"></script>
+
+    <script src="javascripts/jquery.foundation.buttons.js"></script>
+
+    <script src="javascripts/jquery.foundation.tabs.js"></script>
+
+    <script src="javascripts/jquery.foundation.tooltips.js"></script>
+
+    <script src="javascripts/jquery.foundation.accordion.js"></script>
+
+    <script src="javascripts/jquery.placeholder.js"></script>
+
+    <script src="javascripts/jquery.foundation.alerts.js"></script>
+
+    <script src="javascripts/jquery.foundation.topbar.js"></script>
+
+    -->
+    <!-- Back To Top -->
+    <a href="#" class="scrollup">Scroll</a>
+    <!-- End Back To Top -->
+    <!-- Reveal Modal -->
+    <div id="Login" class="reveal-modal login-modal">
+
+        <h2>Login</h2>
+        <p>Please login using your credentials recived by email when you register.</p>
+        <form>
+            <label>Username</label>
+            <input type="text" placeholder="UserName@TouchM.com" />
+
+            <label>Password</label>
+            <input type="text" placeholder="insert password" />
+
+            <p class="right"><a href="http://forums.orpalis.com/ucp.php?mode=sendpassword">I forgot my password</a> | <a href="http://forums.orpalis.com/ucp.php?mode=resend_act">Resend activation e-mail</a></p>
+
+            <input type="submit" class="medium button" value="Login!">
+
+        </form>
+
+        <a class="close-reveal-modal">&#215;</a>
+
+    </div>
+    <!-- End Reveal Modal -->
+    <!-- Initialize JS Plugins -->
+    <script src="javascripts/app.js"></script>
+
+</body>
+</html>

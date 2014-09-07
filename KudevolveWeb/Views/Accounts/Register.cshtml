@@ -1,0 +1,176 @@
+﻿@model KudevolveWeb.Models.RegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/RegAndLog/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/RegAndLog/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/RegAndLog/bootstrap-responsive.min.css" rel="stylesheet" />
+    @*<link href="~/Content/style.min.css" rel="stylesheet" />*@
+    <link href="~/Content/RegAndLog/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/RegAndLog/retina.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/RegAndLog/soc.css" rel="stylesheet" />
+    <script src="~/Content/RegAndLog/soc.js"></script>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/app.js"></script>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body ng-app="app">
+    <div ng-controller="RegisterCtrl" class="container">
+
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                @using (Html.BeginForm("Register", "Accounts", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    <h2>Please Sign Up <small>Kudevolve Online</small></h2>
+                     <hr class="colorgraph">
+                     
+    <br />
+                    
+    @*<div class="col-sm-4 social-buttons">*@
+
+        <div class="row">
+            <a class="btn btn-block btn-lg btn-social btn-facebook">
+                <i class="fa fa-facebook"></i> Sign in with Facebook
+            </a>
+
+            <a class="btn btn-block btn-lg btn-social btn-google-plus">
+                <i class="fa fa-google-plus"></i> Sign in with Google
+            </a>
+            <a class="btn btn-block btn-lg btn-social btn-instagram">
+                <i class="fa fa-instagram"></i> Sign in with Instagram
+            </a>
+       
+            <a class="btn btn-block btn-lg btn-social btn-linkedin">
+                <i class="fa fa-linkedin"></i> Sign in with LinkedIn
+            </a>
+
+            <a class="btn btn-block btn-lg btn-social btn-twitter">
+                <i class="fa fa-twitter"></i> Sign in with Twitter
+            </a>
+        </div>
+
+        @*</div>*@
+                     <br />
+
+                    <hr class="colorgraph">
+                    <div class="form-group">
+                        @*@Html.Bootstrap().TextBoxFor(model => model.FirstName).Class("form-control input-lg").Placeholder("First Name")
+                        @Html.ValidationMessageFor(model => model.FirstName)*@ 
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="firstname" placeholder="Firstname Name" tabindex="3">
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        @*@Html.Bootstrap().TextBoxFor(model => model.SecondName).Class("form-control input-lg").Placeholder("Last Name")
+                        @Html.ValidationMessageFor(model => model.SecondName)*@
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="lastname" placeholder="Last Name" tabindex="3">
+                    </div>
+
+                    <div class="form-group">
+                        @*@Html.Bootstrap().TextBoxFor(model => model.UserName).Class("form-control input-lg").Placeholder("User Name")
+                        @Html.ValidationMessageFor(model => model.UserName)*@
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="username" placeholder="Username" tabindex="3">
+                    </div>
+                    
+                    
+
+                    @*<div class="row">*@
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            @*@Html.Bootstrap().PasswordFor(model => model.Password).Class("form-control input-lg").Placeholder("Password")
+                            @Html.ValidationMessageFor(model => model.Password)*@
+                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" ng-model="password" placeholder="Password" tabindex="1">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+
+                            @*@Html.Bootstrap().PasswordFor(model => model.ConfirmPassword).Class("form-control input-lg").Placeholder("Confirm Password")
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword)*@
+                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" ng-model="confirmpassword" placeholder="Confirm Password" tabindex="2">
+                        </div>
+                    </div>
+                    @*</div>*@
+
+                   
+
+                    <div class="form-group">
+                        @*@Html.Bootstrap().TextBoxFor(model => model.Email).Class("form-control input-lg").Placeholder("Email Address")
+                        @Html.ValidationMessageFor(model => model.Email)*@
+                        <input type="email" name="email" id="email" class="form-control input-lg" ng-model="email" placeholder="Email Address" tabindex="4">
+                    </div>
+
+                    <div class="form-group">
+                        @{
+                            var list = new List<SelectListItem>(){
+                                
+                            };
+                            list.Add(new SelectListItem() { Text = "Kiambu",  Value = "Kiambu"});
+                            list.Add(new SelectListItem() { Text = "Nairobi", Value = "Nairobi" });
+                            list.Add(new SelectListItem() { Text = "Muranga", Value = "Muranga" });
+                            list.Add(new SelectListItem() { Text = "Kitale", Value = "Kitale" });
+                            list.Add(new SelectListItem() { Text = "Tharaka Nithi", Value = "haraka Nithi" });
+                            list.Add(new SelectListItem() { Text = "Kirinyaga", Value = "Kirinyaga" });
+                            list.Add(new SelectListItem() { Text = "Nyeri", Value = "Nyeri" });
+                            list.Add(new SelectListItem() { Text = "Machakos", Value = "Machakos" });
+                        }
+                        @*@Html.Bootstrap().TextBoxFor(model => model.County).Class("form-control input-lg").Placeholder("County")*@
+                        @Html.Bootstrap().DropDownListFor(model => model.County, list).Class("form-control input-lg")
+                        @Html.ValidationMessageFor(model => model.County)
+                        @*<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">*@
+                    </div>
+
+                  
+
+                    <div class="form-group">
+                        @*@Html.Bootstrap().TextBoxFor(model => model.PhoneNumber).Class("form-control input-lg").Placeholder("Phone Number").Value("+254")
+                        @Html.ValidationMessageFor(model => model.PhoneNumber)*@
+                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Phone Number" value="+254" tabindex="4">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-3 col-md-3">
+                            <span class="button-checkbox">
+                                <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                                <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                            </span>
+                        </div>
+                        <div class="col-xs-9 col-sm-9 col-md-9">
+                            By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                        </div>
+                    </div>
+
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6"><input type="submit" value="Register" ng-click="register()" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                        <div class="col-xs-6 col-md-6"><a href="/Accounts/Login" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+                    </div>
+
+                }
+               
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

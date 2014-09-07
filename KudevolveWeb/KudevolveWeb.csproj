@@ -1,0 +1,1522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{690B9602-A398-45A5-87DC-03EA7000BC7F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KudevolveWeb</RootNamespace>
+    <AssemblyName>KudevolveWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToTwitter.AspNet">
+      <HintPath>..\packages\linqtotwitter.3.0.4\lib\net45\LinqToTwitter.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToTwitterPcl">
+      <HintPath>..\packages\linqtotwitter.3.0.4\lib\net45\LinqToTwitterPcl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.1.1\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.1.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.ServiceBus">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.ServiceBus.2.0.3\lib\net45\Microsoft.AspNet.SignalR.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.ActiveDirectory.GraphClient">
+      <HintPath>..\packages\Microsoft.Azure.ActiveDirectory.GraphClient.0.9\lib\net40\Microsoft.Azure.ActiveDirectory.GraphClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ServiceBus, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.ServiceBus.2.4.2.0\lib\net40-full\Microsoft.ServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.2.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=3.1.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.Storage.3.1.0.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Portable.Licensing">
+      <HintPath>..\packages\Portable.Licensing.1.1.0\lib\portable-net40+sl4+wp7+win8\Portable.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.22\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="T4MVCExtensions">
+      <HintPath>..\packages\T4MVCExtensions.3.6.5\lib\net40\T4MVCExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.Api">
+      <HintPath>..\packages\Twilio.3.6.11\lib\3.5\Twilio.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="TwitterBootstrapMVC5">
+      <HintPath>..\packages\TwitterBootstrapMVC5.3.12.2\lib\net40\TwitterBootstrapMVC5.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIS\ApplicationUsersController.cs" />
+    <Compile Include="APIS\ArticlesController.cs" />
+    <Compile Include="APIS\BlogPostsController.cs" />
+    <Compile Include="APIS\DiscussionsController.cs" />
+    <Compile Include="APIS\GroupsController.cs" />
+    <Compile Include="APIS\PetitionsController.cs" />
+    <Compile Include="APIS\PostsController.cs" />
+    <Compile Include="APIS\RealTimePostUpdater.cs" />
+    <Compile Include="APIS\SuggestionsController.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\BlogPostsController.cs" />
+    <Compile Include="Controllers\CountiesController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PetitionsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201407140306344_NewDBStuff.cs" />
+    <Compile Include="Migrations\201407140306344_NewDBStuff.Designer.cs">
+      <DependentUpon>201407140306344_NewDBStuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\BlogPost.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\CommentViewModel.cs" />
+    <Compile Include="Models\County.cs" />
+    <Compile Include="Models\Discussion.cs" />
+    <Compile Include="Models\FrienderViewModel.cs" />
+    <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\Personality.cs" />
+    <Compile Include="Models\Petition.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Suggestion.cs" />
+    <Compile Include="Models\AppUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RealTime\ChatHub.cs" />
+    <Compile Include="RealTime\NotificationStreamer.cs" />
+    <Compile Include="RealTime\UserConnections.cs" />
+    <Compile Include="ServiceOperations\Emailer.cs" />
+    <Compile Include="ServiceOperations\SmsSender.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\PostPetitionViewModel.cs" />
+    <Compile Include="ViewModels\PostViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Auth\cookiemanager.js" />
+    <Content Include="Auth\hello.all.js" />
+    <Content Include="Auth\jstorage.js" />
+    <Content Include="Auth\kudevolveauth.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\comments.css" />
+    <Content Include="Content\RegAndLog\bootstrap-responsive.min.css" />
+    <Content Include="Content\RegAndLog\bootstrap.css" />
+    <Content Include="Content\RegAndLog\bootstrap.min.css" />
+    <Content Include="Content\RegAndLog\font-awesome-ie7.min.css" />
+    <Content Include="Content\RegAndLog\font-awesome.css" />
+    <Content Include="Content\RegAndLog\font-awesome.min.css" />
+    <Content Include="Content\RegAndLog\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Content\RegAndLog\retina.css" />
+    <Content Include="Content\RegAndLog\Site.css" />
+    <Content Include="Content\RegAndLog\soc.css" />
+    <Content Include="Content\RegAndLog\soc.js" />
+    <Content Include="Content\RegAndLog\style-responsive.min.css" />
+    <Content Include="Content\RegAndLog\style.min.css" />
+    <Content Include="Content\RegAndLog\toastr.css" />
+    <Content Include="Content\RegAndLog\toastr.min.css" />
+    <Content Include="Dashboard\app\js\app.js" />
+    <Content Include="Dashboard\app\js\controllers.js" />
+    <Content Include="Dashboard\contacts2.html" />
+    <Content Include="Dashboard\css\bootstrap-responsive.min.css" />
+    <Content Include="Dashboard\css\bootstrap.min.css" />
+    <Content Include="Dashboard\css\chosen.css" />
+    <Content Include="Dashboard\css\elfinder.min.css" />
+    <Content Include="Dashboard\css\elfinder.theme.css" />
+    <Content Include="Dashboard\css\font-awesome-ie7.min.css" />
+    <Content Include="Dashboard\css\font-awesome.min.css" />
+    <Content Include="Dashboard\css\fullcalendar.css" />
+    <Content Include="Dashboard\css\glyphicons.css" />
+    <Content Include="Dashboard\css\halflings.css" />
+    <Content Include="Dashboard\css\ie.css" />
+    <Content Include="Dashboard\css\ie9.css" />
+    <Content Include="Dashboard\css\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Dashboard\css\jquery.cleditor.css" />
+    <Content Include="Dashboard\css\jquery.gritter.css" />
+    <Content Include="Dashboard\css\jquery.iphone.toggle.css" />
+    <Content Include="Dashboard\css\jquery.noty.css" />
+    <Content Include="Dashboard\css\noty_theme_default.css" />
+    <Content Include="Dashboard\css\retina.css" />
+    <Content Include="Dashboard\css\style-responsive.min.css" />
+    <Content Include="Dashboard\css\style.min.css" />
+    <Content Include="Dashboard\css\uniform.default.css" />
+    <Content Include="Dashboard\css\uploadify.css" />
+    <Content Include="Dashboard\devolveRegistration.html" />
+    <Content Include="Dashboard\font-awesome\css\font-awesome.css" />
+    <Content Include="Dashboard\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Dashboard\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Dashboard\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Dashboard\font\fontawesome-webfont.svg" />
+    <Content Include="Dashboard\font\glyphicons-regular.svg" />
+    <Content Include="Dashboard\font\glyphiconshalflings-regular.svg" />
+    <Content Include="Dashboard\Homepage.html" />
+    <Content Include="Dashboard\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Dashboard\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Dashboard\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Dashboard\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Dashboard\ico\favicon.png" />
+    <Content Include="Dashboard\img\arrows-active.png" />
+    <Content Include="Dashboard\img\arrows-normal.png" />
+    <Content Include="Dashboard\img\avatar.jpg" />
+    <Content Include="Dashboard\img\avatar2.jpg" />
+    <Content Include="Dashboard\img\avatar3.jpg" />
+    <Content Include="Dashboard\img\avatar4.jpg" />
+    <Content Include="Dashboard\img\avatar5.jpg" />
+    <Content Include="Dashboard\img\avatar6.jpg" />
+    <Content Include="Dashboard\img\avatar9.jpg" />
+    <Content Include="Dashboard\img\browser-chrome-big.png" />
+    <Content Include="Dashboard\img\browser-firefox-big.png" />
+    <Content Include="Dashboard\img\browser-ie.png" />
+    <Content Include="Dashboard\img\browser-opera.png" />
+    <Content Include="Dashboard\img\browser-safari.png" />
+    <Content Include="Dashboard\img\buttons.gif" />
+    <Content Include="Dashboard\img\chat-left%402x.png" />
+    <Content Include="Dashboard\img\chat-right%402x.png" />
+    <Content Include="Dashboard\img\chosen-sprite.png" />
+    <Content Include="Dashboard\img\close-button-white.png" />
+    <Content Include="Dashboard\img\close-button.png" />
+    <Content Include="Dashboard\img\crop.gif" />
+    <Content Include="Dashboard\img\dialogs.png" />
+    <Content Include="Dashboard\img\disc-arrow.png" />
+    <Content Include="Dashboard\img\glyphicons-halflings-white.png" />
+    <Content Include="Dashboard\img\glyphicons-halflings.png" />
+    <Content Include="Dashboard\img\glyphicons-white.png" />
+    <Content Include="Dashboard\img\glyphicons-white.svg" />
+    <Content Include="Dashboard\img\glyphicons.png" />
+    <Content Include="Dashboard\img\glyphicons.svg" />
+    <Content Include="Dashboard\img\glyphicons_halflings-white.png" />
+    <Content Include="Dashboard\img\glyphicons_halflings-white.svg" />
+    <Content Include="Dashboard\img\glyphicons_halflings.png" />
+    <Content Include="Dashboard\img\glyphicons_halflings.svg" />
+    <Content Include="Dashboard\img\handle.png" />
+    <Content Include="Dashboard\img\handlev.png" />
+    <Content Include="Dashboard\img\icons-big.png" />
+    <Content Include="Dashboard\img\icons-small.png" />
+    <Content Include="Dashboard\img\progress.gif" />
+    <Content Include="Dashboard\img\quicklook-bg.png" />
+    <Content Include="Dashboard\img\quicklook-icons.png" />
+    <Content Include="Dashboard\img\quote.png" />
+    <Content Include="Dashboard\img\resize.png" />
+    <Content Include="Dashboard\img\spinner-mini.gif" />
+    <Content Include="Dashboard\img\sprite.png" />
+    <Content Include="Dashboard\img\timeline-left-arrow%402x.png" />
+    <Content Include="Dashboard\img\timeline-left-arrow.png" />
+    <Content Include="Dashboard\img\timeline-right-arrow%402x.png" />
+    <Content Include="Dashboard\img\timeline-right-arrow.png" />
+    <Content Include="Dashboard\img\toolbar.gif" />
+    <Content Include="Dashboard\img\toolbar.png" />
+    <Content Include="Dashboard\img\uploadify-cancel.png" />
+    <Content Include="Dashboard\Index.html" />
+    <Content Include="Dashboard\js\bootstrap.min.js" />
+    <Content Include="Dashboard\js\charts.min.js" />
+    <Content Include="Dashboard\js\core.min.js" />
+    <Content Include="Dashboard\js\counter.min.js" />
+    <Content Include="Dashboard\js\custom.min.js" />
+    <Content Include="Dashboard\js\excanvas.js" />
+    <Content Include="Dashboard\js\fullcalendar.min.js" />
+    <Content Include="Dashboard\js\jquery-1.10.2.min.js" />
+    <Content Include="Dashboard\js\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Dashboard\js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="Dashboard\js\jquery.autosize.min.js" />
+    <Content Include="Dashboard\js\jquery.chosen.min.js" />
+    <Content Include="Dashboard\js\jquery.cleditor.min.js" />
+    <Content Include="Dashboard\js\jquery.cookie.js" />
+    <Content Include="Dashboard\js\jquery.dataTables.min.js" />
+    <Content Include="Dashboard\js\jquery.elfinder.min.js" />
+    <Content Include="Dashboard\js\jquery.flot.js" />
+    <Content Include="Dashboard\js\jquery.flot.pie.js" />
+    <Content Include="Dashboard\js\jquery.flot.resize.min.js" />
+    <Content Include="Dashboard\js\jquery.flot.stack.js" />
+    <Content Include="Dashboard\js\jquery.flot.time.js" />
+    <Content Include="Dashboard\js\jquery.gritter.min.js" />
+    <Content Include="Dashboard\js\jquery.imagesloaded.js" />
+    <Content Include="Dashboard\js\jquery.iphone.toggle.js" />
+    <Content Include="Dashboard\js\jquery.knob.modified.js" />
+    <Content Include="Dashboard\js\jquery.masonry.min.js" />
+    <Content Include="Dashboard\js\jquery.noty.js" />
+    <Content Include="Dashboard\js\jquery.placeholder.min.js" />
+    <Content Include="Dashboard\js\jquery.raty.min.js" />
+    <Content Include="Dashboard\js\jquery.sparkline.min.js" />
+    <Content Include="Dashboard\js\jquery.ui.touch-punch.js" />
+    <Content Include="Dashboard\js\jquery.uniform.min.js" />
+    <Content Include="Dashboard\js\jquery.uploadify-3.1.min.js" />
+    <Content Include="Dashboard\js\justgage.1.0.1.min.js" />
+    <Content Include="Dashboard\js\modernizr.js" />
+    <Content Include="Dashboard\js\raphael.2.1.0.min.js" />
+    <Content Include="Dashboard\js\retina.js" />
+    <Content Include="Dashboard\js\wizard.min.js" />
+    <Content Include="Dashboard\Social Auth\CSS.txt" />
+    <Content Include="Dashboard\Social Auth\HTML.txt" />
+    <Content Include="Dashboard\Social Auth\JS.txt" />
+    <Content Include="Dashboard\Social Auth\soc.css" />
+    <Content Include="Dashboard\Social Auth\soc.js" />
+    <Content Include="Dashboard\social-icons\diggit.png" />
+    <Content Include="Dashboard\social-icons\email.png" />
+    <Content Include="Dashboard\social-icons\facebook.png" />
+    <Content Include="Dashboard\social-icons\google.png" />
+    <Content Include="Dashboard\social-icons\linkedin.png" />
+    <Content Include="Dashboard\social-icons\pinterest.png" />
+    <Content Include="Dashboard\social-icons\reddit.png" />
+    <Content Include="Dashboard\social-icons\stumbleupon.png" />
+    <Content Include="Dashboard\social-icons\twitter.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="KudevolveUI\ComingSoon.html" />
+    <Content Include="KudevolveUI\css\animate.css" />
+    <Content Include="KudevolveUI\css\bootstrap.css" />
+    <Content Include="KudevolveUI\css\bootstrap.min.css" />
+    <Content Include="KudevolveUI\css\patterns\congruent_pentagon.png" />
+    <Content Include="KudevolveUI\css\patterns\header-profile.png" />
+    <Content Include="KudevolveUI\css\patterns\otis_redding.png" />
+    <Content Include="KudevolveUI\css\patterns\shattered.png" />
+    <Content Include="KudevolveUI\css\patterns\triangular.png" />
+    <Content Include="KudevolveUI\css\plugins\chosen\chosen-sprite%402x.png" />
+    <Content Include="KudevolveUI\css\plugins\chosen\chosen-sprite.png" />
+    <Content Include="KudevolveUI\css\plugins\chosen\chosen.css" />
+    <Content Include="KudevolveUI\css\plugins\datapicker\datepicker3.css" />
+    <Content Include="KudevolveUI\css\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="KudevolveUI\css\plugins\dropzone\basic.css" />
+    <Content Include="KudevolveUI\css\plugins\dropzone\dropzone.css" />
+    <Content Include="KudevolveUI\css\plugins\fullcalendar\fullcalendar.css" />
+    <Content Include="KudevolveUI\css\plugins\fullcalendar\fullcalendar.print.css" />
+    <Content Include="KudevolveUI\css\plugins\iCheck\custom.css" />
+    <Content Include="KudevolveUI\css\plugins\iCheck\green%402x.png" />
+    <Content Include="KudevolveUI\css\plugins\iCheck\green.png" />
+    <Content Include="KudevolveUI\css\plugins\images\sort.png" />
+    <Content Include="KudevolveUI\css\plugins\images\sort_asc.png" />
+    <Content Include="KudevolveUI\css\plugins\images\sort_desc.png" />
+    <Content Include="KudevolveUI\css\plugins\images\sprite-skin-flat.png" />
+    <Content Include="KudevolveUI\css\plugins\images\sprite-skin-flat2.png" />
+    <Content Include="KudevolveUI\css\plugins\images\sprite-skin-nice.png" />
+    <Content Include="KudevolveUI\css\plugins\images\sprite-skin-simple.png" />
+    <Content Include="KudevolveUI\css\plugins\images\spritemap%402x.png" />
+    <Content Include="KudevolveUI\css\plugins\images\spritemap.png" />
+    <Content Include="KudevolveUI\css\plugins\ionRangeSlider\ion.rangeSlider.css" />
+    <Content Include="KudevolveUI\css\plugins\ionRangeSlider\ion.rangeSlider.skinFlat.css" />
+    <Content Include="KudevolveUI\css\plugins\ionRangeSlider\ion.rangeSlider.skinNice.css" />
+    <Content Include="KudevolveUI\css\plugins\ionRangeSlider\ion.rangeSlider.skinSimple.css" />
+    <Content Include="KudevolveUI\css\plugins\jasny\jasny-bootstrap.min.css" />
+    <Content Include="KudevolveUI\css\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="KudevolveUI\css\plugins\nouslider\jquery.nouislider.css" />
+    <Content Include="KudevolveUI\css\plugins\social-buttons\social-buttons.css" />
+    <Content Include="KudevolveUI\css\plugins\steps\jquery.steps.css" />
+    <Content Include="KudevolveUI\css\plugins\summernote\summernote-bs3.css" />
+    <Content Include="KudevolveUI\css\plugins\summernote\summernote.css" />
+    <Content Include="KudevolveUI\css\plugins\switchery\switchery.css" />
+    <Content Include="KudevolveUI\css\style.css" />
+    <Content Include="KudevolveUI\font-awesome\css\font-awesome.css" />
+    <Content Include="KudevolveUI\font-awesome\css\font-awesome.min.css" />
+    <Content Include="KudevolveUI\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="KudevolveUI\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="KudevolveUI\img\a1.jpg" />
+    <Content Include="KudevolveUI\img\a2.jpg" />
+    <Content Include="KudevolveUI\img\a3.jpg" />
+    <Content Include="KudevolveUI\img\a4.jpg" />
+    <Content Include="KudevolveUI\img\a5.jpg" />
+    <Content Include="KudevolveUI\img\a6.jpg" />
+    <Content Include="KudevolveUI\img\a7.jpg" />
+    <Content Include="KudevolveUI\img\p1.jpg" />
+    <Content Include="KudevolveUI\img\p2.jpg" />
+    <Content Include="KudevolveUI\img\p3.jpg" />
+    <Content Include="KudevolveUI\img\p4.jpg" />
+    <Content Include="KudevolveUI\img\p5.jpg" />
+    <Content Include="KudevolveUI\img\p6.jpg" />
+    <Content Include="KudevolveUI\img\p7.jpg" />
+    <Content Include="KudevolveUI\img\p8.jpg" />
+    <Content Include="KudevolveUI\img\profile.jpg" />
+    <Content Include="KudevolveUI\img\profile_big.jpg" />
+    <Content Include="KudevolveUI\img\profile_small.jpg" />
+    <Content Include="KudevolveUI\img\p_big1.jpg" />
+    <Content Include="KudevolveUI\img\p_big2.jpg" />
+    <Content Include="KudevolveUI\img\p_big3.jpg" />
+    <Content Include="KudevolveUI\js\bootstrap.js" />
+    <Content Include="KudevolveUI\js\bootstrap.min.js" />
+    <Content Include="KudevolveUI\js\demo\dashboard-demo.js" />
+    <Content Include="KudevolveUI\js\demo\flot-demo.js" />
+    <Content Include="KudevolveUI\js\demo\morris-demo.js" />
+    <Content Include="KudevolveUI\js\demo\peity-demo.js" />
+    <Content Include="KudevolveUI\js\demo\rickshaw-demo.js" />
+    <Content Include="KudevolveUI\js\demo\sparkline-demo.js" />
+    <Content Include="KudevolveUI\js\inspinia.js" />
+    <Content Include="KudevolveUI\js\jquery-1.10.2.js" />
+    <Content Include="KudevolveUI\js\jquery-ui.custom.min.js" />
+    <Content Include="KudevolveUI\js\plugins\chosen\chosen.jquery.js" />
+    <Content Include="KudevolveUI\js\plugins\datapicker\bootstrap-datepicker.js" />
+    <Content Include="KudevolveUI\js\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="KudevolveUI\js\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="KudevolveUI\js\plugins\dropzone\dropzone.js" />
+    <Content Include="KudevolveUI\js\plugins\easypiechart\easypiechart.js" />
+    <Content Include="KudevolveUI\js\plugins\easypiechart\jquery.easypiechart.js" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\blank.gif" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\fancybox_loading%402x.gif" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\fancybox_loading.gif" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\fancybox_overlay.png" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\fancybox_sprite%402x.png" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\fancybox_sprite.png" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\helpers\jquery.fancybox-media.js" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\jquery.fancybox.css" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\jquery.fancybox.js" />
+    <Content Include="KudevolveUI\js\plugins\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="KudevolveUI\js\plugins\flot\excanvas.min.js" />
+    <Content Include="KudevolveUI\js\plugins\flot\jquery.flot.js" />
+    <Content Include="KudevolveUI\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="KudevolveUI\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="KudevolveUI\js\plugins\flot\jquery.flot.spline.js" />
+    <Content Include="KudevolveUI\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="KudevolveUI\js\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="KudevolveUI\js\plugins\gritter\images\gritter-light.png" />
+    <Content Include="KudevolveUI\js\plugins\gritter\images\gritter-long.png" />
+    <Content Include="KudevolveUI\js\plugins\gritter\images\gritter.png" />
+    <Content Include="KudevolveUI\js\plugins\gritter\images\ie-spacer.gif" />
+    <Content Include="KudevolveUI\js\plugins\gritter\jquery.gritter.css" />
+    <Content Include="KudevolveUI\js\plugins\gritter\jquery.gritter.min.js" />
+    <Content Include="KudevolveUI\js\plugins\iCheck\icheck.min.js" />
+    <Content Include="KudevolveUI\js\plugins\ionRangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jasny\jasny-bootstrap.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jeditable\jquery.jeditable.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery-ui-i18n.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-af.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ar-DZ.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ar.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-az.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-be.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-bg.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-bs.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ca.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-cs.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-cy-GB.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-da.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-de.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-el.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-en-AU.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-en-GB.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-en-NZ.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-eo.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-et.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-eu.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-fa.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-fi.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-fo.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-fr-CA.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-fr-CH.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-fr.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-gl.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-he.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-hi.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-hr.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-hu.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-hy.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-id.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-is.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-it.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ja.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ka.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-kk.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-km.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ko.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ky.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-lb.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-lt.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-lv.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-mk.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ml.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ms.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-nb.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-nl-BE.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-nl.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-nn.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-no.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-pl.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-pt-BR.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-pt.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-rm.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ro.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ru.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-sk.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-sl.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-sq.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-sr-SR.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-sr.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-sv.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-ta.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-th.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-tj.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-tr.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-uk.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-vi.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-zh-CN.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-zh-HK.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\i18n\jquery.ui.datepicker-zh-TW.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\animated-overlay.gif" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\jquery-ui.css" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\jquery-ui.js" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\jquery-ui.min.css" />
+    <Content Include="KudevolveUI\js\plugins\jquery-ui\jquery-ui.min.js" />
+    <Content Include="KudevolveUI\js\plugins\jsKnob\jquery.knob.js" />
+    <Content Include="KudevolveUI\js\plugins\justified-gallery\jquery.justifiedgallery.css" />
+    <Content Include="KudevolveUI\js\plugins\justified-gallery\jquery.justifiedgallery.js" />
+    <Content Include="KudevolveUI\js\plugins\justified-gallery\jquery.justifiedgallery.min.css" />
+    <Content Include="KudevolveUI\js\plugins\justified-gallery\jquery.justifiedgallery.min.js" />
+    <Content Include="KudevolveUI\js\plugins\justified-gallery\loading.gif" />
+    <Content Include="KudevolveUI\js\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="KudevolveUI\js\plugins\morris\morris.js" />
+    <Content Include="KudevolveUI\js\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="KudevolveUI\js\plugins\nouslider\jquery.nouislider.min.js" />
+    <Content Include="KudevolveUI\js\plugins\pace\pace.min.js" />
+    <Content Include="KudevolveUI\js\plugins\peity\jquery.peity.min.js" />
+    <Content Include="KudevolveUI\js\plugins\rickshaw\rickshaw.min.js" />
+    <Content Include="KudevolveUI\js\plugins\rickshaw\vendor\d3.v3.js" />
+    <Content Include="KudevolveUI\js\plugins\sparkline\jquery.sparkline.min.js" />
+    <Content Include="KudevolveUI\js\plugins\staps\jquery.steps.min.js" />
+    <Content Include="KudevolveUI\js\plugins\summernote\summernote.min.js" />
+    <Content Include="KudevolveUI\js\plugins\switchery\switchery.js" />
+    <Content Include="KudevolveUI\js\plugins\validate\jquery.validate.min.js" />
+    <Content Include="KudevolveUI\signalrtest.js" />
+    <Content Include="KudevolveUI\Social Auth\CSS.txt" />
+    <Content Include="KudevolveUI\Social Auth\HTML.txt" />
+    <Content Include="KudevolveUI\Social Auth\JS.txt" />
+    <Content Include="KudevolveUI\Social Auth\soc.css" />
+    <Content Include="KudevolveUI\Social Auth\soc.js" />
+    <Content Include="KudevolveUI\social-icons\diggit.png" />
+    <Content Include="KudevolveUI\social-icons\email.png" />
+    <Content Include="KudevolveUI\social-icons\facebook.png" />
+    <Content Include="KudevolveUI\social-icons\google.png" />
+    <Content Include="KudevolveUI\social-icons\linkedin.png" />
+    <Content Include="KudevolveUI\social-icons\pinterest.png" />
+    <Content Include="KudevolveUI\social-icons\reddit.png" />
+    <Content Include="KudevolveUI\social-icons\stumbleupon.png" />
+    <Content Include="KudevolveUI\social-icons\twitter.png" />
+    <Content Include="KudevolveUI\toastr.css" />
+    <Content Include="KudevolveUI\toastr.js" />
+    <Content Include="KudevolveUI\toastr.min.css" />
+    <Content Include="RealTime\notificationstream.js" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-cookies.js" />
+    <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\angular-csp.css" />
+    <Content Include="Scripts\angular-loader.js" />
+    <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular-sanitize.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-scenario.js" />
+    <Content Include="Scripts\angular-touch.js" />
+    <Content Include="Scripts\angular-touch.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\controllers.js" />
+    <Content Include="Scripts\errors.json" />
+    <Content Include="Scripts\angular-touch.min.js.map" />
+    <Content Include="Scripts\angular-sanitize.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-loader.min.js.map" />
+    <Content Include="Scripts\angular-cookies.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Dashboard\font\fontawesome-webfont.woff" />
+    <Content Include="Dashboard\font\fontawesome-webfont_2d2816fe.eot" />
+    <Content Include="Dashboard\font\fontawesome-webfont_aea8981c.eot" />
+    <Content Include="Dashboard\font\fontawesome-webfont_aea8981c.ttf" />
+    <Content Include="Dashboard\font\fontawesome-webfont_aea8981c.woff" />
+    <Content Include="Dashboard\font\glyphicons-regular.eot" />
+    <Content Include="Dashboard\font\glyphicons-regular.ttf" />
+    <Content Include="Dashboard\font\glyphicons-regular.woff" />
+    <Content Include="Dashboard\font\glyphiconshalflings-regular.eot" />
+    <Content Include="Dashboard\font\glyphiconshalflings-regular.ttf" />
+    <Content Include="Dashboard\font\glyphiconshalflings-regular.woff" />
+    <Content Include="Dashboard\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Dashboard\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Dashboard\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Dashboard\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Dashboard\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Dashboard\font-awesome\less\core.less" />
+    <Content Include="Dashboard\font-awesome\less\fixed-width.less" />
+    <Content Include="Dashboard\font-awesome\less\font-awesome.less" />
+    <Content Include="Dashboard\font-awesome\less\icons.less" />
+    <Content Include="Dashboard\font-awesome\less\larger.less" />
+    <Content Include="Dashboard\font-awesome\less\list.less" />
+    <Content Include="Dashboard\font-awesome\less\mixins.less" />
+    <Content Include="Dashboard\font-awesome\less\path.less" />
+    <Content Include="Dashboard\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Dashboard\font-awesome\less\spinning.less" />
+    <Content Include="Dashboard\font-awesome\less\stacked.less" />
+    <Content Include="Dashboard\font-awesome\less\variables.less" />
+    <Content Include="Dashboard\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_core.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_icons.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_larger.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_list.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_mixins.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_path.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_spinning.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_stacked.scss" />
+    <Content Include="Dashboard\font-awesome\scss\_variables.scss" />
+    <Content Include="Dashboard\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Dashboard\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Dashboard\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="KudevolveUI\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="KudevolveUI\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="KudevolveUI\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="KudevolveUI\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="KudevolveUI\font-awesome\less\bordered-pulled.less" />
+    <Content Include="KudevolveUI\font-awesome\less\core.less" />
+    <Content Include="KudevolveUI\font-awesome\less\fixed-width.less" />
+    <Content Include="KudevolveUI\font-awesome\less\font-awesome.less" />
+    <Content Include="KudevolveUI\font-awesome\less\icons.less" />
+    <Content Include="KudevolveUI\font-awesome\less\larger.less" />
+    <Content Include="KudevolveUI\font-awesome\less\list.less" />
+    <Content Include="KudevolveUI\font-awesome\less\mixins.less" />
+    <Content Include="KudevolveUI\font-awesome\less\path.less" />
+    <Content Include="KudevolveUI\font-awesome\less\rotated-flipped.less" />
+    <Content Include="KudevolveUI\font-awesome\less\spinning.less" />
+    <Content Include="KudevolveUI\font-awesome\less\stacked.less" />
+    <Content Include="KudevolveUI\font-awesome\less\variables.less" />
+    <Content Include="KudevolveUI\font-awesome\scss\font-awesome.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_core.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_icons.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_larger.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_list.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_mixins.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_path.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_spinning.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_stacked.scss" />
+    <Content Include="KudevolveUI\font-awesome\scss\_variables.scss" />
+    <Content Include="KudevolveUI\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="KudevolveUI\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="KudevolveUI\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="KudevolveUI\js\plugins\justified-gallery\README.md" />
+    <Content Include="Content\RegAndLog\toastr.less" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="KudevolveUI\toastr.less" />
+    <Content Include="KudevolveUI\toastr.min.js.map" />
+    <None Include="Properties\PublishProfiles\kudevolve.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolve2 - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolve2 - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolve2 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\flavr.css" />
+    <Content Include="Scripts\flavr.js" />
+    <Content Include="Scripts\flavr.min.css" />
+    <Content Include="Scripts\flavr.min.js" />
+    <Content Include="Scripts\i18n\angular-locale_af-na.js" />
+    <Content Include="Scripts\i18n\angular-locale_af-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_af.js" />
+    <Content Include="Scripts\i18n\angular-locale_am-et.js" />
+    <Content Include="Scripts\i18n\angular-locale_am.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-001.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ae.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-bh.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-dz.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-eg.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-iq.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-jo.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-kw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-lb.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ly.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ma.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-om.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-qa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sa.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sd.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-sy.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-tn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar-ye.js" />
+    <Content Include="Scripts\i18n\angular-locale_ar.js" />
+    <Content Include="Scripts\i18n\angular-locale_bg-bg.js" />
+    <Content Include="Scripts\i18n\angular-locale_bg.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn-bd.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_bn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-ad.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_cs-cz.js" />
+    <Content Include="Scripts\i18n\angular-locale_cs.js" />
+    <Content Include="Scripts\i18n\angular-locale_da-dk.js" />
+    <Content Include="Scripts\i18n\angular-locale_da.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-at.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-de.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-li.js" />
+    <Content Include="Scripts\i18n\angular-locale_de-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_de.js" />
+    <Content Include="Scripts\i18n\angular-locale_el-cy.js" />
+    <Content Include="Scripts\i18n\angular-locale_el-gr.js" />
+    <Content Include="Scripts\i18n\angular-locale_el.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-as.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-au.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bb.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-bz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-dsrt-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-dsrt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-fm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gb.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-gy.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ie.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-iso.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-jm.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mh.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mp.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-mu.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-na.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-nz.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pk.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pr.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-pw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-sg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tc.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-tt.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-um.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vg.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-vi.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_en-zw.js" />
+    <Content Include="Scripts\i18n\angular-locale_en.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-419.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ar.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-bo.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-cl.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-co.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-cr.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-do.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ea.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ec.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-gq.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-gt.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-hn.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ic.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-mx.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ni.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pa.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pe.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-pr.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-py.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-sv.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-us.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-uy.js" />
+    <Content Include="Scripts\i18n\angular-locale_es-ve.js" />
+    <Content Include="Scripts\i18n\angular-locale_es.js" />
+    <Content Include="Scripts\i18n\angular-locale_et-ee.js" />
+    <Content Include="Scripts\i18n\angular-locale_et.js" />
+    <Content Include="Scripts\i18n\angular-locale_eu-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_eu.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa-af.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa-ir.js" />
+    <Content Include="Scripts\i18n\angular-locale_fa.js" />
+    <Content Include="Scripts\i18n\angular-locale_fi-fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fil-ph.js" />
+    <Content Include="Scripts\i18n\angular-locale_fil.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-be.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bi.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bj.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-bl.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ca.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ci.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-cm.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-dj.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ga.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gn.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gp.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-gq.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-km.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-lu.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mc.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mf.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mg.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-mq.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-ne.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-re.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr-yt.js" />
+    <Content Include="Scripts\i18n\angular-locale_fr.js" />
+    <Content Include="Scripts\i18n\angular-locale_gl-es.js" />
+    <Content Include="Scripts\i18n\angular-locale_gl.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw-ch.js" />
+    <Content Include="Scripts\i18n\angular-locale_gsw.js" />
+    <Content Include="Scripts\i18n\angular-locale_gu-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_gu.js" />
+    <Content Include="Scripts\i18n\angular-locale_he-il.js" />
+    <Content Include="Scripts\i18n\angular-locale_he.js" />
+    <Content Include="Scripts\i18n\angular-locale_hi-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_hi.js" />
+    <Content Include="Scripts\i18n\angular-locale_hr-hr.js" />
+    <Content Include="Scripts\i18n\angular-locale_hr.js" />
+    <Content Include="Scripts\i18n\angular-locale_hu-hu.js" />
+    <Content Include="Scripts\i18n\angular-locale_hu.js" />
+    <Content Include="Scripts\i18n\angular-locale_id-id.js" />
+    <Content Include="Scripts\i18n\angular-locale_id.js" />
+    <Content Include="Scripts\i18n\angular-locale_in.js" />
+    <Content Include="Scripts\i18n\angular-locale_is-is.js" />
+    <Content Include="Scripts\i18n\angular-locale_is.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-it.js" />
+    <Content Include="Scripts\i18n\angular-locale_it-sm.js" />
+    <Content Include="Scripts\i18n\angular-locale_it.js" />
+    <Content Include="Scripts\i18n\angular-locale_iw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ja-jp.js" />
+    <Content Include="Scripts\i18n\angular-locale_ja.js" />
+    <Content Include="Scripts\i18n\angular-locale_kn-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_kn.js" />
+    <Content Include="Scripts\i18n\angular-locale_ko-kr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ko.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln-cd.js" />
+    <Content Include="Scripts\i18n\angular-locale_ln.js" />
+    <Content Include="Scripts\i18n\angular-locale_lt-lt.js" />
+    <Content Include="Scripts\i18n\angular-locale_lt.js" />
+    <Content Include="Scripts\i18n\angular-locale_lv-lv.js" />
+    <Content Include="Scripts\i18n\angular-locale_lv.js" />
+    <Content Include="Scripts\i18n\angular-locale_ml-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ml.js" />
+    <Content Include="Scripts\i18n\angular-locale_mr-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_mr.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms-my.js" />
+    <Content Include="Scripts\i18n\angular-locale_ms.js" />
+    <Content Include="Scripts\i18n\angular-locale_mt-mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_mt.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-cw.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl-sx.js" />
+    <Content Include="Scripts\i18n\angular-locale_nl.js" />
+    <Content Include="Scripts\i18n\angular-locale_no.js" />
+    <Content Include="Scripts\i18n\angular-locale_or-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_or.js" />
+    <Content Include="Scripts\i18n\angular-locale_pl-pl.js" />
+    <Content Include="Scripts\i18n\angular-locale_pl.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-br.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt-pt.js" />
+    <Content Include="Scripts\i18n\angular-locale_pt.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro-ro.js" />
+    <Content Include="Scripts\i18n\angular-locale_ro.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru-ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_ru.js" />
+    <Content Include="Scripts\i18n\angular-locale_sk-sk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sk.js" />
+    <Content Include="Scripts\i18n\angular-locale_sl-si.js" />
+    <Content Include="Scripts\i18n\angular-locale_sl.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq-al.js" />
+    <Content Include="Scripts\i18n\angular-locale_sq.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-cyrl-rs.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr-latn-rs.js" />
+    <Content Include="Scripts\i18n\angular-locale_sr.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv-se.js" />
+    <Content Include="Scripts\i18n\angular-locale_sv.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw-tz.js" />
+    <Content Include="Scripts\i18n\angular-locale_sw.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_ta.js" />
+    <Content Include="Scripts\i18n\angular-locale_te-in.js" />
+    <Content Include="Scripts\i18n\angular-locale_te.js" />
+    <Content Include="Scripts\i18n\angular-locale_th-th.js" />
+    <Content Include="Scripts\i18n\angular-locale_th.js" />
+    <Content Include="Scripts\i18n\angular-locale_tl.js" />
+    <Content Include="Scripts\i18n\angular-locale_tr-tr.js" />
+    <Content Include="Scripts\i18n\angular-locale_tr.js" />
+    <Content Include="Scripts\i18n\angular-locale_uk-ua.js" />
+    <Content Include="Scripts\i18n\angular-locale_uk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur-pk.js" />
+    <Content Include="Scripts\i18n\angular-locale_ur.js" />
+    <Content Include="Scripts\i18n\angular-locale_vi-vn.js" />
+    <Content Include="Scripts\i18n\angular-locale_vi.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hans-cn.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-hk.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
+    <Content Include="Scripts\i18n\angular-locale_zh.js" />
+    <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
+    <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kudevolvehubs1.js" />
+    <Content Include="Scripts\KudevolveSignalr.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\oauth.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\share.js" />
+    <Content Include="Scripts\share.min.js" />
+    <Content Include="Scripts\SocialLogin.js" />
+    <Content Include="Scripts\TwitterBootstrapMvcJs.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Accounts\log.css" />
+    <Content Include="KudevolveUI\HomePageUI\contact\class.phpmailer.php" />
+    <Content Include="KudevolveUI\HomePageUI\contact\process-form.php" />
+    <Content Include="KudevolveUI\HomePageUI\font\fontawesome-webfont.svg" />
+    <Content Include="Views\Home\Homepage.html" />
+    <Content Include="KudevolveUI\HomePageUI\images\all_pagination.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\bg1.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\bg2.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\bright_squares.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\checkered_pattern.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\cubes.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\diamond_upholstery.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\dust.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\fabric_plaid.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\fancy_deboss.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\furley_bg.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\gplaypattern.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\graphy.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\grey.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\grid.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\lightpaperfibers.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\light_wool.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\noise_pattern_with_crosslines.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\noisy_grid.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\retina_dust.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\shattered.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\squares.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\square_bg.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\subtle_surface.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\texturetastic_gray.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\backgrounds\tiny_grid.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\bg_direction_nav.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\carousel_arrows.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\content-bottom-bg.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\content-top-bg.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\downArrow.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\bullets.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\left-arrow-small.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\left-arrow.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\loading.gif" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\mask-black.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\pause-black.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\right-arrow-small.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\right-arrow.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\rotator-black.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\foundation\orbit\timer-black.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\address_icon.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\avatar-big.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\avatar.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\email_icon.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\item-image.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\item-info.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\item-link.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\item-movie.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\item-plus.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\item-zoom.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\phone_icon.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\service-customization.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\service-modern.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\service-responsive.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icons\service-touch.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\icon_top.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\left_pagination.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\logo.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\logos\1.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\logos\2.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\logos\3.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\logos\4.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\other\whyus.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\plus_minus_icons.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\right_pagination.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\select_arrow.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\big_bunny_fake.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\bridge.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\leaf.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\road.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\sea.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\shelter.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\big_bunny_fake.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\bridge.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\header_bg.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\leaf.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\road.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\sea.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\shelter.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\thumbs\tree.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\camera\tree.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\flexislider\1.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\flexislider\2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\flexislider\3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrowleft.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrowright.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrow_large_left.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrow_large_right.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrow_left.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrow_left2.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrow_right.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\arrow_right2.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\black50.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\bullets.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\bullets2.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\grain.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\loader.gif" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\navigdots.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\navigdots_bgtile.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\shadow1.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\shadow2.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\shadow3.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\timer.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\timerdot.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\assets\white50.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\images\decor_inside.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\images\decor_inside_white.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\images\decor_testimonial.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\images\gradient\g30.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\images\gradient\g40.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\hand.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\icon1.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\icon2.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\icon3.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\slide_image-ipad.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\slide_image-iphone.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\slide_image1.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\slide_image2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\slide_image3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\slides\slide_image4.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\thumbs\thumb1.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\thumbs\thumb2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\thumbs\thumb3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\sliders\sliderrevolution\thumbs\thumb4.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Facebook.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Facebook_dark.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Flickr.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Google.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Google_dark.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\LinkedIn.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\LinkedIn_dark.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\RSS.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Twitter.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Twitter_dark.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\social\Vimeo.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\team\1.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\team\2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\team\3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\texture_bg.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\tipsy.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\upArrow.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\work-overlay-icons.png" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\1.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\10.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\11.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\12.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\13.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\14.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\15.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\16.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\4.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\5.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\6.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\7.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\8.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\9.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\blog\2-type.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\blog\2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\blog\3-type.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\blog\3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\blog\4-type.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\blog\4.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\project\1.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\project\2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\project\3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\project\4.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\png\KenyaPic.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\png\KudevolvePic.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\png\KudevolvePic2.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\images\works\png\KudevolvePic3.jpg" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\app-head.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\app.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\foundation.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.carouFredSel-6.0.3-packed.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.countdown.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.accordion.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.alerts.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.buttons.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.clearing.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.forms.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.joyride.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.magellan.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.mediaQueryToggle.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.navigation.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.orbit.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.reveal.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.tabs.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.tooltips.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.foundation.topbar.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.isotope.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.placeholder.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.tipsy.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.touchSwipe.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\jquery.validate.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\javascripts\modernizr.foundation.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\blank.gif" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\camera-loader.gif" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\camera_skins.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\css\camera.css" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay1.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay10.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay2.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay3.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay4.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay5.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay6.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay7.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay8.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\overlay9.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\patterns\_notes\dwsync.xml" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\scripts\camera.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\scripts\camera.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\scripts\jquery.easing.1.3.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\camera\scripts\jquery.mobile.customized.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\flexislider\jquery.flexslider.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\slider-revolution\jquery.themepunch.plugins.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\slider-revolution\jquery.themepunch.revolution.min.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\css\base.css" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\css\jquery.titanlighbox.css" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\css\style.css" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\blank.gif" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\buttons.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\lightbox_loading.gif" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\lightbox_overlay.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\line_header.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\macbook.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\overlay.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\page.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-alt\button_next.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-alt\button_pause.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-alt\button_play.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-alt\button_prev.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-alt\lightbox_close.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-alt\lightbox_left.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-alt\lightbox_right.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_next.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_next_hover.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_pause.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_pause_hover.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_play.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_play_hover.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_prev.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\button_prev_hover.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\lightbox_close.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\lightbox_left.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\skin-default\lightbox_right.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\images\top_bg.png" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\js\jquery.titanlighbox.js" />
+    <Content Include="KudevolveUI\HomePageUI\plugins\titan\js\prettify.js" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-buttons.html" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-elements.html" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-form.html" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-list.html" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-nav.html" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-tabs.html" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-ti.html" />
+    <Content Include="KudevolveUI\HomePageUI\shortcodes\shorcodes-video.html" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\app.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color1.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color2.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color3.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color4.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color5.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color6.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color7.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\color8.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\foundation.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\foundation.min.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\shThemeDefault.css" />
+    <Content Include="KudevolveUI\HomePageUI\stylesheets\style1.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Accounts\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Accounts\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Accounts\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Accounts\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Accounts\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Accounts\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Accounts\Manage.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\version.json" />
+    <Content Include="KudevolveUI\HomePageUI\font\fontawesome-webfont.eot" />
+    <Content Include="KudevolveUI\HomePageUI\font\fontawesome-webfont.ttf" />
+    <Content Include="KudevolveUI\HomePageUI\font\fontawesome-webfont.woff" />
+    <Content Include="Views\Home\Uzito.cshtml" />
+    <Content Include="Views\Shared\_LayoutKudevolve.cshtml" />
+    <Content Include="Views\Home\Sample.cshtml" />
+    <Content Include="Views\Dashboard\Create.cshtml" />
+    <Content Include="Views\Dashboard\Delete.cshtml" />
+    <Content Include="Views\Dashboard\Details.cshtml" />
+    <Content Include="Views\Dashboard\Edit.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Groups\Create.cshtml" />
+    <Content Include="Views\Groups\Delete.cshtml" />
+    <Content Include="Views\Groups\Details.cshtml" />
+    <Content Include="Views\Groups\Edit.cshtml" />
+    <Content Include="Views\Groups\Index.cshtml" />
+    <Content Include="Views\Petitions\Create.cshtml" />
+    <Content Include="Views\Petitions\Delete.cshtml" />
+    <Content Include="Views\Petitions\Details.cshtml" />
+    <Content Include="Views\Petitions\Edit.cshtml" />
+    <Content Include="Views\Petitions\Index.cshtml" />
+    <Content Include="Views\BlogPosts\Create.cshtml" />
+    <Content Include="Views\BlogPosts\Delete.cshtml" />
+    <Content Include="Views\BlogPosts\Details.cshtml" />
+    <Content Include="Views\BlogPosts\Edit.cshtml" />
+    <Content Include="Views\BlogPosts\Index.cshtml" />
+    <Content Include="Views\Users\Create.cshtml" />
+    <Content Include="Views\Users\Delete.cshtml" />
+    <Content Include="Views\Users\Details.cshtml" />
+    <Content Include="Views\Users\Edit.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Counties\Create.cshtml" />
+    <Content Include="Views\Counties\Delete.cshtml" />
+    <Content Include="Views\Counties\Details.cshtml" />
+    <Content Include="Views\Counties\Edit.cshtml" />
+    <Content Include="Views\Counties\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutTouch.cshtml" />
+    <Content Include="Views\Home\_LayoutTT.cshtml" />
+    <Content Include="Views\Home\Sampeli.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201407140306344_NewDBStuff.resx">
+      <DependentUpon>201407140306344_NewDBStuff.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4775</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4775/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

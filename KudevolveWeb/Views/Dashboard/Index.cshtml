@@ -1,0 +1,205 @@
+﻿@model IEnumerable<KudevolveWeb.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutKudevolve.cshtml";
+}
+@*<script src="~/Scripts/angular.js"></script>*@
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.signalR-2.1.0.min.js"></script>
+<script src="http://kudevolve2.azurewebsites.net/signalr/hubs"></script>
+<link href="~/Content/comments.css" rel="stylesheet" />
+<link href="~/KudevolveUI/toastr.css" rel="stylesheet" />
+<script src="~/KudevolveUI/toastr.js"></script>
+<script src="~/Scripts/app.js"></script>
+<script src="~/Scripts/share.min.js"></script>
+
+<script type="text/javascript">
+    toastr.info("Welcome to Kudevolve")
+</script>
+
+<div ng-app="app">
+    <div ng-controller="DashboardCtrl">
+        <script src="~/Scripts/KudevolveSignalr.js"></script>
+
+      
+        <div class="ibox-title">
+
+            <div>
+
+                <div class="form-group">
+
+                    <div class="col-sm-12">
+                       
+                        <input type="text" ng-model="newpost" class="form-control input-lg" placeholder="What's on your mind?">
+                        {{newpost}}
+                        <span class="help-block m-b-none">Embed Items:</span>
+
+                        <a href="#video-modal-form" class="btn btn-primary" data-toggle="modal" data-placement="top"><i class="fa fa-film"></i> Video</a>
+                        <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-camera"></i> Image</a>
+                        <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-file-text-o"></i> File</a>
+                        <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-microphone"></i> Audio</a>
+                        <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-yh-list"></i> Large Post</a>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="mail-body text-right tooltip-demo" style=" padding-bottom: 0px; padding-left: 0px; padding-top: 0px; padding-right: 0px;">
+                <input type="submit" ng-click="addPost()" class="btn btn-sm btn-primary" value="Submit">
+                <a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Discard</a>
+                <a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Move to draft folder"><i class="fa fa-pencil"></i> Draft</a>
+            </div>
+            
+
+            <h5>Recent Activites</h5>
+        </div>
+
+
+        <div class="ibox-content">
+
+            <div>
+                <div ng-repeat=" post in posts">
+                    {{post.content}}
+                </div>
+                <div class="feed-activity-list" >
+
+                    <!--Best Commented Post-->
+                    <div class="feed-element">
+                        <a href="#" class="pull-left">
+                            <img alt="image" class="img-circle" src="~/KudevolveUI/img/a1.jpg">
+                        </a>
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">1m ago</small>
+                            <strong>Sandra Momot</strong> started following <strong>Monica Smith</strong>. <br>
+                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small><br />
+                            <div class="well">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Vote</a>
+                                <a class="btn btn-xs btn-primary"><i class="fa fa-share"></i> Share</a>
+                            </div>
+                            <strong>Comments</strong>
+                            <div id="container" style="padding-left: 0px;padding-bottom: 0px;">
+
+                                <ul id="comments" style="padding-left: 5px;">
+
+                                    <li class="cmmnt">
+                                        <div class="avatar"><a href="javascript:void(0);"><img src="~/KudevolveUI/img/a1.jpg" class="img-circle" alt="DarkCubes photo avatar"></a></div>
+                                        <div class="cmmnt-content">
+                                            <header><a href="javascript:void(0);" class="userlink">Ernest Ndungu</a> - <span class="pubdate">commented 6 days ago</span></header>
+                                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                                            <div class="well">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                                Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                            </div>
+                                            <div class="actions">
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                                <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Vote</a>
+                                                <a class="btn btn-xs btn-primary"><i class="fa fa-share"></i> Share</a>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <form action="/" role="form" class="form-group" method="post">
+                                <input type="text" class="form-control input-lg" ng-model="newcomment" name="name" placeholder="Add Comment" />
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <!--End of Best Commented Post-->
+                 
+
+                    <!--Best Commented Post-->
+                    <div class="feed-element">
+                        <a href="#" class="pull-left">
+                            <img alt="image" class="img-circle" src="~/KudevolveUI/img/a1.jpg">
+                        </a>
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">1m ago</small>
+                            <strong>Sandra Momot</strong> started following <strong>Monica Smith</strong>. <br>
+                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small><br/>
+                            <div class="well">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Vote</a>
+                                <a class="btn btn-xs btn-primary"><i class="fa fa-share"></i> Share</a>
+                            </div>
+                            <strong>Comments</strong>
+                            <div id="container" style="padding-left: 0px;padding-bottom: 0px;">
+
+                                <ul id="comments" style="padding-left: 5px;">
+
+                                    <li class="cmmnt">
+                                        <div class="avatar"><a href="javascript:void(0);"><img src="~/KudevolveUI/img/a1.jpg" class="img-circle" alt="DarkCubes photo avatar"></a></div>
+                                        <div class="cmmnt-content">
+                                            <header><a href="javascript:void(0);" class="userlink">Ernest Ndungu</a> - <span class="pubdate">commented 6 days ago</span></header>
+                                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                                            <div class="well">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                                Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                            </div>
+                                            <div class="actions">
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                                <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Vote</a>
+                                                <a class="btn btn-xs btn-primary"><i class="fa fa-share"></i> Share</a>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <form action="/" role="form" class="form-group" method="post">
+                                <input type="text" class="form-control input-lg" ng-model="newcomment" name="name" placeholder="Add Comment" />
+                            </form>
+                          
+                        </div>
+                       
+                    </div>
+
+                    <!--End of Best Commented Post-->
+
+                  
+
+
+                    <div class="feed-element">
+                        <a href="#" class="pull-left">
+                            <img alt="image" class="img-circle" src="~/KudevolveUI/img/a3.jpg">
+                        </a>
+                        <div class="media-body ">
+                            <small class="pull-right">2h ago</small>
+                            <strong>Janet Rosowski</strong> add 1 photo on <strong>Monica Smith</strong>. <br>
+                            <small class="text-muted">2 days ago at 8:30am</small>
+                            <div class="photos">
+                                <a target="_blank" href="http://24.media.tumblr.com/20a9c501846f50c1271210639987000f/tumblr_n4vje69pJm1st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="~/KudevolveUI/img/p1.jpg"></a>
+                                <a target="_blank" href="http://37.media.tumblr.com/9afe602b3e624aff6681b0b51f5a062b/tumblr_n4ef69szs71st5lhmo1_1280.jpg"> <img alt="image" class="feed-photo" src="~/KudevolveUI/img/p2.jpg"></a>
+                                <!--<img alt="image" class="feed-photo" src="img/p3.jpg"> -->
+                            </div>
+                        </div>
+                    </div>
+                  
+                  
+                  
+                </div>
+
+                <button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</button>
+
+            </div>
+
+        </div>
+
+       
+    </div>
+</div>

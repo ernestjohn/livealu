@@ -1,0 +1,371 @@
+﻿<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+ <!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" id="view" content="width=device-width minimum-scale=1, maximum-scale=1" />
+
+    <title>Kudevolve Online</title>
+
+    <!-- Included CSS Files (Compressed) -->
+    <link rel="stylesheet" href="HomePageUI/stylesheets/foundation.min.css">
+    <link rel="stylesheet" href="HomePageUI/stylesheets/app.css">
+    <link rel="stylesheet" href="HomePageUI/stylesheets/style1.css">
+    <link rel="stylesheet" href="HomePageUI/stylesheets/color2.css">
+     
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <!-- Included JS Files (Compressed) -->
+    <script src="HomePageUI/javascripts/jquery.js"></script>
+    <script src="HomePageUI/javascripts/foundation.min.js"></script>
+    <script src="HomePageUI/javascripts/modernizr.foundation.js"></script>
+
+    <!-- Slider Revolution JS FILES  -->
+    <script type="text/javascript" src="HomePageUI/plugins/slider-revolution/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="HomePageUI/plugins/slider-revolution/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- Tooltips -->
+    <script type="text/javascript" src="HomePageUI/javascripts/jquery.tipsy.js"></script>
+
+    <!-- CarouFredSel plugin -->
+    <script type="text/javascript" src="HomePageUI/javascripts/jquery.carouFredSel-6.0.3-packed.js"></script>
+    <!-- optionally include helper plugins -->
+    <script type="text/javascript" src="HomePageUI/javascripts/jquery.touchSwipe.min.js"></script>
+
+    <!-- Countdown -->
+    <script src="HomePageUI/javascripts/jquery.countdown.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript">
+  $(function() {
+  $('div#clock').countdown("2014/07/16", function(event) {
+    var $this = $(this);
+    switch(event.type) {
+      case "seconds":
+      case "minutes":
+      case "hours":
+      case "days":
+      case "weeks":
+      case "daysLeft":
+        $this.find('span#'+event.type).html(event.value);
+        break;
+      case "finished":
+        $this.hide();
+        break;
+    	}
+  	});
+	});
+    </script>
+
+    <!-- Scripts Initialize -->
+    <script src="HomePageUI/javascripts/app-head.js"></script>
+
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body onload="initialize()">
+    <!-- Region 1 Wrap -->
+
+    <div class="container region1wrap">
+
+        <!-- Top Header -->
+        <div class="row top_header">
+
+            <div class="six columns">
+
+                <ul class="link-list">
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+
+
+                <div class="login">
+                    <a href="#" class="button">Login</a>
+                </div>
+
+
+            </div>
+
+            <div class="six columns">
+
+                <ul class="top_social">
+                    <li><a class="has-tipsy" href="http://twitter.com/kudevolve" title="Twitter"><img src="HomePageUI/images/social/Twitter.png" alt="Twitter"></a></li>
+                    <li><a class="has-tipsy" href="http://www.facebook.com/kudevolve" title="Facebook"><img src="HomePageUI/images/social/Facebook.png" alt="Facebook"></a>
+                    <li><a class="has-tipsy" href="http://google.com/kudevolve" title="Google"><img src="HomePageUI/images/social/Google.png" alt="Google+"></a></li>
+                    <li><a class="has-tipsy" href="http://www.LinkedIn.com/kudevolve" title="LinkedIn"><img src="HomePageUI/images/social/LinkedIn.png" alt="LinkedIn"></a></li>
+                    <li><a class="has-tipsy" href="http://www.Flickr.com/kudevolve" title="Flickr"><img src="HomePageUI/images/social/Flickr.png" alt="Flickr"></a></li>
+                    <li><a class="has-tipsy" href="http://vimeo.com/kudevolve" title="Vimeo"><img src="HomePageUI/images/social/Vimeo.png" alt="Vimeo"></a></li>
+                    <li><a class="has-tipsy" href="http://www.rss.com/kudevolve" title="RSS"><img src="HomePageUI/images/social/RSS.png" alt="RSS"></a></li>
+                </ul>
+
+            </div>
+
+        </div>
+        <!-- End Top Header -->
+
+    </div>
+
+    <!-- End Region 1 Wrap -->
+    <!-- Region 2 Wrap -->
+
+    <div class="container region2wrap">
+
+        <div class="row">
+
+            <!-- Logo -->
+
+            <div class="three columns">
+
+                <a href="#" id="logo"><h1><span>Ku-Devolve</span></h1></a>
+
+            </div>
+
+            <!-- End Logo -->
+
+
+
+        </div>
+
+    </div>
+
+    <!-- End Region 2 Wrap -->
+    <!-- Region 3 Wrap -->
+
+    <div class="container region3wrap">
+
+
+        <!-- Content Top -->
+        <div class="row content_top">
+
+            <div class="eight columns centered">
+
+                <h1 class="construction_title">Kudevolve Dashboard is Under Construction</h1>
+
+            </div>
+
+        </div>
+        <!-- End Content Top -->
+
+    </div>
+
+    <!-- End Region 3 Wrap -->
+    <!-- Region 4 Wrap -->
+
+    <div class="container region4wrap">
+
+        <div class="row maincontent">
+
+            <div class="twelve columns construction">
+
+                <div class="row">
+
+                    <div class="eight columns centered ">
+
+                        <h4 class="construction_description text-center">Thanks for stopping by. We are working hard on creating Kudevolve. Keep up to date by joining my mailing list or follow us on our social networking sites.</h4>
+
+                        <div class="nice primary progress">
+
+                            <h4 class="text-center"><span class="icon-cogs icon30">70%</span></h4>
+                            <span class="meter progress70"></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div id="clock">
+
+                    <div class="row">
+
+
+                        <div class="one columns"></div>
+
+                        <div class="two mobile-two columns">
+                            <p>
+                                <span id="weeks"></span>
+                                Weeks
+                            </p>
+                        </div>
+
+                        <div class="two mobile-two columns">
+                            <p>
+                                <span id="daysLeft"></span>
+                                Days
+                            </p>
+                        </div>
+
+                        <div class="two mobile-two columns">
+                            <p>
+                                <span id="hours"></span>
+                                Hours
+                            </p>
+                        </div>
+
+                        <div class="two mobile-two columns">
+                            <p>
+                                <span id="minutes"></span>
+                                Minutes
+                            </p>
+                        </div>
+
+                        <div class="two mobile-four columns">
+                            <p>
+                                <span id="seconds"></span>
+                                Seconds
+                            </p>
+                        </div>
+
+                        <div class="one columns"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- End Region 4 Wrap -->
+    <!-- Region 9 Wrap -->
+
+    <div class="container region9wrap">
+
+        <!-- Bottom Content -->
+        <div class="row content_bottom">
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="eight columns">
+
+                <h2>Sign up for our newsletter</h2>
+                <p>Keep up-to-date with the latest news and updates by subscribing to our newsletter.</p>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+                <div class="row collapse newsletter-input">
+                    <div class="eight mobile-three columns">
+                        <input type="text" placeholder="Enter your email address" />
+                    </div>
+                    <div class="four mobile-one columns">
+                        <a href="#" class="button expand">Subscribe</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+        </div>
+        <!-- End Bottom Content -->
+        <!-- Footer -->
+        <div class="row footer">
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+
+                <h4>About Us</h4>
+                <p>LuMa Africa is using Kudevolve to put Kenyans in the very center of Devolution in according to the Constitution</p>
+                <ul class="vcard">
+                    <li class="address">0124 Nairobi</li>
+                    <li class="tel"><a href="0700124569">(0700124569)</a></li>
+                    <li class="email"><a href="info@kudevolve.com">info@kudevolve.com</a></li>
+                </ul>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+
+                <h4>Latest Posts</h4>
+
+                <ul class="footer-list">
+                    <li><a href="#">Fighting for Democracy</a></li>
+                    <li><a href="#">There's a lot of Hypocrisy in parliament</a></li>
+                    <li><a href="#">A lot of funds have been misused in Nairobi County</a></li>
+                    <li><a href="#">Politicians should not take advantage of mass influence</a></li>
+                    <li><a href="#">Wanjiku the victim of corruption</a></li>
+                </ul>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="four columns">
+
+                <h4>Latest Tweets</h4>
+
+                <ul class="footer-list twitter">
+                    <li>@@kudevolve Hi guys, how's it going?<a href="#">goo.gl/1HQER</a><a class="twit-date">28 minutes ago</a></li>
+                    <li>@@kudevolve @@signor_ernesto Where is everyone? <a href="#">goo.gl/1HQER</a><a class="twit-date">2 days ago</a></li>
+                </ul>
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+
+        </div>
+        <!-- End Footer -->
+
+    </div>
+
+    <!-- End Region 9 Wrap -->
+    <!-- Region 10 Wrap -->
+
+    <div class="container region10wrap">
+
+        <div class="row footer_bottom">
+
+            <!-- Bottom -->
+            <!-- // // // // // // // // // // -->
+
+            <div class="six columns">
+
+                <p class="copyright">© 2014 Kudevolve by LuMa Africa. All rights reserved</p>
+                <p class="copyright">© Developed by Quintelcon</p>
+            </div>
+
+
+            <!-- // // // // // // // // // // -->
+
+            <div class="six columns">
+
+
+            </div>
+
+            <!-- // // // // // // // // // // -->
+            <!-- Bottom -->
+
+        </div>
+    </div>
+
+  
+
+    -->
+    <!-- Back To Top -->
+    <a href="#" class="scrollup">Scroll</a>
+    <!-- End Back To Top -->
+    <!-- Initialize JS Plugins -->
+    <script src="HomePageUI/javascripts/app.js"></script>
+
+</body>
+</html>

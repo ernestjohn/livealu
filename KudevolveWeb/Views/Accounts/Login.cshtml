@@ -1,0 +1,122 @@
+﻿@model KudevolveWeb.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/Content/RegAndLog/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/RegAndLog/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/RegAndLog/bootstrap-responsive.min.css" rel="stylesheet" />
+    @*<link href="~/Content/style.min.css" rel="stylesheet" />*@
+    <link href="~/Content/RegAndLog/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/RegAndLog/retina.css" rel="stylesheet" />
+
+    <link href="~/Content/RegAndLog/toastr.min.css" rel="stylesheet" />
+    <script src="~/KudevolveUI/toastr.js"></script>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/RegAndLog/soc.css" rel="stylesheet" />
+    <script src="~/Content/RegAndLog/soc.js"></script>
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body ng-app="app">
+    <link href="~/Content/RegAndLog/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/RegAndLog/toastr.js"></script>
+
+
+        <script type="text/javascript">
+            toastr.info("An SMS was sent to your registered Phone Number containing your Access Pin", "Registration Completion");
+        </script>
+    
+
+
+
+    <div class="container" ng-controller="LoginCtrl">
+
+        <div class="row" style="margin-top:20px">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                @using (Html.BeginForm("Login", "Accounts", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                {
+
+                    @*<form role="form">*@
+                    <fieldset>
+                        <h2>Please Sign In</h2>
+                        <hr class="colorgraph">
+
+                        <br />
+
+                        @*<div class="col-sm-4 social-buttons">*@
+
+                        <div class="row">
+                            <a class="btn btn-block btn-lg btn-social btn-facebook">
+                                <i class="fa fa-facebook"></i> Sign in with Facebook
+                            </a>
+
+                            <a class="btn btn-block btn-lg btn-social btn-google-plus">
+                                <i class="fa fa-google-plus"></i> Sign in with Google
+                            </a>
+                            <a class="btn btn-block btn-lg btn-social btn-instagram">
+                                <i class="fa fa-instagram"></i> Sign in with Instagram
+                            </a>
+
+                            <a class="btn btn-block btn-lg btn-social btn-linkedin">
+                                <i class="fa fa-linkedin"></i> Sign in with LinkedIn
+                            </a>
+
+                            <a class="btn btn-block btn-lg btn-social btn-twitter">
+                                <i class="fa fa-twitter"></i> Sign in with Twitter
+                            </a>
+                        </div>
+
+                        @*</div>*@
+                        <br />
+
+                        <hr class="colorgraph">
+
+                        <div class="form-group">
+                            @*@Html.Bootstrap().TextBoxFor(model => model.UserName).Placeholder("Enter User Name").Class("form-control input-lg")
+                            @Html.ValidationMessageFor(model => model.UserName)*@
+                            <input type="email" name="email" id="email" class="form-control input-lg" ng-model="email"  placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            @*@Html.Bootstrap().PasswordFor(model => model.Password).Placeholder("Password").Class("form-control input-lg")
+                            @Html.ValidationMessageFor(model => model.Password)*@
+                            <input type="password" name="password" id="password" class="form-control input-lg" ng-model="password" placeholder="Password">
+                        </div>
+                       
+                        <span class="button-checkbox">
+
+                            <button type="button" class="btn" data-color="info">Remember Me</button>
+                            @*@Html.Bootstrap().CheckBoxFor(model => model.RememberMe).Class("hidden").IsChecked(true)*@
+                             <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+                            <a href="" class="btn btn-link pull-right">Forgot Password?</a>
+                        </span>
+                        <hr class="colorgraph">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <input type="submit" class="btn btn-lg btn-success btn-block" ng-click="signin()" value="Sign In">
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <a href="/Accounts/Register" class="btn btn-lg btn-primary btn-block">Register</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                    @*</form>*@
+                }
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
