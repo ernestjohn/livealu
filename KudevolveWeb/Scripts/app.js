@@ -1,5 +1,7 @@
 ﻿/// <reference path="oauth.js" />
 /// <reference path="E:\MY CODE\Kudevolve\KudevolveWeb\Auth/jstorage.js" />
+/// <reference path="linq.js" />
+
 
 
 
@@ -38,6 +40,40 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         //Update the Scope object data
         $scope.articles = data;
     });
+
+    //The Signalr Code
+    var kuhub = $.connection.notificationStreamer;
+
+    kuhub.client.addPostComment = function (postid, comment) {
+        var query = Enumerable.From($scope.posts).Where(function (pst) {
+            pst.PostId == postid
+        });
+    }
+    kuhub.client.addNewPost = function (post) {
+        alert(post);
+        $scope.posts.push(post);
+        $scope.apply();
+    }
+
+    kuhub.client.addPetition = function () {
+        
+    }
+
+    kuhub.client.notify = function (message) {
+        toastr.info("new message: " + message);
+        $scope.newpost = message;
+        alert($scope.newpost);
+        $scope.apply();
+        console.log(message);
+    }
+
+    $.connection.hub.start().done(function () {
+        //Log the connection beginning
+        console.log("Signalr is Online");
+    });
+
+
+    //End the Signalr Code
 
     //Code for sharing a post
     var share = new Share(".share-button", {
@@ -83,10 +119,10 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         postToPost.OwnerId = "";
         postToPost.Content = $scope.newpost;
 
-        alert($scope.newpost);
-
+        //alert($scope.newpost);
+       
         //Make the post data as a JSON String
-        var postdata = { Ownerid: loggedUserId, Content: $scope.newpost };
+        var postdata = { Ownerid: "ernesto", Content: $scope.newpost };
         var DTo = JSON.stringify(postToPost);
 
         //Call the signalr-based real time post sender

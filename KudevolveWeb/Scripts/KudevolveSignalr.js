@@ -9,11 +9,10 @@ $(function () {
     kuhub.client.addPostComment = function (postid, comment) {
         
     }
-
     kuhub.client.addNewPost = function (post) {
+        alert(post);
         $scope.posts.push(post);
         $scope.apply();
-        
     }
 
     kuhub.client.addPetition = function () {
@@ -22,11 +21,11 @@ $(function () {
 
     kuhub.client.notify = function (message) {
         toastr.info("new message: " + message);
+        $scope.newpost = message;
         console.log("message");
     }
 
     $.connection.hub.start().done(function () {
-
         //Log the connection beginning
         console.log("Signalr is Online");
     });

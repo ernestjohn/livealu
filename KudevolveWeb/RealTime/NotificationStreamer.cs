@@ -14,14 +14,10 @@ namespace KudevolveWeb.RealTime
 
         //A static method to send messages called from the API Controller
        
-
-
         public void Hello()
         {
             Clients.All.hello();
         }
-
-        
 
         //Method to push updates, refresh content on the Client side
         public void Update(string newPost)
@@ -72,6 +68,7 @@ namespace KudevolveWeb.RealTime
 
             return base.OnConnected();
         }
+      
 
         //public override System.Threading.Tasks.Task OnDisconnected()
         //{

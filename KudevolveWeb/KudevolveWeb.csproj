@@ -302,6 +302,7 @@
     <Compile Include="ServiceOperations\SmsSender.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\CommentViewModel.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
     <Compile Include="ViewModels\PostPetitionViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
@@ -1103,6 +1104,9 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery.linq-vsdoc.js" />
+    <Content Include="Scripts\jquery.linq.js" />
+    <Content Include="Scripts\jquery.linq.min.js" />
     <Content Include="Scripts\jquery.signalR-2.1.0.js" />
     <Content Include="Scripts\jquery.signalR-2.1.1.js" />
     <Content Include="Scripts\jquery.signalR-2.1.1.min.js" />
@@ -1112,6 +1116,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\kudevolvehubs1.js" />
     <Content Include="Scripts\KudevolveSignalr.js" />
+    <None Include="Scripts\linq-vsdoc.js" />
+    <Content Include="Scripts\linq.js" />
+    <Content Include="Scripts\linq.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\oauth.js" />
     <Content Include="Scripts\respond.js" />

@@ -20,6 +20,7 @@ namespace KudevolveWeb.APIS
         
         private ApplicationDbContext db = new ApplicationDbContext();
         public string BaseUrl = "http://kudevolve.azurewebsites.net";
+        RealTimePostUpdater signalr = new RealTimePostUpdater();
 
         //Make a public object to send updates to All signalr Clients
        
@@ -54,16 +55,14 @@ namespace KudevolveWeb.APIS
         public List<Comment> GetPostComments(string id)
         {
             //Get the Comments from the post here
-            var comments = db.Posts.Where(pst => pst.PostId == id).Single().Comments.ToList();
+           return  db.Posts.Where(pst => pst.PostId == id).FirstOrDefault().Comments.ToList();
          
-            return comments;
-
         }
 
         [HttpPost]
         [Route("{id}/comments")]
         //Code to add comment here as a POST request
-        public IHttpActionResult PostComment(string id,Comment comment)
+        public IHttpActionResult PostComment(string id,KudevolveWeb.ViewModels.CommentViewModel comment)
         {
             //Serialize the string into a comment
             // var comment = JsonConvert.SerializeObject(commentContent);
@@ -72,8 +71,12 @@ namespace KudevolveWeb.APIS
             {
                 return BadRequest();
             }
-
-            db.Posts.Find(id).Comments.Add(comment);
+            Comment newComment = new Comment();
+            newComment.CommentId = Guid.NewGuid().ToString();
+            newComment.Content = comment.Content;
+            newComment.PostUser = comment.PostUser;
+            
+            db.Posts.Find(id).Comments.Add(newComment);
             db.SaveChanges();
 
             return Ok("Comment addition successful");
@@ -173,21 +176,22 @@ namespace KudevolveWeb.APIS
         public IHttpActionResult PostPost(PostViewModel viewModel)
         {
             Post post = new Post();
-            var user = db.Users.Find(viewModel.Ownerid);
+            var user = new AppUser();
+            //var user = db.Users.Find(viewModel.Ownerid);
             post.PostId = Guid.NewGuid().ToString();
             post.Owner = user;
             post.Content = viewModel.Content;
             post.PostId = Guid.NewGuid().ToString();
             post.URL = BaseUrl + "/posts/"+post.PostId;
             post.DateCreated = DateTime.Today.ToString();
-            db.Posts.Add(post);
+           // db.Posts.Add(post);
             
 
             try
             {
-                db.SaveChanges();
+               // db.SaveChanges();
                 //Send the post to all Signalr Connections
-                RealTimePostUpdater.UpdatePost(post);
+                signalr.UpdatePost(post);
             }
             catch (DbUpdateException)
             {

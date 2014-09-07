@@ -6,8 +6,8 @@
 }
 @*<script src="~/Scripts/angular.js"></script>*@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.signalR-2.1.0.min.js"></script>
-<script src="http://kudevolve2.azurewebsites.net/signalr/hubs"></script>
+<script src="~/Scripts/jquery.signalR-2.1.1.min.js"></script>
+<script src="http://localhost:4775/signalr/hubs"></script>
 <link href="~/Content/comments.css" rel="stylesheet" />
 <link href="~/KudevolveUI/toastr.css" rel="stylesheet" />
 <script src="~/KudevolveUI/toastr.js"></script>
@@ -20,7 +20,7 @@
 
 <div ng-app="app">
     <div ng-controller="DashboardCtrl">
-        <script src="~/Scripts/KudevolveSignalr.js"></script>
+       @* <script src="~/Scripts/KudevolveSignalr.js"></script>*@
 
       
         <div class="ibox-title">
@@ -98,7 +98,7 @@
                                             </div>
                                             <div class="actions">
                                                 <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                                                <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Vote</a>
+                                            
                                                 <a class="btn btn-xs btn-primary"><i class="fa fa-share"></i> Share</a>
                                             </div>
                                         </div>
