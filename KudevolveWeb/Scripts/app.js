@@ -45,9 +45,13 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     var kuhub = $.connection.notificationStreamer;
 
     kuhub.client.addPostComment = function (postid, comment) {
-        var query = Enumerable.From($scope.posts).Where(function (pst) {
+        var index = Enumerable.From($scope.posts).IndexOf( Enumerable.From($scope.posts).Where(function (pst) {
             pst.PostId == postid
-        });
+        }).FirstOrDefault());
+
+        //Add the comment to the actual post
+        $scope.posts[index].comments.push(comment);
+        $scope.apply();
     }
     kuhub.client.addNewPost = function (post) {
         alert(post);
