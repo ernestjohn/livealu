@@ -42,26 +42,26 @@
                     
     @*<div class="col-sm-4 social-buttons">*@
 
-        <div class="row">
-            <a class="btn btn-block btn-lg btn-social btn-facebook">
-                <i class="fa fa-facebook"></i> Sign in with Facebook
-            </a>
+    <div class="row">
+        <a class="btn btn-block btn-lg btn-social btn-facebook" ng-click="facebook()">
+            <i class="fa fa-facebook"></i> Sign in with Facebook
+        </a>
 
-            <a class="btn btn-block btn-lg btn-social btn-google-plus">
-                <i class="fa fa-google-plus"></i> Sign in with Google
-            </a>
-            <a class="btn btn-block btn-lg btn-social btn-instagram">
-                <i class="fa fa-instagram"></i> Sign in with Instagram
-            </a>
-       
-            <a class="btn btn-block btn-lg btn-social btn-linkedin">
-                <i class="fa fa-linkedin"></i> Sign in with LinkedIn
-            </a>
+        <a class="btn btn-block btn-lg btn-social btn-google-plus" ng-click="google()">
+            <i class="fa fa-google-plus"></i> Sign in with Google
+        </a>
+        <a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
+            <i class="fa fa-instagram"></i> Sign in with Instagram
+        </a>
 
-            <a class="btn btn-block btn-lg btn-social btn-twitter">
-                <i class="fa fa-twitter"></i> Sign in with Twitter
-            </a>
-        </div>
+        <a class="btn btn-block btn-lg btn-social btn-linkedin" ng-click="linkedin()">
+            <i class="fa fa-linkedin"></i> Sign in with LinkedIn
+        </a>
+
+        <a class="btn btn-block btn-lg btn-social btn-twitter" ng-click="twitter()">
+            <i class="fa fa-twitter"></i> Sign in with Twitter
+        </a>
+    </div>
 
         @*</div>*@
                      <br />
@@ -117,7 +117,7 @@
 
                     <div class="form-group">
                         @{
-                            var list = new List<SelectListItem>(){
+                    var list = new List<SelectListItem>(){
                                 
                             };
                             list.Add(new SelectListItem() { Text = "Kiambu",  Value = "Kiambu"});

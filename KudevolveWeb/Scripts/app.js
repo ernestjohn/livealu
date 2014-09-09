@@ -53,6 +53,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         $scope.posts[index].comments.push(comment);
         $scope.apply();
     }
+
     kuhub.client.addNewPost = function (post) {
         alert(post);
         $scope.posts.push(post);
@@ -116,6 +117,9 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
     }
 
+    $scope.addComment = function (postid, comment) {
+
+    }
 
     $scope.addPost = function () {
 
@@ -141,7 +145,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
                 toastr.info("You have successfully made a post")
             },
             error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
+                alert('Oooops!!' + x + '\n' + y + '\n' + z);
             }
         });
 

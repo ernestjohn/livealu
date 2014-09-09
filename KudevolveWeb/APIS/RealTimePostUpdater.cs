@@ -16,37 +16,35 @@ namespace KudevolveWeb.APIS
         private IHubProxy postsHubProxy;
         public RealTimePostUpdater ()
 	        {
-                hubConnection = new HubConnection("http://kudevolve.azurewebsites.net/");
+                hubConnection = new HubConnection("http://localhost:4775");
                 hubConnection.StateChanged += hubConnection_StateChanged;
                 hubConnection.Received += hubConnection_Received;
 
                 postsHubProxy = hubConnection.CreateHubProxy("NotificationStreamer");
                 
-                hubConnection.Start().Wait();
+                hubConnection.Start();
 
-               
-                
 	        }
 
         void hubConnection_Received(string obj)
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
 
         void hubConnection_StateChanged(StateChange obj)
         {
-            throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
         public  void UpdatePost(Post thePost)
         {
             var post = JsonConvert.SerializeObject(thePost);
-            postsHubProxy.Invoke("Update", post).Wait();
+            postsHubProxy.Invoke("Update", post);
         }
 
         public void UpdatePostComment(string postid, Post thePost)
         {
             var post = JsonConvert.SerializeObject(thePost);
-            postsHubProxy.Invoke("", post).Wait();
+            postsHubProxy.Invoke("", post);
         }
 
         public static void NotifyUser(AppUser user)
