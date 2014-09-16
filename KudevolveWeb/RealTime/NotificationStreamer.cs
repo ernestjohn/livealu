@@ -60,7 +60,7 @@ namespace KudevolveWeb.RealTime
         public override System.Threading.Tasks.Task OnConnected()
         {
             //var userid = Context.Headers.Get("userid");
-
+          string conn = Context.ConnectionId;
             ////Save the connected user's connection
             //ConnectionManager.AddConnection(userid);
             //ConnectionManager.AddUserConnection(userid, Context.ConnectionId);

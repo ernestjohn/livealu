@@ -44,7 +44,7 @@ namespace KudevolveWeb.APIS
                 };
                 Users.Add(use);
             }
-            return Ok(Users.AsQueryable());
+            return Ok(Users);
         }
         
         //Code to get Signalr User connections
@@ -155,7 +155,7 @@ namespace KudevolveWeb.APIS
         [HttpGet]
         public IHttpActionResult GetUserPosts(string id)
         {
-            return Ok(db.Users.Find(id).Posts.ToList());
+            return Ok(db.Users.Find(id).Posts);
         }
 
         //Code to get Posts that a person follows
@@ -184,7 +184,7 @@ namespace KudevolveWeb.APIS
         [HttpGet]
         public IHttpActionResult GetUserPetitions(string id)
         {
-            return Ok(db.Users.Find(id).Petitions.ToList());
+            return Ok(db.Users.Find(id).Petitions);
         }
 
         //code to get a person's groups
@@ -192,7 +192,7 @@ namespace KudevolveWeb.APIS
         [HttpGet]
         public IHttpActionResult GetUserGroups(string id)
         {
-            return Ok(db.Users.Find(id).Groups.ToList());
+            return Ok(db.Users.Find(id).Groups);
         }
 
         
@@ -217,7 +217,7 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         public IHttpActionResult SearchUser(string name)
         {
-            var results = db.Users.Where(usr => usr.FirstName.Contains(name) || usr.SecondName.Contains(name)).ToList();
+            var results = db.Users.Where(usr => usr.FirstName.Contains(name) || usr.SecondName.Contains(name));
 
             if (results.Count != 0)
             {
@@ -231,7 +231,7 @@ namespace KudevolveWeb.APIS
         [HttpGet]
         public List<AppUser> GetUserFriends(string id)
         {
-            var user = db.Users.FirstOrDefault(usr => usr.Id == id);
+            AppUser user = await db.Users.FirstOrDefaultAsync(usr => usr.Id == id);
             var friends = new List<AppUser>();
             if (user != null)
                 foreach (var friendz in user.Friends)

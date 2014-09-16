@@ -51,13 +51,15 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         //Add the comment to the actual post
         $scope.posts[index].comments.push(comment);
-        $scope.apply();
+        $scope.$apply();
     }
 
     kuhub.client.addNewPost = function (post) {
-        alert(post);
-        $scope.posts.push(post);
-        $scope.apply();
+        alert("From Signalr Server" + post);
+        console.log("New post added");
+        //$scope.posts.push(post);
+        console.log("Scope push no error!");
+        $scope.$apply();
     }
 
     kuhub.client.addPetition = function () {
@@ -68,7 +70,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         toastr.info("new message: " + message);
         $scope.newpost = message;
         alert($scope.newpost);
-        $scope.apply();
+        $scope.$apply();
         console.log(message);
     }
 
@@ -136,12 +138,11 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         //Call the signalr-based real time post sender
         $.ajax({
             url: 'http://localhost:4775/api/v1/posts',
+            async: true,
             type: 'POST',
             data: JSON.stringify(postToPost),
             contentType: "application/json;charset=utf-8",
             success: function (data) {
-                $scope.posts.push(data);
-                $scope.apply();
                 toastr.info("You have successfully made a post")
             },
             error: function (x, y, z) {

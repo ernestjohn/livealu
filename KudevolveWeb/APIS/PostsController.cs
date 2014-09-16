@@ -9,6 +9,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using KudevolveWeb.Models;
 using KudevolveWeb.ViewModels;
+using System.Threading.Tasks;
 
 
 namespace KudevolveWeb.APIS
@@ -20,7 +21,7 @@ namespace KudevolveWeb.APIS
         
         private ApplicationDbContext db = new ApplicationDbContext();
         public string BaseUrl = "http://kudevolve.azurewebsites.net";
-        RealTimePostUpdater signalr = new RealTimePostUpdater();
+        RealTimePostUpdater signalr = RealTimePostUpdater.GetInstance();
 
         //Make a public object to send updates to All signalr Clients
        
@@ -28,9 +29,9 @@ namespace KudevolveWeb.APIS
         // GET: api/Posts
         [Route("")]
         [HttpGet]
-        public IQueryable<Post> GetPosts()
+        public async Task<IQueryable<Post>> GetPosts()
         {
-            return db.Posts.Include(p => p.Owner).Include(p => p.Comments);
+            return await db.Posts.Include(p => p.Owner).Include(p => p.Comments);
         }
 
         
@@ -39,9 +40,9 @@ namespace KudevolveWeb.APIS
         [Route("{id}")]
         [HttpGet]
         [ResponseType(typeof(Post))]
-        public IHttpActionResult GetPost(string id)
+        public async Task<IHttpActionResult> GetPost(string id)
         {
-            Post post = db.Posts.Find(id);
+            Post post = await db.Posts.FindAsync(id);
             if (post == null)
             {
                 return NotFound();
@@ -62,11 +63,11 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         [Route("{id}/comments")]
         //Code to add comment here as a POST request
-        public IHttpActionResult PostComment(string id,KudevolveWeb.ViewModels.CommentViewModel comment)
+        public async Task<IHttpActionResult> PostComment(string id,KudevolveWeb.ViewModels.CommentViewModel comment)
         {
             //Serialize the string into a comment
             // var comment = JsonConvert.SerializeObject(commentContent);
-            var post = db.Posts.Find(id);
+            var post = await db.Posts.FindAsync(id);
             if (post == null)
             {
                 return BadRequest();
@@ -85,13 +86,13 @@ namespace KudevolveWeb.APIS
         //Code to get Followers of a post
         [Route("{postid}/followers")]
         [HttpGet]
-        public IHttpActionResult GetPostFollwowers(string postid)
+        public async Task<IHttpActionResult> GetPostFollwowers(string postid)
         {
             List<AppUser> voters = new List<AppUser>();
-            var post = db.Posts.Find(postid);
+            Post post =  await db.Posts.FindAsync(postid);
             foreach (var voter in post.Followers)
             {
-                var user = db.Users.Find(voter.Id);
+                Post user = await db.Users.FindAsync(voter.Id);
                 voters.Add(user);
             }
 
@@ -110,9 +111,9 @@ namespace KudevolveWeb.APIS
         //Code to follow a post
         [Route("{id}/follow/{userid}")]
         [HttpGet]
-        public IHttpActionResult VotePost(string id, string userid)
+        public async  Task<IHttpActionResult> VotePost(string id, string userid)
         {
-            var user = db.Users.Find(userid);
+            AppUser user = await db.Users.FindAsync(userid);
             //add the user as a post follower
             db.Posts.Find(id).Followers.Add(user);
             db.SaveChanges();
@@ -173,7 +174,7 @@ namespace KudevolveWeb.APIS
         [Route("")]
         [ResponseType(typeof(Post))]
         [HttpPost]
-        public IHttpActionResult PostPost(PostViewModel viewModel)
+        public async Task<IHttpActionResult> PostPost(PostViewModel viewModel)
         {
             Post post = new Post();
             var user = new AppUser();
@@ -186,12 +187,11 @@ namespace KudevolveWeb.APIS
             post.DateCreated = DateTime.Today.ToString();
            // db.Posts.Add(post);
             
-
             try
             {
                // db.SaveChanges();
                 //Send the post to all Signalr Connections
-                signalr.UpdatePost(post);
+                await signalr.UpdatePost(post);
             }
             catch (DbUpdateException)
             {
@@ -199,15 +199,16 @@ namespace KudevolveWeb.APIS
             }
 
             return Ok(post);
+            
         }
 
         // DELETE: api/Posts/5
         [Route("{id}")]
         [ResponseType(typeof(Post))]
         [HttpDelete]
-        public IHttpActionResult DeletePost(string id)
+        public async Task<IHttpActionResult> DeletePost(string id)
         {
-            Post post = db.Posts.Find(id);
+            Post post = await db.Posts.Find(id);
             if (post == null)
             {
                 return NotFound();
