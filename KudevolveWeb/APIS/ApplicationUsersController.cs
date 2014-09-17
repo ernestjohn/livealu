@@ -8,6 +8,7 @@ using System.Web.Http.Description;
 using KudevolveWeb.Models;
 using System;
 using KudevolveWeb.RealTime;
+using KudevolveWeb.ViewModels;
 
 namespace KudevolveWeb.APIS
 {
@@ -67,11 +68,11 @@ namespace KudevolveWeb.APIS
         //Code to post a user Signalr Connection
         [Route("{userid}/signalrconnections")]
         [HttpPost]
-        public IHttpActionResult PostUserConnection(string userid, string connectionid)
+        public IHttpActionResult PostUserConnection(SignalrConnection viewModel)
         {
             try
             {
-                connectionManager.AddUserConnection(userid, connectionid);
+                connectionManager.AddUserConnection(viewModel.userid, viewModel.connectionid);
                 return Ok("Connection addition Successful");
             }
             catch (Exception)
@@ -138,7 +139,8 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         public IHttpActionResult LoginUser(LoginViewModel viewModel)
         {
-            var user = db.Users.Where(usr => usr.Email == viewModel.Email && usr.Password == viewModel.Password);
+            var user = db.Users.Where(usr => usr.Email == viewModel.Email && usr.Password == viewModel.Password)
+                .Include(u => u.Groups);
 
             if (user != null)
             {
@@ -149,6 +151,43 @@ namespace KudevolveWeb.APIS
                 return BadRequest("Invalid Username or Password, maybe the user does not exist. Kudevolve API");
             }
         }
+
+        //This is where I implement my social login APIs
+        [Route("login/social/facebook")]
+        [HttpPost]
+        public IHttpActionResult FacebookLogin(FacebookLogin viewModel)
+        {
+            return Ok(db.Users.FirstOrDefault(u => u.Facebook == viewmodel.identity));
+        }
+
+        [Route("login/social/twitter")]
+        [HttpPost]
+        public IHttpActionResult TwitterLogin(TwitterLogin viewmodel)
+        {
+            return Ok(db.Users.FirstOrDefault(u => u.Twitter == viewmodel.identity));
+        }
+
+        [Route("login/social/linkedin")]
+        [HttpPost]
+        public IHttpActionResult LinkedinLogin(LinkedinLogin viewModel)
+        {
+            return Ok(db.Users.FirstOrDefault(u => u.LinkedIn == viewModel.identity));
+        }
+
+        [Route("login/social/instagram")]
+        [HttpPost]
+        public IHttpActionResult InstagramLogin(InstagramLogin viewModel)
+        {
+            return Ok(db.Users.FirstOrDefault(u => u.Instagram == viewModel.identity));
+        }
+
+        [Route("login/social/google")]
+        [HttpPost]
+        public IHttpActionResult GoogleLogin(GoogleLogin viewModel)
+        {
+            return Ok(db.Users.FirstOrDefault(u => u.Google == viewModel.identity));
+        }
+
 
         //Code to get a person's posts
         [Route("{id}/posts")]
@@ -217,7 +256,7 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         public IHttpActionResult SearchUser(string name)
         {
-            var results = db.Users.Where(usr => usr.FirstName.Contains(name) || usr.SecondName.Contains(name));
+            var results = db.Users.Where(usr => usr.FirstName.Contains(name) || usr.SecondName.Contains(name)).ToList();
 
             if (results.Count != 0)
             {
@@ -231,7 +270,7 @@ namespace KudevolveWeb.APIS
         [HttpGet]
         public List<AppUser> GetUserFriends(string id)
         {
-            AppUser user = await db.Users.FirstOrDefaultAsync(usr => usr.Id == id);
+            AppUser user =  db.Users.FirstOrDefault(usr => usr.Id == id);
             var friends = new List<AppUser>();
             if (user != null)
                 foreach (var friendz in user.Friends)

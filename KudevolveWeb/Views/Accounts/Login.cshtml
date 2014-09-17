@@ -18,14 +18,14 @@
 
     <link href="~/Content/RegAndLog/toastr.min.css" rel="stylesheet" />
     <script src="~/KudevolveUI/toastr.js"></script>
-
+    <script src="http://kudevolvestuff.cloudapp.net:6284/download/latest/oauth.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/app.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <link href="~/Content/RegAndLog/soc.css" rel="stylesheet" />
     <script src="~/Content/RegAndLog/soc.js"></script>
-
+    
 
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
@@ -105,7 +105,7 @@
                         <hr class="colorgraph">
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
-                                <input type="submit" class="btn btn-lg btn-success btn-block" ng-click="signin()" value="Sign In">
+                                <input type="submit" class="btn btn-lg btn-success btn-block" ng-click="simplelogin()" value="Sign In">
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <a href="/Accounts/Register" class="btn btn-lg btn-primary btn-block">Register</a>

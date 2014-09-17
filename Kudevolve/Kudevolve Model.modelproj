@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b5a20235-d58f-4378-80cf-b11e00f16b3c}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>Kudevolve Model</Name>
+    <RootNamespace>Kudevolve</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Content Include="NoticeboardActivity.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="NoticeboardActivity.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>NoticeboardActivity.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="PetitionActivity.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PetitionActivity.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>PetitionActivity.activitydiagram</DependentUpon>
+    </Content>
+    <Content Include="SugestionBoard.activitydiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="SugestionBoard.activitydiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>SugestionBoard.activitydiagram</DependentUpon>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\Kudevolve.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="Kudevolve Layer.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Kudevolve Layer.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Kudevolve Layer.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Kudevolve Layer.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Kudevolve Layer.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+</Project>

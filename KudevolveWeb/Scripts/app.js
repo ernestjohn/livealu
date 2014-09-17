@@ -77,6 +77,26 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     $.connection.hub.start().done(function () {
         //Log the connection beginning
         console.log("Signalr is Online");
+        //Add the user signalr connections
+        var userconn = new Object();
+        userconn.userid = loggedUserId;
+        userconn.connectionid = $.connection.id;
+        var usercon = JSON.stringify(userconn);
+
+        //Call the signalr-based real time post sender
+        $.ajax({
+            url: 'http://localhost:4775/users/' + loggedUserId + '/signalrconnections',
+            async: true,
+            type: 'POST',
+            data: JSON.stringify(usercon),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                toastr.info("You have successfully connected your user id to signalr and your groups")
+            },
+            error: function (x, y, z) {
+                alert('Oooops!!' + x + '\n' + y + '\n' + z);
+            }
+        });
     });
 
 
@@ -115,7 +135,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
     $scope.notAvailable = function () {
 
-        toastr.info("Feature not yet available in Kudevolve")
+        toastr.info("Feature not yet available in Kudevolve");
 
     }
 
@@ -157,6 +177,36 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
 
 app.controller('LoginCtrl', ['$scope', function ($scope) {
+
+    //The simple login code
+    $scope.simplelogin = function () {
+
+        var loginObject = new Object();
+        loginObject.Email = $scope.email;
+        loginObject.Password = $scope.password;
+
+        var loginData = JSON.stringify(loginObject);
+
+        //Make the REST call
+        //Call the signalr-based real time post sender
+        $.ajax({
+            url: 'http://localhost:4775/api/users/login',
+            async: true,
+            type: 'POST',
+            data: JSON.stringify(loginData),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                sessionStorage.setItem("userid", data.Id);
+                sessionStorage.setItem("userlogged", true);
+                window.location = "http://localhost:4775/dashboard/index";
+                toastr.info("You have successfully Logged In")
+            },
+            error: function (x, y, z) {
+                alert('Oooops!!' + x + '\n' + y + '\n' + z);
+            }
+        });
+
+    }
 
     //Code to be the listener after the user logs into the app. Gets the users profile
     OAuth.initialize('Vyvllf3OhAQrHCFhXfIiYG_iz20');
@@ -278,6 +328,8 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             })
 
         });
+
+       
     }
 
     $scope.windows = function () {

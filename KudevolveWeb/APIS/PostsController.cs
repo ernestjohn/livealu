@@ -29,9 +29,9 @@ namespace KudevolveWeb.APIS
         // GET: api/Posts
         [Route("")]
         [HttpGet]
-        public async Task<IQueryable<Post>> GetPosts()
+        public IQueryable<Post> GetPosts()
         {
-            return await db.Posts.Include(p => p.Owner).Include(p => p.Comments);
+            return db.Posts.Include(p => p.Owner).Include(p => p.Comments);
         }
 
         
@@ -92,7 +92,7 @@ namespace KudevolveWeb.APIS
             Post post =  await db.Posts.FindAsync(postid);
             foreach (var voter in post.Followers)
             {
-                Post user = await db.Users.FindAsync(voter.Id);
+                AppUser user = await db.Users.FindAsync(voter.Id);
                 voters.Add(user);
             }
 
@@ -206,9 +206,9 @@ namespace KudevolveWeb.APIS
         [Route("{id}")]
         [ResponseType(typeof(Post))]
         [HttpDelete]
-        public async Task<IHttpActionResult> DeletePost(string id)
+        public IHttpActionResult DeletePost(string id)
         {
-            Post post = await db.Posts.Find(id);
+            Post post = db.Posts.Find(id);
             if (post == null)
             {
                 return NotFound();

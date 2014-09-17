@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="fd97303b-6510-408a-aebf-7a494fea9f3b" name="NoticeboardActivity" linkedPackageId="ab68a4da-ef26-4e33-b8f9-c4a795c22a46" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="8cb51cf4-3fbe-4703-bf82-60781b810b5d">
+      <profileInstance Id="8316b60f-7ca3-45cc-8d03-eea964ea0c5b" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="bd098604-e4bf-4029-b32f-025df5829ec8">
+      <profileInstance Id="0f42631e-ef9a-471e-a487-04151e75e4d3" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="25599ba5-652e-4601-9be0-1d93717450a8" name="NoticeboardActivity" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="2d2dfbba-151b-4850-b5de-3e7b2b1cfaf4" />
+        <nodes>
+          <initialNode Id="3657eedb-2e94-497f-9db4-dbc23f218497" name="Initial1" isLeaf="false">
+            <elementDefinition Id="bd632e0a-6cd5-4662-a938-54d93b39f3c3" />
+            <flowNodeTargets>
+              <controlFlow Id="459913c5-0010-425f-abaa-8a3482c22cb8" isLeaf="false">
+                <decisionNodeMoniker Id="8cdeb37a-79ca-4ffe-8638-0a1c06acc69f" LastKnownName="Decision1" />
+                <elementDefinition Id="2b42664a-7a35-492d-bb1e-2b9330c4a077" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction Id="639ec73d-7e14-4ef4-8efc-43ab20a07b2d" name="Create a post" isLeaf="false">
+            <elementDefinition Id="777d17fa-4b5c-42b0-8632-baa55c44ba24" />
+            <flowNodeTargets>
+              <controlFlow Id="aed8ec3a-64fe-4fd4-ab5f-3fffc1a6a53f" isLeaf="false">
+                <joinNodeMoniker Id="6a5efab0-59ab-4e4f-9d06-891c9f723a30" LastKnownName="Join1" />
+                <elementDefinition Id="bbd15252-a721-488f-9ad3-84e7fa022d1a" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="8cdeb37a-79ca-4ffe-8638-0a1c06acc69f" name="Decision1" isLeaf="false">
+            <elementDefinition Id="10c3cef7-e565-4e7c-907b-7e0e5fb73391" />
+            <flowNodeTargets>
+              <controlFlow Id="50c03658-036d-4730-a520-3ffbd992aca7" isLeaf="false">
+                <opaqueActionMoniker Id="57fd243a-5d8d-4aa5-90d8-b2e7860e3b34" LastKnownName="Browse posts" />
+                <elementDefinition Id="bff7c44d-c020-4f07-91d8-c9bd77a6d9e1" />
+              </controlFlow>
+              <controlFlow Id="9a2bb579-bc41-48e8-ab11-3829201ec2b0" isLeaf="false">
+                <opaqueActionMoniker Id="639ec73d-7e14-4ef4-8efc-43ab20a07b2d" LastKnownName="Create a post" />
+                <elementDefinition Id="25e95a82-8f99-4b51-9ea5-612a240ad9f5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="57fd243a-5d8d-4aa5-90d8-b2e7860e3b34" name="Browse posts" isLeaf="false">
+            <elementDefinition Id="518dce65-bfbb-4950-9c42-dd1c9d9c0f71" />
+            <flowNodeTargets>
+              <controlFlow Id="8c9f8b46-da6a-4592-92c7-a814827939d8" isLeaf="false">
+                <joinNodeMoniker Id="6a5efab0-59ab-4e4f-9d06-891c9f723a30" LastKnownName="Join1" />
+                <elementDefinition Id="6f059a14-e7c4-4246-88f2-33636592b893" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction Id="1972d1c5-522b-44c6-9237-ba7e093453ac" name="like/dislike post" isLeaf="false">
+            <elementDefinition Id="a5add335-a9a7-4c95-8cd6-f23989b17203" />
+            <flowNodeTargets>
+              <controlFlow Id="454841f5-614f-478d-b3db-56aaa8736816" isLeaf="false">
+                <joinNodeMoniker Id="f5b8b25b-0239-46c0-b04c-324d715ed5a3" LastKnownName="Join2" />
+                <elementDefinition Id="29a13168-fa69-44c2-b48d-d5a098e5ac82" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <sendSignalAction Id="db41ce65-0d72-48c1-8f2b-4988d7375d70" name="link to petition" isLeaf="false">
+            <elementDefinition Id="7dc5eb14-e289-46c3-a757-e4dfc4b2ede9" />
+            <flowNodeTargets>
+              <controlFlow Id="1d608e4c-dae8-46e4-97aa-516a9724b14e" isLeaf="false">
+                <joinNodeMoniker Id="f5b8b25b-0239-46c0-b04c-324d715ed5a3" LastKnownName="Join2" />
+                <elementDefinition Id="7abfd077-c615-4ad0-aed8-3c3f7e72b0b5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <sendSignalAction Id="d8795e43-0b56-463e-a277-df89c58ad8a0" name="link to suggestion" isLeaf="false">
+            <elementDefinition Id="df2fbdbb-7c62-4f8c-b93e-cb9cda172901" />
+            <flowNodeTargets>
+              <controlFlow Id="9f1dbe93-c7cd-4598-b907-29513693c06b" isLeaf="false">
+                <joinNodeMoniker Id="f5b8b25b-0239-46c0-b04c-324d715ed5a3" LastKnownName="Join2" />
+                <elementDefinition Id="c9565735-97e2-4f98-b104-bb2d1e6e8618" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <forkNode Id="7a80556e-7259-43bb-af2b-6984cff1d453" name="Fork1" isLeaf="false">
+            <elementDefinition Id="d7256990-a986-4b87-a017-39a76cc83fb5" />
+            <flowNodeTargets>
+              <controlFlow Id="7909fd6f-484a-44a0-96cf-b692ecb6031c" isLeaf="false">
+                <sendSignalActionMoniker Id="1972d1c5-522b-44c6-9237-ba7e093453ac" LastKnownName="like/dislike post" />
+                <elementDefinition Id="6790883b-cee5-4eef-a159-083d5ce64857" />
+              </controlFlow>
+              <controlFlow Id="58291914-ba94-4f51-9fbe-1083da10b673" isLeaf="false">
+                <sendSignalActionMoniker Id="db41ce65-0d72-48c1-8f2b-4988d7375d70" LastKnownName="link to petition" />
+                <elementDefinition Id="41652bc9-cd56-4534-9cf4-2130557c6152" />
+              </controlFlow>
+              <controlFlow Id="8638f7ff-8fd0-4f3a-bd7b-57255ee8faab" isLeaf="false">
+                <sendSignalActionMoniker Id="d8795e43-0b56-463e-a277-df89c58ad8a0" LastKnownName="link to suggestion" />
+                <elementDefinition Id="6b60628c-03d3-4923-a378-df11a2ec3671" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+          <joinNode Id="6a5efab0-59ab-4e4f-9d06-891c9f723a30" name="Join1" isLeaf="false">
+            <elementDefinition Id="3356b1e0-0c05-4b4d-a2fc-811ab9b3de55" />
+            <flowNodeTargets>
+              <controlFlow Id="599f3aaf-dfac-4574-a320-ddaae3611bdb" isLeaf="false">
+                <forkNodeMoniker Id="7a80556e-7259-43bb-af2b-6984cff1d453" LastKnownName="Fork1" />
+                <elementDefinition Id="3a863ad6-2377-47e7-b0c6-fd80b3694f71" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <joinNode Id="f5b8b25b-0239-46c0-b04c-324d715ed5a3" name="Join2" isLeaf="false">
+            <elementDefinition Id="1fb76d9e-acd7-4beb-8ba9-b5a20b249c00" />
+            <flowNodeTargets>
+              <controlFlow Id="b95e104e-2a11-4346-8af5-27431604ac85" isLeaf="false">
+                <activityFinalNodeMoniker Id="1a7be3b8-edf3-446f-9bb0-00e1b3711caf" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="365900d8-66c9-4ea9-93e8-06524aaef019" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <activityFinalNode Id="1a7be3b8-edf3-446f-9bb0-00e1b3711caf" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="35084ab8-f7e9-42df-a178-181df7651f18" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="ab68a4da-ef26-4e33-b8f9-c4a795c22a46" name="Kudevolve">
+    <elementDefinition Id="29ea44cb-9eef-4c14-9905-8bddc33915b2" />
+  </package>
+</activityRootModel>

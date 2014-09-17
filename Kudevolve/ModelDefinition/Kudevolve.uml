@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="29ea44cb-9eef-4c14-9905-8bddc33915b2"
+  name="Kudevolve" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <activity
+        Id="2d2dfbba-151b-4850-b5de-3e7b2b1cfaf4"
+        name="NoticeboardActivity"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="bd632e0a-6cd5-4662-a938-54d93b39f3c3"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="2b42664a-7a35-492d-bb1e-2b9330c4a077"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="10c3cef7-e565-4e7c-907b-7e0e5fb73391"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="777d17fa-4b5c-42b0-8632-baa55c44ba24"
+            name="Create a post"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="bbd15252-a721-488f-9ad3-84e7fa022d1a"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="3356b1e0-0c05-4b4d-a2fc-811ab9b3de55"
+                  LastKnownName="Join1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="10c3cef7-e565-4e7c-907b-7e0e5fb73391"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="bff7c44d-c020-4f07-91d8-c9bd77a6d9e1"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="518dce65-bfbb-4950-9c42-dd1c9d9c0f71"
+                  LastKnownName="Browse posts"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="25e95a82-8f99-4b51-9ea5-612a240ad9f5"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="777d17fa-4b5c-42b0-8632-baa55c44ba24"
+                  LastKnownName="Create a post"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="518dce65-bfbb-4950-9c42-dd1c9d9c0f71"
+            name="Browse posts"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6f059a14-e7c4-4246-88f2-33636592b893"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="3356b1e0-0c05-4b4d-a2fc-811ab9b3de55"
+                  LastKnownName="Join1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <sendSignalAction
+            Id="a5add335-a9a7-4c95-8cd6-f23989b17203"
+            name="like/dislike post"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="29a13168-fa69-44c2-b48d-d5a098e5ac82"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="1fb76d9e-acd7-4beb-8ba9-b5a20b249c00"
+                  LastKnownName="Join2"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <sendSignalAction
+            Id="7dc5eb14-e289-46c3-a757-e4dfc4b2ede9"
+            name="link to petition"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7abfd077-c615-4ad0-aed8-3c3f7e72b0b5"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="1fb76d9e-acd7-4beb-8ba9-b5a20b249c00"
+                  LastKnownName="Join2"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <sendSignalAction
+            Id="df2fbdbb-7c62-4f8c-b93e-cb9cda172901"
+            name="link to suggestion"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="c9565735-97e2-4f98-b104-bb2d1e6e8618"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="1fb76d9e-acd7-4beb-8ba9-b5a20b249c00"
+                  LastKnownName="Join2"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <forkNode
+            Id="d7256990-a986-4b87-a017-39a76cc83fb5"
+            name="Fork1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6790883b-cee5-4eef-a159-083d5ce64857"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="a5add335-a9a7-4c95-8cd6-f23989b17203"
+                  LastKnownName="like/dislike post"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="41652bc9-cd56-4534-9cf4-2130557c6152"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="7dc5eb14-e289-46c3-a757-e4dfc4b2ede9"
+                  LastKnownName="link to petition"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="6b60628c-03d3-4923-a378-df11a2ec3671"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="df2fbdbb-7c62-4f8c-b93e-cb9cda172901"
+                  LastKnownName="link to suggestion"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+          <joinNode
+            Id="3356b1e0-0c05-4b4d-a2fc-811ab9b3de55"
+            name="Join1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="3a863ad6-2377-47e7-b0c6-fd80b3694f71"
+                isLeaf="false">
+                <forkNodeMoniker
+                  Id="d7256990-a986-4b87-a017-39a76cc83fb5"
+                  LastKnownName="Fork1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <joinNode
+            Id="1fb76d9e-acd7-4beb-8ba9-b5a20b249c00"
+            name="Join2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="365900d8-66c9-4ea9-93e8-06524aaef019"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="35084ab8-f7e9-42df-a178-181df7651f18"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <activityFinalNode
+            Id="35084ab8-f7e9-42df-a178-181df7651f18"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="300017b9-54e1-402e-8d26-1d87d23c50ec"
+        name="PetitionActivity"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="6afd0c55-3245-44da-96bc-6abbaf94ffb9"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="4088e01a-66ff-4231-a3eb-bf5bc18f0b4c"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="ad78548a-c766-4335-a6d4-234d1082542d"
+                  LastKnownName="view petiion"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction
+            Id="ad78548a-c766-4335-a6d4-234d1082542d"
+            name="view petiion"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="86b4c0fa-1d2a-4b4a-ab96-2f5141cb82ca"
+                isLeaf="false">
+                <sendSignalActionMoniker
+                  Id="f4258753-f0cb-44af-aca4-93465d31dfcd"
+                  LastKnownName="Like a petition"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <sendSignalAction
+            Id="f4258753-f0cb-44af-aca4-93465d31dfcd"
+            name="Like a petition"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="fa1accc3-9959-42c4-b611-ec4f98b09be5"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="a421e6a1-9a73-457a-800d-8b5631e3afa8"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <activityFinalNode
+            Id="a421e6a1-9a73-457a-800d-8b5631e3afa8"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="04ff5294-7bad-44ad-9495-f65f1741add2"
+        name="SugestionBoard"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="e4372ec1-a96f-4b96-82cf-4599ec6c9ba0"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="9cf3cd3e-2598-4503-b72d-dee588689060"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="83625a3d-d59a-4bbf-90fb-9d2232de1815"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <decisionNode
+            Id="83625a3d-d59a-4bbf-90fb-9d2232de1815"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="6b739a67-3626-4ec1-af07-2f3b26227ac1"
+                isLeaf="false">
+                <acceptEventActionMoniker
+                  Id="a39a3a5f-59c7-431e-bd7e-d3335348530e"
+                  LastKnownName="View suggestion"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="eab8c182-dae9-4f29-a060-e02f716a90be"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="bc564651-139c-4d59-9032-7d23bd197caa"
+                  LastKnownName="Create suggestion"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="125f2481-011f-4f1b-aa83-884450393fdf"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="c39f4b29-8960-489d-9784-0d4c13860bd8"
+                  LastKnownName="Like/dislike suggestion"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <acceptEventAction
+            Id="a39a3a5f-59c7-431e-bd7e-d3335348530e"
+            name="View suggestion"
+            isLeaf="false"
+            isUnmarshall="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="77e2eb59-dffc-48db-8afb-7e9f4a585663"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="e6486ede-223e-4dfc-aa6c-3e02ef8c4003"
+                  LastKnownName="Join1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction
+            Id="bc564651-139c-4d59-9032-7d23bd197caa"
+            name="Create suggestion"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="889a9c81-1e32-48ef-ae51-8f77d6c825ac"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="e6486ede-223e-4dfc-aa6c-3e02ef8c4003"
+                  LastKnownName="Join1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="a077e364-3859-441f-9c53-8581f5b82091"
+            name="Add comment (Dialogue)"
+            isLeaf="false" />
+          <joinNode
+            Id="e6486ede-223e-4dfc-aa6c-3e02ef8c4003"
+            name="Join1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="441c920f-9040-449a-980c-f74c1fa4390f"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="a077e364-3859-441f-9c53-8581f5b82091"
+                  LastKnownName="Add comment (Dialogue)"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction
+            Id="c39f4b29-8960-489d-9784-0d4c13860bd8"
+            name="Like/dislike suggestion"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="cb1ad2dd-416c-4799-b114-fcb3da393504"
+                isLeaf="false">
+                <joinNodeMoniker
+                  Id="e6486ede-223e-4dfc-aa6c-3e02ef8c4003"
+                  LastKnownName="Join1"
+                  LastKnownLocation="Kudevolve.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

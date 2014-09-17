@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="28fc0a59-51bc-4fef-95a9-8a9a1bba2ab9" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="4cb7bccb-b7bb-41b7-98a0-26ef7241cb3a" name="Usr interface/Interaction media&#xD;&#xA;">
+      <childLayers>
+        <layer Id="0068cdc7-8dea-4e58-9224-269569972e82" name="Mobile platforms" />
+        <layer Id="8805c417-5e91-45db-9171-8a3786aa15fb" name="Web platform" />
+        <layer Id="32a333c7-147c-428a-bc89-13d245417e43" name="USSD" />
+      </childLayers>
+    </layer>
+    <layer Id="67e50427-e043-4b97-a477-040b60f0bfab" name="Platform API">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="c936afeb-558f-4d8a-b492-ec28607d6764" direction="Bidirectional">
+          <layerMoniker Id="4cb7bccb-b7bb-41b7-98a0-26ef7241cb3a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="ad38429e-d862-4630-8e86-d71f6a5c2ec7" name="System logic" />
+      </childLayers>
+    </layer>
+    <layer Id="9ec9f551-4b2e-42a2-9292-48f9e8d0ca3d" name="Data access layer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="42675baf-0ca6-4cb9-9ddf-351059beb95d" direction="Forward">
+          <layerMoniker Id="3d79c383-a21c-491d-b2e2-2be6bb7b4104" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="f40c9c62-a453-4dce-a2a9-c26c946ba960" direction="Bidirectional">
+          <layerMoniker Id="67e50427-e043-4b97-a477-040b60f0bfab" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="d646d312-1887-4884-b43c-f1cc585f0876" name="App Datadase">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="c2568ff8-a570-45b8-8a96-1191f28cd9b3" direction="Forward">
+          <layerMoniker Id="9ec9f551-4b2e-42a2-9292-48f9e8d0ca3d" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+    <layer Id="32a98e4b-e867-4aea-921a-e8b659385882" name="Social networks">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="efdbaa6e-3781-4a69-b57e-4a6bc7e597a2" direction="Forward">
+          <layerMoniker Id="d646d312-1887-4884-b43c-f1cc585f0876" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="e6f19afe-2f5a-4d10-9e6b-57cd75b4cfd0" direction="Forward">
+          <layerMoniker Id="3d79c383-a21c-491d-b2e2-2be6bb7b4104" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="067f6e43-2fde-4650-9d56-30e84bf59bb0" name="Facebook" />
+        <layer Id="1e54cd7c-f1eb-4725-9474-e1414defaf97" name="Twitter" />
+        <layer Id="6cf97b1c-4f9f-4893-8dfd-d8edb838b7f6" name="Google +" />
+        <layer Id="842228db-d654-44a0-89f3-7331430ab28d" name="Linkedin" />
+        <layer Id="073d3746-1694-4dbb-802c-a673a7b4c6d9" name="Instagram" />
+      </childLayers>
+    </layer>
+    <layer Id="3d79c383-a21c-491d-b2e2-2be6bb7b4104" name="Application access">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="bcce693b-4035-485b-bf6a-a644eb338790" direction="Forward">
+          <layerMoniker Id="4cb7bccb-b7bb-41b7-98a0-26ef7241cb3a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+    </layer>
+  </layers>
+</layerModel>

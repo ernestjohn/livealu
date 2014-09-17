@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="ead210ca-348b-4bf1-9260-f61bee95692c" name="SugestionBoard" linkedPackageId="a0524121-41ba-48f3-b8c0-8448c7c900dc" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="5f8f1fde-f64c-4f77-9ffd-84524e88af60">
+      <profileInstance Id="275264c6-1401-4943-84aa-eb5e46a4ab07" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="0834de29-7ba6-4b53-9854-07eff16971e7">
+      <profileInstance Id="bb6666e1-68fb-4287-9e3e-a17b9c338184" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="babc4098-9588-4603-a9aa-40907e509768" name="SugestionBoard" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="04ff5294-7bad-44ad-9495-f65f1741add2" />
+        <nodes>
+          <initialNode Id="4b9d9ba1-29e7-4eee-bcbe-d7426ddb1146" name="Initial1" isLeaf="false">
+            <elementDefinition Id="e4372ec1-a96f-4b96-82cf-4599ec6c9ba0" />
+            <flowNodeTargets>
+              <controlFlow Id="c8ddb1d0-cfea-4a62-b1bb-3eef71058b4f" isLeaf="false">
+                <decisionNodeMoniker Id="bea243d0-1e9b-47eb-ae10-fa462489b27e" LastKnownName="Decision1" />
+                <elementDefinition Id="9cf3cd3e-2598-4503-b72d-dee588689060" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <decisionNode Id="bea243d0-1e9b-47eb-ae10-fa462489b27e" name="Decision1" isLeaf="false">
+            <elementDefinition Id="83625a3d-d59a-4bbf-90fb-9d2232de1815" />
+            <flowNodeTargets>
+              <controlFlow Id="a1ffe201-c10a-413e-9f50-3d9340bbce7a" isLeaf="false">
+                <acceptEventActionMoniker Id="80b3917f-8f5b-4c36-837b-8ecb805be9f7" LastKnownName="View suggestion" />
+                <elementDefinition Id="6b739a67-3626-4ec1-af07-2f3b26227ac1" />
+              </controlFlow>
+              <controlFlow Id="a958f3bb-592c-4305-897d-eadc2dcccb8b" isLeaf="false">
+                <opaqueActionMoniker Id="d4aa5d4c-f661-41b4-b545-7c9ba8ccfe69" LastKnownName="Create suggestion" />
+                <elementDefinition Id="eab8c182-dae9-4f29-a060-e02f716a90be" />
+              </controlFlow>
+              <controlFlow Id="b9da7e7a-a631-4174-be7c-426139a46e76" isLeaf="false">
+                <opaqueActionMoniker Id="eee0a053-8b5e-4ce2-824c-5f7da5c671b9" LastKnownName="Like/dislike suggestion" />
+                <elementDefinition Id="125f2481-011f-4f1b-aa83-884450393fdf" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <acceptEventAction Id="80b3917f-8f5b-4c36-837b-8ecb805be9f7" name="View suggestion" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="a39a3a5f-59c7-431e-bd7e-d3335348530e" />
+            <flowNodeTargets>
+              <controlFlow Id="3b8d9610-abe1-4095-8990-65dfa8a367ad" isLeaf="false">
+                <joinNodeMoniker Id="d604bb76-0d4f-4957-9766-15447e4f3f92" LastKnownName="Join1" />
+                <elementDefinition Id="77e2eb59-dffc-48db-8afb-7e9f4a585663" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <opaqueAction Id="d4aa5d4c-f661-41b4-b545-7c9ba8ccfe69" name="Create suggestion" isLeaf="false">
+            <elementDefinition Id="bc564651-139c-4d59-9032-7d23bd197caa" />
+            <flowNodeTargets>
+              <controlFlow Id="0618aacd-9d59-470f-bbf3-f054723381e2" isLeaf="false">
+                <joinNodeMoniker Id="d604bb76-0d4f-4957-9766-15447e4f3f92" LastKnownName="Join1" />
+                <elementDefinition Id="889a9c81-1e32-48ef-ae51-8f77d6c825ac" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="7d0ac35a-d814-400c-ae3d-97e6fab34333" name="Add comment (Dialogue)" isLeaf="false">
+            <elementDefinition Id="a077e364-3859-441f-9c53-8581f5b82091" />
+          </opaqueAction>
+          <joinNode Id="d604bb76-0d4f-4957-9766-15447e4f3f92" name="Join1" isLeaf="false">
+            <elementDefinition Id="e6486ede-223e-4dfc-aa6c-3e02ef8c4003" />
+            <flowNodeTargets>
+              <controlFlow Id="6c6e766d-8372-477a-967d-e85d384f3429" isLeaf="false">
+                <opaqueActionMoniker Id="7d0ac35a-d814-400c-ae3d-97e6fab34333" LastKnownName="Add comment (Dialogue)" />
+                <elementDefinition Id="441c920f-9040-449a-980c-f74c1fa4390f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction Id="eee0a053-8b5e-4ce2-824c-5f7da5c671b9" name="Like/dislike suggestion" isLeaf="false">
+            <elementDefinition Id="c39f4b29-8960-489d-9784-0d4c13860bd8" />
+            <flowNodeTargets>
+              <controlFlow Id="81078977-eb8b-48c0-b447-5a8164b7c2d1" isLeaf="false">
+                <joinNodeMoniker Id="d604bb76-0d4f-4957-9766-15447e4f3f92" LastKnownName="Join1" />
+                <elementDefinition Id="cb1ad2dd-416c-4799-b114-fcb3da393504" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="a0524121-41ba-48f3-b8c0-8448c7c900dc" name="Kudevolve">
+    <elementDefinition Id="29ea44cb-9eef-4c14-9905-8bddc33915b2" />
+  </package>
+</activityRootModel>

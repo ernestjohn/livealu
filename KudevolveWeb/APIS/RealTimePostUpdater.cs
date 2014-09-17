@@ -67,7 +67,7 @@ namespace KudevolveWeb.APIS
            await postsHubProxy.Invoke("UpdatePostComment", post);
         }
 
-        public static Task NotifyUser(AppUser user)
+        public static void NotifyUser(AppUser user)
         {
 
         }

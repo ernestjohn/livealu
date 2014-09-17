@@ -303,9 +303,16 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\CommentViewModel.cs" />
+    <Compile Include="ViewModels\FacebookLogin.cs" />
+    <Compile Include="ViewModels\GoogleLogin.cs" />
     <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\InstagramLogin.cs" />
+    <Compile Include="ViewModels\LinkedinLogin.cs" />
     <Compile Include="ViewModels\PostPetitionViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
+    <Compile Include="ViewModels\SignalrConnection.cs" />
+    <Compile Include="ViewModels\SocialLoginBase.cs" />
+    <Compile Include="ViewModels\TwitterLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Auth\cookiemanager.js" />
@@ -851,6 +858,10 @@
     <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvemain - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvemain - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvemain - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvemain - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\flavr.css" />
     <Content Include="Scripts\flavr.js" />

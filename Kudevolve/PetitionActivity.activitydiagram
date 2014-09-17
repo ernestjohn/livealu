@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="03054510-18f5-4266-9a68-99b041a1ee69" name="PetitionActivity" linkedPackageId="f1b8f258-062c-4ee4-8c67-a3735d121230" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="dc945603-28e7-4684-9547-5912ec8c0cdf">
+      <profileInstance Id="0636910c-cebe-49ba-9005-4352c459f636" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="d29011c6-992d-4cdd-898e-b5c5302185c8">
+      <profileInstance Id="9ad7e0a5-4b5e-403f-8643-5c5de98b2580" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="f0824058-e3bb-4cb2-ad9a-487cbfbf5806" name="PetitionActivity" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="300017b9-54e1-402e-8d26-1d87d23c50ec" />
+        <nodes>
+          <initialNode Id="9604774e-1564-415f-b7ed-c96392ed520c" name="Initial1" isLeaf="false">
+            <elementDefinition Id="6afd0c55-3245-44da-96bc-6abbaf94ffb9" />
+            <flowNodeTargets>
+              <controlFlow Id="248399ed-6ccc-4d5d-949b-29f4e75e88f4" isLeaf="false">
+                <acceptEventActionMoniker Id="c538ea30-696f-40c3-9a76-747c810502fc" LastKnownName="view petiion" />
+                <elementDefinition Id="4088e01a-66ff-4231-a3eb-bf5bc18f0b4c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <acceptEventAction Id="c538ea30-696f-40c3-9a76-747c810502fc" name="view petiion" isLeaf="false" isUnmarshall="false">
+            <elementDefinition Id="ad78548a-c766-4335-a6d4-234d1082542d" />
+            <flowNodeTargets>
+              <controlFlow Id="26cfd844-ab14-4d99-97eb-0ad884747b5f" isLeaf="false">
+                <sendSignalActionMoniker Id="bc7dcaa0-5d15-4fb4-8755-c84f177ed34a" LastKnownName="Like a petition" />
+                <elementDefinition Id="86b4c0fa-1d2a-4b4a-ab96-2f5141cb82ca" />
+              </controlFlow>
+            </flowNodeTargets>
+          </acceptEventAction>
+          <sendSignalAction Id="bc7dcaa0-5d15-4fb4-8755-c84f177ed34a" name="Like a petition" isLeaf="false">
+            <elementDefinition Id="f4258753-f0cb-44af-aca4-93465d31dfcd" />
+            <flowNodeTargets>
+              <controlFlow Id="031141c2-c9cf-4a80-bc88-85a0904ecaf5" isLeaf="false">
+                <activityFinalNodeMoniker Id="45e58b41-e6f4-4566-bf60-2d64afddcc9d" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="fa1accc3-9959-42c4-b611-ec4f98b09be5" />
+              </controlFlow>
+            </flowNodeTargets>
+          </sendSignalAction>
+          <activityFinalNode Id="45e58b41-e6f4-4566-bf60-2d64afddcc9d" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="a421e6a1-9a73-457a-800d-8b5631e3afa8" />
+          </activityFinalNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="f1b8f258-062c-4ee4-8c67-a3735d121230" name="Kudevolve">
+    <elementDefinition Id="29ea44cb-9eef-4c14-9905-8bddc33915b2" />
+  </package>
+</activityRootModel>

@@ -10,7 +10,7 @@ namespace KudevolveWeb.RealTime
     {
         //Make a dictionary for user connection strings
         private static Dictionary<string, List<string>> Connections = new Dictionary<string, List<string>>();
-
+       
         public void AddConnection(string userid)
         {
             Connections.Add(userid, new List<string>());
@@ -21,6 +21,7 @@ namespace KudevolveWeb.RealTime
             Connections.Where(connection => connection.Key == userid).FirstOrDefault().Value.Add(connectionid);
 
         }
+
         public void RemoveUserConnections(string userid)
         {
             //Algorithm to remove user connections
@@ -29,6 +30,9 @@ namespace KudevolveWeb.RealTime
         {
             return Connections.Where(conn => conn.Key == userid).FirstOrDefault().Value;
         }
+
+      
+      
 
         //Code to save everything by deserialization
         public void Save()

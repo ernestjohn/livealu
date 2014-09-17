@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "Kudevolve Model", "Kudevolve\Kudevolve Model.modelproj", "{B5A20235-D58F-4378-80CF-B11E00F16B3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KudevolveWeb", "KudevolveWeb\KudevolveWeb.csproj", "{690B9602-A398-45A5-87DC-03EA7000BC7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1B4BDFEE-16F5-47FF-81F1-0A4126EEC4B4}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUploader", "FileUploader\FileUploader.csproj", "{62803B08-32E5-4CC7-A653-D10B56BF4CE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5A20235-D58F-4378-80CF-B11E00F16B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A20235-D58F-4378-80CF-B11E00F16B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5A20235-D58F-4378-80CF-B11E00F16B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A20235-D58F-4378-80CF-B11E00F16B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690B9602-A398-45A5-87DC-03EA7000BC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690B9602-A398-45A5-87DC-03EA7000BC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690B9602-A398-45A5-87DC-03EA7000BC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690B9602-A398-45A5-87DC-03EA7000BC7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62803B08-32E5-4CC7-A653-D10B56BF4CE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62803B08-32E5-4CC7-A653-D10B56BF4CE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62803B08-32E5-4CC7-A653-D10B56BF4CE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62803B08-32E5-4CC7-A653-D10B56BF4CE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

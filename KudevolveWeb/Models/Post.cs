@@ -9,6 +9,9 @@ namespace KudevolveWeb.Models
         public string Content { get; set; }
         public string DateCreated { get; set; }
         public string Hashtag { get; set; }
+        public string ip_address { get; set; }
+        public string latitude { get; set; }
+        public string  longitude { get; set; }
         public AppUser Owner { get; set; }
         public string URL { get; set; }
         public ICollection<Comment> Comments { get; set; }
