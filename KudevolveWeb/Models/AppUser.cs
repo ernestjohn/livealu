@@ -17,6 +17,9 @@ namespace KudevolveWeb.Models
         public string Password { get; set; }
         public string BIO { get; set; }
         public string password_reset_code { get; set; }
+        public bool isGovernor { get; set; }
+        public bool isActive { get; set; }
+        public string activation_code { get; set; }
 
 
         //The New authentication 
