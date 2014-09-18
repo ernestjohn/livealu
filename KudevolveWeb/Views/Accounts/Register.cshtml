@@ -71,20 +71,20 @@
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.FirstName).Class("form-control input-lg").Placeholder("First Name")
                         @Html.ValidationMessageFor(model => model.FirstName)*@ 
-                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="firstname" placeholder="Firstname Name" tabindex="3">
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="newuser.FirstName" placeholder="First Name" tabindex="3">
                     </div>
                     
                     
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.SecondName).Class("form-control input-lg").Placeholder("Last Name")
                         @Html.ValidationMessageFor(model => model.SecondName)*@
-                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="lastname" placeholder="Last Name" tabindex="3">
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="newuser.LastName" placeholder="Last Name" tabindex="3">
                     </div>
 
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.UserName).Class("form-control input-lg").Placeholder("User Name")
                         @Html.ValidationMessageFor(model => model.UserName)*@
-                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="username" placeholder="Username" tabindex="3">
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="newuser.UserName" placeholder="Username" tabindex="3">
                     </div>
                     
                     
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             @*@Html.Bootstrap().PasswordFor(model => model.Password).Class("form-control input-lg").Placeholder("Password")
                             @Html.ValidationMessageFor(model => model.Password)*@
-                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" ng-model="password" placeholder="Password" tabindex="1">
+                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" ng-model="newuser.Password" placeholder="Password" tabindex="1">
                         </div>
                     </div>
 
@@ -103,7 +103,7 @@
 
                             @*@Html.Bootstrap().PasswordFor(model => model.ConfirmPassword).Class("form-control input-lg").Placeholder("Confirm Password")
                             @Html.ValidationMessageFor(model => model.ConfirmPassword)*@
-                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" ng-model="confirmpassword" placeholder="Confirm Password" tabindex="2">
+                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" ng-model="newuser.ConfirmPassword" placeholder="Confirm Password" tabindex="2">
                         </div>
                     </div>
                     @*</div>*@
@@ -113,35 +113,31 @@
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.Email).Class("form-control input-lg").Placeholder("Email Address")
                         @Html.ValidationMessageFor(model => model.Email)*@
-                        <input type="email" name="email" id="email" class="form-control input-lg" ng-model="email" placeholder="Email Address" tabindex="4">
+                        <input type="email" name="email" id="email" class="form-control input-lg" ng-model="newuser.Email" placeholder="Email Address" tabindex="4">
                     </div>
 
                     <div class="form-group">
-                        @{
-                    var list = new List<SelectListItem>(){
-                                
-                            };
-                            list.Add(new SelectListItem() { Text = "Kiambu",  Value = "Kiambu"});
-                            list.Add(new SelectListItem() { Text = "Nairobi", Value = "Nairobi" });
-                            list.Add(new SelectListItem() { Text = "Muranga", Value = "Muranga" });
-                            list.Add(new SelectListItem() { Text = "Kitale", Value = "Kitale" });
-                            list.Add(new SelectListItem() { Text = "Tharaka Nithi", Value = "haraka Nithi" });
-                            list.Add(new SelectListItem() { Text = "Kirinyaga", Value = "Kirinyaga" });
-                            list.Add(new SelectListItem() { Text = "Nyeri", Value = "Nyeri" });
-                            list.Add(new SelectListItem() { Text = "Machakos", Value = "Machakos" });
-                        }
-                        @*@Html.Bootstrap().TextBoxFor(model => model.County).Class("form-control input-lg").Placeholder("County")*@
-                        @Html.Bootstrap().DropDownListFor(model => model.County, list).Class("form-control input-lg")
-                        @Html.ValidationMessageFor(model => model.County)
-                        @*<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">*@
+                       
+                        <select ng-model="newuser.county" class="form-control input-lg">
+                            <option value="Kiambu">Kiambu</option>
+                            <option value="Nairobi">Nairobi</option>
+                            <option value="Muranga">Muranga</option>
+                            <option value="Kitale">Kitale</option>
+                            <option value="Kirinyaga">Kirinyaga</option>
+                            <option value="Nyeri">Nyeri</option>
+                        </select>
                     </div>
 
-                  
+    <div class="form-group">
+        @*@Html.Bootstrap().TextBoxFor(model => model.PhoneNumber).Class("form-control input-lg").Placeholder("Phone Number").Value("+254")
+            @Html.ValidationMessageFor(model => model.PhoneNumber)*@
+        <input type="date" name="date" id="phone" class="form-control input-lg" ng-model="newuser.DateOfBirth">
+    </div>
 
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.PhoneNumber).Class("form-control input-lg").Placeholder("Phone Number").Value("+254")
                         @Html.ValidationMessageFor(model => model.PhoneNumber)*@
-                        <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Phone Number" value="+254" tabindex="4">
+                        <input type="number" name="number" id="phone" class="form-control input-lg" ng-model="newuser.PhoneNumber" placeholder="Phone Number" value="+254" tabindex="4">
                     </div>
 
                     <div class="row">
@@ -155,7 +151,7 @@
                             By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
                         </div>
                     </div>
-
+    
                     <hr class="colorgraph">
                     <div class="row">
                         <div class="col-xs-6 col-md-6"><input type="submit" value="Register" ng-click="register()" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>

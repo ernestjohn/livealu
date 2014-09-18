@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elasticsearch.Net">
+      <HintPath>..\packages\Elasticsearch.Net.1.1.1\lib\Elasticsearch.Net.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -109,6 +112,9 @@
     <Reference Include="Microsoft.WindowsAzure.Storage, Version=3.1.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WindowsAzure.Storage.3.1.0.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Nest">
+      <HintPath>..\packages\NEST.1.1.1\lib\Nest.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -276,6 +282,10 @@
     <Compile Include="Migrations\201407140306344_NewDBStuff.cs" />
     <Compile Include="Migrations\201407140306344_NewDBStuff.Designer.cs">
       <DependentUpon>201407140306344_NewDBStuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201409180218120_schema_update.cs" />
+    <Compile Include="Migrations\201409180218120_schema_update.Designer.cs">
+      <DependentUpon>201409180218120_schema_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -486,6 +496,31 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="icons\calendar.png" />
+    <Content Include="icons\chat-bubble.png" />
+    <Content Include="icons\chrome.png" />
+    <Content Include="icons\document.png" />
+    <Content Include="icons\dribbble.png" />
+    <Content Include="icons\drive.png" />
+    <Content Include="icons\email.png" />
+    <Content Include="icons\evernote.png" />
+    <Content Include="icons\facebook.png" />
+    <Content Include="icons\forsquare.png" />
+    <Content Include="icons\github.png" />
+    <Content Include="icons\gmail.png" />
+    <Content Include="icons\google+.png" />
+    <Content Include="icons\linkedin.png" />
+    <Content Include="icons\location-pointer.png" />
+    <Content Include="icons\play.png" />
+    <Content Include="icons\search.png" />
+    <Content Include="icons\skype.png" />
+    <Content Include="icons\star.png" />
+    <Content Include="icons\task.png" />
+    <Content Include="icons\tumblr.png" />
+    <Content Include="icons\twitter.png" />
+    <Content Include="icons\upload.png" />
+    <Content Include="icons\vimeo.png" />
+    <Content Include="icons\youtube.png" />
     <Content Include="KudevolveUI\ComingSoon.html" />
     <Content Include="KudevolveUI\css\animate.css" />
     <Content Include="KudevolveUI\css\bootstrap.css" />
@@ -1501,6 +1536,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201407140306344_NewDBStuff.resx">
       <DependentUpon>201407140306344_NewDBStuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201409180218120_schema_update.resx">
+      <DependentUpon>201409180218120_schema_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

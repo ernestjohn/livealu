@@ -1,6 +1,7 @@
 ﻿/// <reference path="oauth.js" />
 /// <reference path="E:\MY CODE\Kudevolve\KudevolveWeb\Auth/jstorage.js" />
 /// <reference path="linq.js" />
+/// <reference path="flavr.js" />
 
 
 
@@ -10,7 +11,7 @@ var app = angular.module('app', []);
 
 // Path: /
 app.controller('DashboardCtrl', ['$scope', function ($scope) {
-    $scope.posts = "";
+    $scope.posts = [];
 
     var loggedUserId = sessionStorage.getItem("userid");
 
@@ -57,7 +58,8 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     kuhub.client.addNewPost = function (post) {
         alert("From Signalr Server" + post);
         console.log("New post added");
-        //$scope.posts.push(post);
+        $scope.posts.push(post);
+        alert(JSON.stringify($scope.posts));
         console.log("Scope push no error!");
         $scope.$apply();
     }
@@ -66,11 +68,14 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         
     }
 
+    kuhub.client.addTweet = function (tweet) {
+        //Add a tweet from the streaming server
+    }
+
     kuhub.client.notify = function (message) {
-        toastr.info("new message: " + message);
+        toastr.info("Online message: " + message);
         $scope.newpost = message;
         alert($scope.newpost);
-        $scope.$apply();
         console.log(message);
     }
 
@@ -135,7 +140,15 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
     $scope.notAvailable = function () {
 
-        toastr.info("Feature not yet available in Kudevolve");
+        new $.flavr({
+            content: 'Welcome to Kudevolve',
+            iconPath: 'http://localhost:4775/icons/',
+            icon: 'star.png',
+            buttons: {
+                Ok: { style: 'info' },
+                Cancel: { style: 'danger' }
+            }
+        });
 
     }
 
@@ -219,8 +232,6 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         OAuth.popup('facebook', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
-            alert(result);
             result.get("https://graph.facebook.com/v2.0/me")
             .done(function (user_info) {
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
@@ -265,6 +276,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         });
 
     }
+
     $scope.instagram = function () {
 
         OAuth.popup('instagram', function (error, result) {
@@ -311,12 +323,12 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
 
     $scope.google = function () {
 
-        OAuth.popup('google', function (error, result) {
+        OAuth.popup('google_plus', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
             alert(error);
             alert(result);
-            result.get("https://www.googleapis.com/plus/v1/people/me")
+            result.me()
             .done(function (user_info) {
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
@@ -463,13 +475,14 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     $scope.google = function () {
 
-        OAuth.popup('google', function (error, result) {
+        OAuth.popup('google_plus', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
             alert(error);
             alert(result);
             result.get("https://www.googleapis.com/plus/v1/people/me")
             .done(function (user_info) {
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -505,16 +518,33 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     $scope.register = function () {
 
-        $.post("http://kudevolvemain.azurewebsites.net/api/v1/users/register", postdata, function (data, status, jqXHR) {
+        
+        var regData = JSON.stringify($scope.newuser);
 
-            if (status == 200) {
-                //do something
-                $scope.posts.push(data);
-                $scope.apply();
-
+        //Make the REST call
+        //Call the signalr-based real time post sender
+        $.ajax({
+            url: 'http://localhost:4775/api/users/register',
+            async: true,
+            type: 'POST',
+            data: JSON.stringify(regData),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                new $.flavr({
+                    content: 'You have successfuly registered',
+                    iconPath: '~/icons/',
+                    icon: 'star.png',
+                    buttons: {
+                        read: { style: 'info' },
+                        later: { style: 'danger' }
+                    }
+                });
+                window.location = "http://localhost:4775/dashboard/index";
+                toastr.info("You have successfully Registered")
+            },
+            error: function (x, y, z) {
+                alert('Oooops!!' + x + '\n' + y + '\n' + z);
             }
-
-
         });
     }
 

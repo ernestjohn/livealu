@@ -105,7 +105,6 @@ namespace KudevolveWeb.APIS
                  DateOfBirth = viewModel.DateOfBirth,
                  Email = viewModel.Email,
                  FirstName = viewModel.FirstName,
-                 ImageUrl = viewModel.Image,
                  Password  = viewModel.Password,
                  PhoneNumber = viewModel.PhoneNumber,
                  UserName = viewModel.UserName,
@@ -157,7 +156,7 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         public IHttpActionResult FacebookLogin(FacebookLogin viewModel)
         {
-            return Ok(db.Users.FirstOrDefault(u => u.Facebook == viewmodel.identity));
+            return Ok(db.Users.FirstOrDefault(u => u.Facebook == viewModel.identity));
         }
 
         [Route("login/social/twitter")]
