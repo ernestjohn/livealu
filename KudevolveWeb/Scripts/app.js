@@ -316,9 +316,9 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         OAuth.popup('twitter', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
-            result.get("https://api.twitter.com/1/account/verify_credentials.json")
+            result.get("https://api.twitter.com/1.1/account/verify_credentials.json")
             .done(function (user_info) {
                 alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
@@ -362,11 +362,14 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         OAuth.popup('linkedin', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
-            result.get("http://api.linkedin.com/v1/people/~")
+            alert(JSON.stringify(result));
+            result.get("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,industry,headline,summary)?format=json")
             .done(function (user_info) {
+               // var data = jQuery.parseXML(user_info);
                 alert(JSON.stringify(user_info));
+                alert(user_info);
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -385,9 +388,9 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         OAuth.popup('google_plus', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
-            result.me()
+            result.get("https://www.googleapis.com/plus/v1/people/me")
             .done(function (user_info) {
                 alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
@@ -435,7 +438,6 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     OAuth.initialize('Vyvllf3OhAQrHCFhXfIiYG_iz20');
 
-    //Perform authentication here
     $scope.facebook = function () {
 
         var provider = 'facebook';
@@ -444,14 +446,11 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         OAuth.popup('facebook', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            
-            alert(result);
-            result.get("https://graph.facebook.com/v2.0/me")
+            result.get("https://graph.facebook.com/v2.1/me?fields=id,name,bio,about,email,birthday,first_name,gender,last_name,middle_name,timezone,is_verified,link,locale")
             .done(function (user_info) {
-                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-
+                alert(JSON.stringify(user_info));
                 //Set The Angular Scope values to the new stuff
 
                 sessionStorage.setItem("firstname", user_info.first_name);
@@ -475,9 +474,9 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         OAuth.popup('twitter', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
-            result.get("https://api.twitter.com/1/account/verify_credentials.json")
+            result.get("https://api.twitter.com/1.1/account/verify_credentials.json")
             .done(function (user_info) {
                 alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
@@ -492,12 +491,13 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         });
 
     }
+
     $scope.instagram = function () {
 
         OAuth.popup('instagram', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
@@ -520,11 +520,14 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         OAuth.popup('linkedin', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
-            result.get("http://api.linkedin.com/v1/people/~")
+            alert(JSON.stringify(result));
+            result.get("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,industry,headline,summary)?format=json")
             .done(function (user_info) {
+                // var data = jQuery.parseXML(user_info);
                 alert(JSON.stringify(user_info));
+                alert(user_info);
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -543,7 +546,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         OAuth.popup('google_plus', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
             result.get("https://www.googleapis.com/plus/v1/people/me")
             .done(function (user_info) {
@@ -558,6 +561,8 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             })
 
         });
+
+
     }
 
     $scope.windows = function () {
@@ -569,6 +574,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://apis.live.net/v5.0/me")
             .done(function (user_info) {
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -580,6 +586,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
         });
     }
+
 
     $scope.register = function () {
 
