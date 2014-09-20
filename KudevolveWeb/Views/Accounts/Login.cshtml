@@ -25,8 +25,21 @@
     <script src="~/Scripts/bootstrap.js"></script>
     <link href="~/Content/RegAndLog/soc.css" rel="stylesheet" />
     <script src="~/Content/RegAndLog/soc.js"></script>
-    
+    <script type="text/javascript">
 
+    new $.flavr({
+        content: 'Welcome to Kudevolve',
+        iconPath: 'http://localhost:4775/icons/',
+        icon: 'star.png',
+        buttons: {
+            Ok: { style: 'info' },
+            Cancel: { style: 'danger' }
+        }
+    });
+    </script>
+
+
+    
     <meta name="viewport" content="width=device-width" />
     <title>Login</title>
 </head>
@@ -41,7 +54,7 @@
     
 
 
-
+    @*<textarea class="form-control" id="commentdata" name="commentpost" rows="2" placeholder="Enter Comment here" cols="*" style="margin: 0px; width: 295px; height: 89px; color: black;"></textarea>*@
     <div class="container" ng-controller="LoginCtrl">
 
         <div class="row" style="margin-top:20px">

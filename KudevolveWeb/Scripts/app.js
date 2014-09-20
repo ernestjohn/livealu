@@ -3,9 +3,6 @@
 /// <reference path="linq.js" />
 /// <reference path="flavr.js" />
 
-
-
-
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
 var app = angular.module('app', []);
 
@@ -45,7 +42,11 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     //The Signalr Code
     var kuhub = $.connection.notificationStreamer;
 
-    kuhub.client.addPostComment = function (postid, comment) {
+    kuhub.client.addPostComment = function (data) {
+        var arr = data.split("|", 2);
+        postid = arr[0];
+        comment = arr[1];
+
         var index = Enumerable.From($scope.posts).IndexOf( Enumerable.From($scope.posts).Where(function (pst) {
             pst.PostId == postid
         }).FirstOrDefault());
@@ -55,14 +56,16 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         $scope.$apply();
     }
 
-    kuhub.client.addNewPost = function (post) {
-        alert("From Signalr Server" + post);
+    kuhub.client.addNewPost = function (mypost) {
+        post = JSON.parse(mypost);
+       // alert("From Signalr Server" + post);
         console.log("New post added");
         $scope.posts.push(post);
-        alert(JSON.stringify($scope.posts));
+        //alert(JSON.stringify($scope.posts));
         console.log("Scope push no error!");
         $scope.$apply();
     }
+   
 
     kuhub.client.addPetition = function () {
         
@@ -74,8 +77,9 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
     kuhub.client.notify = function (message) {
         toastr.info("Online message: " + message);
-        $scope.newpost = message;
-        alert($scope.newpost);
+        //$scope.newpost = message;
+        $scope.$apply();
+        //alert($scope.newpost);
         console.log(message);
     }
 
@@ -90,7 +94,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://localhost:4775/users/' + loggedUserId + '/signalrconnections',
+            url: 'http://kudevolvemain.azurewebsites.net/users/' + loggedUserId + '/signalrconnections',
             async: true,
             type: 'POST',
             data: JSON.stringify(usercon),
@@ -125,6 +129,58 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         }
     });
 
+    $scope.posts.addComment = function (post) {
+        var mypostid = post.PostId;
+        var html =
+'   <div class="form-row">' +
+'       <textarea ng-model="commento" class="form-control" name="comm" rows="2" placeholder="Enter Comment here" cols="*" style="margin: 0px; width: 295px; height: 89px; color: black;"></textarea>'
+        '   </div>';
+        var commen = "";
+        
+        new $.flavr({
+            title: 'Make a comment on post',
+            iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+            icon: 'chat-bubble.png',
+            content: post.Content,
+            dialog: 'form',
+            form: { content: html, addClass: 'form-html' },
+            onSubmit: function ($container, $form) {
+                var obj = $form.serialize();
+                
+                var dta = $form.serialize();
+                var resp = dta.split("=", 2);
+                var re = resp[1];
+                commen = re;
+                alert(re);//This is the actual comment in the post
+                
+                
+                //alert($form.valueOf());
+                return false;
+            }
+           
+        });
+        var com = new Object();
+        com.PostUser = loggedUserId;
+        com.Content = commen;
+
+
+        //Call the signalr-based real time post sender
+        $.ajax({
+            url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts/' + mypostid + '/comments',
+            async: true,
+            type: 'POST',
+            data: JSON.stringify(com),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                toastr.info("You have successfully made a comment")
+            },
+            error: function (x, y, z) {
+                alert('Oooops!!' + x + '\n' + y + '\n' + z);
+            }
+        });
+
+    }
+
     $scope.sharePost = function (postToBeshared) {
         $scope.postShared = postToBeshared;
     }
@@ -142,7 +198,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         new $.flavr({
             content: 'Welcome to Kudevolve',
-            iconPath: 'http://localhost:4775/icons/',
+            iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
             icon: 'star.png',
             buttons: {
                 Ok: { style: 'info' },
@@ -170,7 +226,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://localhost:4775/api/v1/posts',
+            url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts',
             async: true,
             type: 'POST',
             data: JSON.stringify(postToPost),
@@ -203,7 +259,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         //Make the REST call
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://localhost:4775/api/users/login',
+            url: 'http://kudevolvemain.azurewebsites.net/api/users/login',
             async: true,
             type: 'POST',
             data: JSON.stringify(loginData),
@@ -211,7 +267,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             success: function (data) {
                 sessionStorage.setItem("userid", data.Id);
                 sessionStorage.setItem("userlogged", true);
-                window.location = "http://localhost:4775/dashboard/index";
+                window.location = "http://kudevolvemain.azurewebsites.net/dashboard/index";
                 toastr.info("You have successfully Logged In")
             },
             error: function (x, y, z) {
@@ -236,7 +292,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             .done(function (user_info) {
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-
+                alert(JSON.stringify(userinfo));
                 //Set The Angular Scope values to the new stuff
 
                 sessionStorage.setItem("firstname", user_info.first_name);
@@ -264,6 +320,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.twitter.com/1/account/verify_credentials.json")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -286,6 +343,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -308,6 +366,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("http://api.linkedin.com/v1/people/~")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -330,6 +389,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.me()
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -353,6 +413,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://apis.live.net/v5.0/me")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -387,6 +448,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://graph.facebook.com/v2.0/me")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
 
@@ -417,6 +479,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.twitter.com/1/account/verify_credentials.json")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -438,6 +501,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -460,6 +524,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("http://api.linkedin.com/v1/people/~")
             .done(function (user_info) {
+                alert(JSON.stringify(userinfo));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -524,7 +589,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         //Make the REST call
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://localhost:4775/api/users/register',
+            url: 'http://kudevolvemain.azurewebsites.net/api/users/register',
             async: true,
             type: 'POST',
             data: JSON.stringify(regData),
@@ -539,7 +604,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                         later: { style: 'danger' }
                     }
                 });
-                window.location = "http://localhost:4775/dashboard/index";
+                window.location = "http://kudevolvemain.azurewebsites.net/dashboard/index";
                 toastr.info("You have successfully Registered")
             },
             error: function (x, y, z) {

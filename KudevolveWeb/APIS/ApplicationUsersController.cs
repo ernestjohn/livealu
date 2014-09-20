@@ -44,6 +44,7 @@ namespace KudevolveWeb.APIS
                     
                 };
                 Users.Add(use);
+                
             }
             return Ok(Users);
         }
@@ -237,6 +238,7 @@ namespace KudevolveWeb.APIS
 
         //Get the user with the route api/user/id
         [Route("{id}")]
+        [HttpGet]
         // GET: api/ApplicationUsers/5
         [ResponseType(typeof(AppUser))]
         public IHttpActionResult GetApplicationUser(string id)

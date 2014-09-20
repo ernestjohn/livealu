@@ -9,7 +9,7 @@
 <link href="~/Scripts/flavr.css" rel="stylesheet" />
 <script src="~/Scripts/flavr.js"></script>
 <script src="~/Scripts/jquery.signalR-2.1.1.min.js"></script>
-<script src="http://localhost:4775/signalr/hubs"></script>
+<script src="http://kudevolvemain.azurewebsites.net/signalr/hubs"></script>
 <link href="~/Content/comments.css" rel="stylesheet" />
 <link href="~/KudevolveUI/toastr.css" rel="stylesheet" />
 <script src="~/KudevolveUI/toastr.js"></script>
@@ -19,8 +19,8 @@
 <script type="text/javascript">
    
     new $.flavr({
-        content: 'Welcome to Kudevolve',
-        iconPath: 'http://localhost:4775/icons/',
+        content: 'Welcome to Kudevolve <br/> Please note that this is a test bed and not everything has been fully tested. <br/> Sensei Ernesto',
+        iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
         icon: 'star.png',
         buttons: {
             Ok: { style: 'info' },
@@ -70,8 +70,55 @@
         <div class="ibox-content">
 
             <div>
-                <div ng-repeat=" post in posts">
-                    {{post.content}}
+                <div ng-repeat="post in posts">
+                    <div class="feed-element">
+                        <a href="#" class="pull-left">
+                            <img alt="image" class="img-circle" src="~/KudevolveUI/img/a1.jpg">
+                        </a>
+                        <div class="media-body ">
+                            <small class="pull-right text-navy">1m ago</small>
+                            <strong>Sandra Momot</strong> started following <strong>Monica Smith</strong>. <br>
+                            <small class="text-muted">{{post.DateCreated}}</small><br />
+                            <div class="well">
+                               {{post.Content}}
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Vote</a>
+                                <a class="btn btn-xs btn-primary"><i class="fa fa-share"></i> Share</a>
+                            </div>
+                            <strong>Comments</strong>
+                            <div id="container" style="padding-left: 0px;padding-bottom: 0px;" ng-repeat="comment in post.Comments">
+
+                                <ul id="comments" style="padding-left: 5px;">
+
+                                    <li class="cmmnt">
+                                        <div class="avatar"><a href="javascript:void(0);"><img src="~/KudevolveUI/img/a1.jpg" class="img-circle" alt="DarkCubes photo avatar"></a></div>
+                                        <div class="cmmnt-content">
+                                            <header><a href="javascript:void(0);" class="userlink">{{comment.postuser}}</a> - <span class="pubdate">commented 6 days ago</span></header>
+                                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                                            <div class="well">
+                                               {{comment.Content}}
+                                            </div>
+                                            <div class="actions">
+                                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+
+                                                <a class="btn btn-xs btn-primary"><i class="fa fa-share"></i> Share</a>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control input-lg" ng-model="newcomment" name="name" placeholder="Add Comment" />
+                                <input type="submit" class="btn btn-primary" ng-click="posts.addComment(post)" value="Post Comment " />
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
                 <div class="feed-activity-list" >
 

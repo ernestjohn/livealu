@@ -79,6 +79,7 @@ namespace KudevolveWeb.APIS
             
             db.Posts.Find(id).Comments.Add(newComment);
             db.SaveChanges();
+            signalr.UpdatePostComment(post.PostId, newComment);
 
             return Ok("Comment addition successful");
         }
@@ -185,11 +186,11 @@ namespace KudevolveWeb.APIS
             post.PostId = Guid.NewGuid().ToString();
             post.URL = BaseUrl + "/posts/"+post.PostId;
             post.DateCreated = DateTime.Today.ToString();
-           // db.Posts.Add(post);
+            db.Posts.Add(post);
             
             try
             {
-               // db.SaveChanges();
+               db.SaveChanges();
                 //Send the post to all Signalr Connections
                 await signalr.UpdatePost(post);
             }
