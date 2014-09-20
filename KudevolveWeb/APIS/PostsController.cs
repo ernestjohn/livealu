@@ -20,8 +20,8 @@ namespace KudevolveWeb.APIS
     {
         
         private ApplicationDbContext db = new ApplicationDbContext();
-        public string BaseUrl = "http://kudevolve.azurewebsites.net";
-        RealTimePostUpdater signalr = RealTimePostUpdater.GetInstance();
+        public string BaseUrl = "http://kudevolvemain.azurewebsites.net";
+        public RealTimePostUpdater signalr = RealTimePostUpdater.GetInstance();
 
         //Make a public object to send updates to All signalr Clients
        
@@ -79,7 +79,7 @@ namespace KudevolveWeb.APIS
             
             db.Posts.Find(id).Comments.Add(newComment);
             db.SaveChanges();
-            signalr.UpdatePostComment(post.PostId, newComment);
+            await signalr.UpdatePostComment(post.PostId, newComment);
 
             return Ok("Comment addition successful");
         }
@@ -186,10 +186,11 @@ namespace KudevolveWeb.APIS
             post.PostId = Guid.NewGuid().ToString();
             post.URL = BaseUrl + "/posts/"+post.PostId;
             post.DateCreated = DateTime.Today.ToString();
-            db.Posts.Add(post);
+            
             
             try
             {
+                db.Posts.Add(post);
                db.SaveChanges();
                 //Send the post to all Signalr Connections
                 await signalr.UpdatePost(post);

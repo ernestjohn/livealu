@@ -94,7 +94,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/users/' + loggedUserId + '/signalrconnections',
+            url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/' + loggedUserId + '/signalrconnections',
             async: true,
             type: 'POST',
             data: JSON.stringify(usercon),
@@ -248,7 +248,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 app.controller('LoginCtrl', ['$scope', function ($scope) {
 
     //The simple login code
-    $scope.simplelogin = function () {
+        $scope.simplelogin = function () {
 
         var loginObject = new Object();
         loginObject.Email = $scope.email;
@@ -292,7 +292,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             .done(function (user_info) {
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 //Set The Angular Scope values to the new stuff
 
                 sessionStorage.setItem("firstname", user_info.first_name);
@@ -320,7 +320,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.twitter.com/1/account/verify_credentials.json")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -339,11 +339,11 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         OAuth.popup('instagram', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            //alert(error);
             alert(result);
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -366,7 +366,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("http://api.linkedin.com/v1/people/~")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -389,7 +389,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.me()
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -413,7 +413,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://apis.live.net/v5.0/me")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -444,11 +444,11 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         OAuth.popup('facebook', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
+            
             alert(result);
             result.get("https://graph.facebook.com/v2.0/me")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
 
@@ -479,7 +479,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.twitter.com/1/account/verify_credentials.json")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -501,7 +501,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
@@ -524,7 +524,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("http://api.linkedin.com/v1/people/~")
             .done(function (user_info) {
-                alert(JSON.stringify(userinfo));
+                alert(JSON.stringify(user_info));
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
                 alert(user_info.email);
