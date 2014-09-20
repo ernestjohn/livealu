@@ -45,7 +45,6 @@ namespace KudevolveWeb.Models
        
         public string UserName { get; set; }
 
-       
         public string FirstName { get; set; }
 
         public string SecondName { get; set; }
@@ -56,13 +55,10 @@ namespace KudevolveWeb.Models
 
         public string County { get; set; }
 
-       
         public string ConfirmPassword { get; set; }
 
-         
         public string DateOfBirth { get; set; }
 
-        
         public string PhoneNumber { get; set; }
     }
 }

@@ -99,23 +99,30 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         public IHttpActionResult RegisterUser(RegisterViewModel viewModel)
         {
-            AppUser newUser = new AppUser()
-            {
-                 Id = Guid.NewGuid().ToString(),
-                 County = viewModel.County,
-                 DateOfBirth = viewModel.DateOfBirth,
-                 Email = viewModel.Email,
-                 FirstName = viewModel.FirstName,
-                 Password  = viewModel.Password,
-                 PhoneNumber = viewModel.PhoneNumber,
-                 UserName = viewModel.UserName,
-                 SecondName = viewModel.SecondName
-            };
+                 AppUser newUser = new AppUser();
+            
+                 newUser.Id = Guid.NewGuid().ToString();
+                 newUser.County = viewModel.County;
+                 newUser.DateOfBirth = viewModel.DateOfBirth;
+                 newUser.Email = viewModel.Email;
+                 newUser.FirstName = viewModel.FirstName;
+                 newUser.Password  = viewModel.Password;
+                 newUser.PhoneNumber = viewModel.PhoneNumber;
+                 newUser.UserName = viewModel.UserName;
+                 newUser.SecondName = viewModel.SecondName;
 
-            db.Users.Add(newUser);
-            db.SaveChanges();
+                 try
+                 {
+                     db.Users.Add(newUser);
+                     db.SaveChanges();
+                     return Ok(newUser);
+                 }
+                 catch (Exception e)
+                 {
 
-            return Ok(newUser);
+                     return BadRequest(e.Message + " " + e.Source );
+                 }
+            
         }
 
         [Route("register")]

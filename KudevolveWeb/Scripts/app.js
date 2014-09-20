@@ -436,6 +436,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
 
 app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
+    $scope.newuser = null;
     OAuth.initialize('Vyvllf3OhAQrHCFhXfIiYG_iz20');
 
     $scope.facebook = function () {
@@ -450,16 +451,26 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             .done(function (user_info) {
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-                alert(JSON.stringify(user_info));
+                //alert(JSON.stringify(user_info));
                 //Set The Angular Scope values to the new stuff
 
-                sessionStorage.setItem("firstname", user_info.first_name);
-                sessionStorage.setItem("email", user_info.email);
-                sessionStorage.setItem("middlename", user_info.last_name);
-                sessionStorage.setItem("name", user_info.name);
+                $scope.FirstName = user_info.first_name;
+                $scope.LastName = user_info.last_name;
+                $scope.Email = user_info.email;
+                $scope.UserName = user_info.name;
 
+                $scope.$apply();
 
-                alert(user_info.email);
+                new $.flavr({
+                    content: 'Facebook Connection <br/> Thank you for connecting Kudevolve with your facebook account. <br/> However more info is required <br/> Admin(Sensei)',
+                    iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                    icon: 'star.png',
+                    buttons: {
+                        Ok: { style: 'info' }
+                       
+                    }
+                });
+               
             })
             .fail(function (error) {
                 // handle errors here
@@ -590,20 +601,32 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     $scope.register = function () {
 
-        
-        var regData = JSON.stringify($scope.newuser);
+        alert($scope.County);
+        alert($scope.DateOfBirth);
 
+        var regobj = new Object();
+        regobj.FirstName = $scope.FirstName;
+        regobj.SecondName = $scope.LastName;
+        regobj.Email = $scope.Email;
+        regobj.County = $scope.County;
+        regobj.UserName = $scope.UserName;
+        regobj.PhoneNumber = $scope.PhoneNumber;
+        regobj.DateOfBirth = $scope.DateOfBirth;
+        regobj.Password = $scope.Password;
+
+        alert(JSON.stringify(regobj));
         //Make the REST call
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/users/register',
+            url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/register',
             async: true,
             type: 'POST',
-            data: JSON.stringify(regData),
+            data: JSON.stringify(regobj),
             contentType: "application/json;charset=utf-8",
             success: function (data) {
+                alert(data);
                 new $.flavr({
-                    content: 'You have successfuly registered',
+                    content: 'Thank you <br/>You have successfuly registered',
                     iconPath: '~/icons/',
                     icon: 'star.png',
                     buttons: {
@@ -611,10 +634,19 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                         later: { style: 'danger' }
                     }
                 });
-                window.location = "http://kudevolvemain.azurewebsites.net/dashboard/index";
-                toastr.info("You have successfully Registered")
+                window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
+               
             },
             error: function (x, y, z) {
+                new $.flavr({
+                    content: 'Something happened<br/>Please try again',
+                    iconPath: '~/icons/',
+                    icon: 'star.png',
+                    buttons: {
+                        read: { style: 'info' },
+                        later: { style: 'danger' }
+                    }
+                });
                 alert('Oooops!!' + x + '\n' + y + '\n' + z);
             }
         });

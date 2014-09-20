@@ -37,7 +37,7 @@
     <script type="text/javascript">
 
     new $.flavr({
-        content: 'Welcome to Kudevolve\n Register to get involved with the best devolution platform',
+        content: 'Welcome to Kudevolve<br/>Register to get involved with the best devolution platform',
         iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
         icon: 'star.png',
         buttons: {
@@ -92,30 +92,31 @@
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.FirstName).Class("form-control input-lg").Placeholder("First Name")
                         @Html.ValidationMessageFor(model => model.FirstName)*@ 
-                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="newuser.FirstName" placeholder="First Name" tabindex="3">
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="FirstName" placeholder="First Name" tabindex="3">
                     </div>
                     
                     
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.SecondName).Class("form-control input-lg").Placeholder("Last Name")
                         @Html.ValidationMessageFor(model => model.SecondName)*@
-                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="newuser.LastName" placeholder="Last Name" tabindex="3">
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="LastName" placeholder="Last Name" tabindex="3">
                     </div>
 
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.UserName).Class("form-control input-lg").Placeholder("User Name")
                         @Html.ValidationMessageFor(model => model.UserName)*@
-                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="newuser.UserName" placeholder="Username" tabindex="3">
+                        <input type="text" name="display_name" id="display_name" class="form-control input-lg" ng-model="UserName" placeholder="Username" tabindex="3">
                     </div>
-                    
-                    
+
+                  
+
 
                     @*<div class="row">*@
                     <div class="col-xs-6 col-sm-6 col-md-6">
                         <div class="form-group">
                             @*@Html.Bootstrap().PasswordFor(model => model.Password).Class("form-control input-lg").Placeholder("Password")
                             @Html.ValidationMessageFor(model => model.Password)*@
-                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" ng-model="newuser.Password" placeholder="Password" tabindex="1">
+                            <input type="password" name="first_name" id="first_name" class="form-control input-lg" ng-model="Password" placeholder="Password" tabindex="1">
                         </div>
                     </div>
 
@@ -124,24 +125,23 @@
 
                             @*@Html.Bootstrap().PasswordFor(model => model.ConfirmPassword).Class("form-control input-lg").Placeholder("Confirm Password")
                             @Html.ValidationMessageFor(model => model.ConfirmPassword)*@
-                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" ng-model="newuser.ConfirmPassword" placeholder="Confirm Password" tabindex="2">
+                            <input type="password" name="last_name" id="last_name" class="form-control input-lg" ng-model="ConfirmPassword" placeholder="Confirm Password" tabindex="2">
                         </div>
                     </div>
                     @*</div>*@
 
                    
-
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.Email).Class("form-control input-lg").Placeholder("Email Address")
                         @Html.ValidationMessageFor(model => model.Email)*@
-                        <input type="email" name="email" id="email" class="form-control input-lg" ng-model="newuser.Email" placeholder="Email Address" tabindex="4">
+                        <input type="email" name="email" id="email" class="form-control input-lg" ng-model="Email" placeholder="Email Address" tabindex="4">
                     </div>
 
                     <div class="form-group">
                        
-                        <select ng-model="newuser.county" class="form-control input-lg">
+                        <select ng-model="County" class="form-control input-lg">
                             <option value="Kiambu">Kiambu</option>
-                            <option value="Nairobi">Nairobi</option>
+                            <option selected="selected" value="Nairobi">Nairobi</option>
                             <option value="Muranga">Muranga</option>
                             <option value="Kitale">Kitale</option>
                             <option value="Kirinyaga">Kirinyaga</option>
@@ -152,13 +152,13 @@
     <div class="form-group">
         @*@Html.Bootstrap().TextBoxFor(model => model.PhoneNumber).Class("form-control input-lg").Placeholder("Phone Number").Value("+254")
             @Html.ValidationMessageFor(model => model.PhoneNumber)*@
-        <input type="date" name="date" id="phone" class="form-control input-lg" ng-model="newuser.DateOfBirth">
+        <input type="date" name="date" id="phone" class="form-control input-lg" placeholder="Date of Birth" ng-model="DateOfBirth">
     </div>
 
                     <div class="form-group">
                         @*@Html.Bootstrap().TextBoxFor(model => model.PhoneNumber).Class("form-control input-lg").Placeholder("Phone Number").Value("+254")
                         @Html.ValidationMessageFor(model => model.PhoneNumber)*@
-                        <input type="number" name="number" id="phone" class="form-control input-lg" ng-model="newuser.PhoneNumber" placeholder="Phone Number" value="+254" tabindex="4">
+                        <input type="number" name="number" id="phone" class="form-control input-lg" ng-model="PhoneNumber" placeholder="Phone Number" value="+254" tabindex="4">
                     </div>
 
                     <div class="row">
