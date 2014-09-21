@@ -69,7 +69,7 @@ namespace KudevolveWeb.APIS
         //Code to post a user Signalr Connection
         [Route("{userid}/signalrconnections")]
         [HttpPost]
-        public IHttpActionResult PostUserConnection(SignalrConnection viewModel)
+        public IHttpActionResult PostUserConnection(string userid, SignalrConnection viewModel)
         {
             try
             {

@@ -262,6 +262,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
              data: JSON.stringify(socialpost),
              contentType: "application/json;charset=utf-8",
              success: function (data) {
+                 sessionStorage.setitem("user",data);
                  sessionStorage.setItem("userid", data.Id);
                  sessionStorage.setItem("name", data.FirstName);
                  sessionStorage.setItem("userlogged", true);
@@ -462,7 +463,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     $scope.facebook = function () {
         social = true;
-        var provider = 'facebook';
+        
         var options = "";
 
         OAuth.popup('facebook', function (error, result) {
@@ -481,7 +482,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 $scope.UserName = user_info.name;
 
                 provider = "facebook";
-                providerid = user_info.id;
+                providerid = String(user_info.id);
 
                 $scope.$apply();
 
@@ -564,7 +565,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 $scope.UserName = user_info.data.username;
 
                 provider = "instagram";
-                providerid = user_info.data.id;
+                providerid = String(user_info.data.id);
 
                 $scope.$apply();
 
@@ -608,7 +609,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 $scope.LastName = user_info.lastName;
                 
                 provider = "linkedin";
-                providerid = user_info.id;
+                providerid = String(user_info.id);
 
                 $scope.$apply();
 
@@ -652,7 +653,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 $scope.UserName = user_info.name.displayName;
 
                 provider = "google";
-                providerid = user_info.id;
+                providerid = String(user_info.id);
 
 
                 $scope.$apply();
@@ -733,8 +734,8 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             }
             else {
 
-                alert($scope.County);
-                alert($scope.DateOfBirth);
+                //alert($scope.County);
+               // alert($scope.DateOfBirth);
 
                 var regobj = new Object();
                 regobj.FirstName = $scope.FirstName;
@@ -746,12 +747,14 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 regobj.DateOfBirth = $scope.DateOfBirth;
                 regobj.Password = $scope.Password;
 
-                alert(JSON.stringify(regobj));
+               // alert(JSON.stringify(regobj));
                 //Make the REST call
                 //Call the signalr-based real time post sender
                 if (social == true) {
+                    alert(provider);
+                    var url = "http://kudevolvemain.azurewebsites.net/api/v1/users/register/" + provider + "/" + providerid;
                     $.ajax({
-                        url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/register/' + provider + '/' + providerid,
+                        url: url,
                         async: true,
                         type: 'POST',
                         data: JSON.stringify(regobj),
