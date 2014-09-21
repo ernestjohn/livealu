@@ -262,7 +262,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
              data: JSON.stringify(socialpost),
              contentType: "application/json;charset=utf-8",
              success: function (data) {
-                 sessionStorage.setitem("user",data);
+                 sessionStorage.setItem("user",data);
                  sessionStorage.setItem("userid", data.Id);
                  sessionStorage.setItem("name", data.FirstName);
                  sessionStorage.setItem("userlogged", true);
