@@ -125,6 +125,191 @@ namespace KudevolveWeb.APIS
             
         }
 
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         */
+        /// <summary>
+        /// This is where I implement my facebook registration APIs
+        /// </summary>
+        /// <returns></returns>
+        [Route("register/facebook/{id}")]
+        [HttpPost]
+        public IHttpActionResult RegisterUserFacebook(string id,RegisterViewModel viewModel)
+        {
+            AppUser newUser = new AppUser();
+
+            newUser.Id = Guid.NewGuid().ToString();
+            newUser.County = viewModel.County;
+            newUser.DateOfBirth = viewModel.DateOfBirth;
+            newUser.Email = viewModel.Email;
+            newUser.FirstName = viewModel.FirstName;
+            newUser.Password = viewModel.Password;
+            newUser.PhoneNumber = viewModel.PhoneNumber;
+            newUser.UserName = viewModel.UserName;
+            newUser.SecondName = viewModel.SecondName;
+            newUser.Facebook = id;
+
+            try
+            {
+                db.Users.Add(newUser);
+                db.SaveChanges();
+                return Ok(newUser);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message + " " + e.Source);
+            }
+
+        }
+
+        [Route("register/twitter/{id}")]
+        [HttpPost]
+        public IHttpActionResult RegisterUserTwitter(string id, RegisterViewModel viewModel)
+        {
+            AppUser newUser = new AppUser();
+
+            newUser.Id = Guid.NewGuid().ToString();
+            newUser.County = viewModel.County;
+            newUser.DateOfBirth = viewModel.DateOfBirth;
+            newUser.Email = viewModel.Email;
+            newUser.FirstName = viewModel.FirstName;
+            newUser.Password = viewModel.Password;
+            newUser.PhoneNumber = viewModel.PhoneNumber;
+            newUser.UserName = viewModel.UserName;
+            newUser.SecondName = viewModel.SecondName;
+            newUser.Twitter = id;
+
+            try
+            {
+                db.Users.Add(newUser);
+                db.SaveChanges();
+                return Ok(newUser);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message + " " + e.Source);
+            }
+
+        }
+
+
+        [Route("register/instagram/{id}")]
+        [HttpPost]
+        public IHttpActionResult RegisterUserInstagram(string id,RegisterViewModel viewModel)
+        {
+            AppUser newUser = new AppUser();
+
+            newUser.Id = Guid.NewGuid().ToString();
+            newUser.County = viewModel.County;
+            newUser.DateOfBirth = viewModel.DateOfBirth;
+            newUser.Email = viewModel.Email;
+            newUser.FirstName = viewModel.FirstName;
+            newUser.Password = viewModel.Password;
+            newUser.PhoneNumber = viewModel.PhoneNumber;
+            newUser.UserName = viewModel.UserName;
+            newUser.SecondName = viewModel.SecondName;
+            newUser.Instagram = id;
+
+            try
+            {
+                db.Users.Add(newUser);
+                db.SaveChanges();
+                return Ok(newUser);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message + " " + e.Source);
+            }
+
+        }
+
+        [Route("register/linkedin/{id}")]
+        [HttpPost]
+        public IHttpActionResult RegisterUserLinkedin(string id,RegisterViewModel viewModel)
+        {
+            AppUser newUser = new AppUser();
+
+            newUser.Id = Guid.NewGuid().ToString();
+            newUser.County = viewModel.County;
+            newUser.DateOfBirth = viewModel.DateOfBirth;
+            newUser.Email = viewModel.Email;
+            newUser.FirstName = viewModel.FirstName;
+            newUser.Password = viewModel.Password;
+            newUser.PhoneNumber = viewModel.PhoneNumber;
+            newUser.UserName = viewModel.UserName;
+            newUser.SecondName = viewModel.SecondName;
+            newUser.LinkedIn = id;
+
+            try
+            {
+                db.Users.Add(newUser);
+                db.SaveChanges();
+                return Ok(newUser);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message + " " + e.Source);
+            }
+
+        }
+
+        [Route("register/google/{id}")]
+        [HttpPost]
+        public IHttpActionResult RegisterUserGoogle(string id, RegisterViewModel viewModel)
+        {
+            AppUser newUser = new AppUser();
+
+            newUser.Id = Guid.NewGuid().ToString();
+            newUser.County = viewModel.County;
+            newUser.DateOfBirth = viewModel.DateOfBirth;
+            newUser.Email = viewModel.Email;
+            newUser.FirstName = viewModel.FirstName;
+            newUser.Password = viewModel.Password;
+            newUser.PhoneNumber = viewModel.PhoneNumber;
+            newUser.UserName = viewModel.UserName;
+            newUser.SecondName = viewModel.SecondName;
+            newUser.Google = id;
+
+            try
+            {
+                db.Users.Add(newUser);
+                db.SaveChanges();
+                return Ok(newUser);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message + " " + e.Source);
+            }
+
+        }
+        /*
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         * 
+         */
+
         [Route("register")]
         [HttpGet]
         public IHttpActionResult RegisterSample()

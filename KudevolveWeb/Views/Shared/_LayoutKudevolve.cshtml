@@ -25,6 +25,19 @@
         if (!(sessionStorage.getItem("userlogged"))) {
             window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
         }
+        else {
+            var user = sessionStorage.getItem("user");
+
+            var name = user.FirstName + " " + user.LastName;
+            var county = user.County;
+
+            $(document).ready(function () {
+                $("#fullname").text(name);
+                $("#usercounty").text(county);
+            });
+
+
+        }
     </script>
 
 </head>
@@ -38,7 +51,7 @@
                     <li class="nav-header">
 
                         @* Partial Login Page *@
-                        <div class="dropdown profile-element">
+                        <div class="dropdown profile-element" ng-controller="">
                            
                                 <span>
                                     <img alt="image" class="img-circle" src="~/KudevolveUI/img/profile_small.jpg">
@@ -47,8 +60,8 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                     <span class="block m-t-xs">
-                                        <strong class="font-bold">Jane Lumumba</strong>
-                                    </span> <span class="text-muted text-xs block">@@jane_lumumba <b class="caret"></b></span>
+                                        <strong class="font-bold" id="fullname">Full name</strong>
+                                    </span> <span class="text-muted text-xs block" id="usercounty">County <b class="caret"></b></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -59,6 +72,7 @@
                                 <li><a href="login.html">Logout</a></li>
                             </ul>
                         </div>
+
                         <div class="logo-element">
                             KD
                         </div>
