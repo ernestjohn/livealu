@@ -178,8 +178,8 @@ namespace KudevolveWeb.APIS
         public async Task<IHttpActionResult> PostPost(PostViewModel viewModel)
         {
             Post post = new Post();
-            var user = new AppUser();
-            //var user = db.Users.Find(viewModel.Ownerid);
+            //var user = new AppUser();
+            var user = db.Users.Find(viewModel.Ownerid);
             post.PostId = Guid.NewGuid().ToString();
             post.Owner = user;
             post.Content = viewModel.Content;

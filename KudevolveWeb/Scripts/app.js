@@ -216,7 +216,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     $scope.addPost = function () {
 
         var postToPost = new Object();//Build the object
-        postToPost.OwnerId = "";
+        postToPost.OwnerId = loggedUserId;
         postToPost.Content = $scope.newpost;
 
         //alert($scope.newpost);
@@ -515,7 +515,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             result.get("https://api.twitter.com/1.1/account/verify_credentials.json")
             .done(function (user_info) {
 
-                alert(JSON.stringify(user_info));
+                //alert(JSON.stringify(user_info));
                 $scope.FirstName = user_info.name;
               
                 $scope.UserName = user_info.screen_name;
@@ -537,7 +537,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-                alert(user_info.email);
+               // alert(user_info.email);
             })
             .fail(function (error) {
                 // handle errors here
@@ -557,7 +557,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             alert(result);
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
-                alert(JSON.stringify(user_info));
+               // alert(JSON.stringify(user_info));
 
 
                 $scope.FirstName = user_info.data.full_name;
@@ -580,7 +580,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 });
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-                alert(user_info.email);
+                //alert(user_info.email);
             })
             .fail(function (error) {
                 // handle errors here
@@ -602,7 +602,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             result.get("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,industry,headline,summary)?format=json")
             .done(function (user_info) {
                 // var data = jQuery.parseXML(user_info);
-                alert(JSON.stringify(user_info));
+                //alert(JSON.stringify(user_info));
                 //alert(user_info);
 
                 $scope.FirstName = user_info.firstName;
@@ -625,7 +625,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-                alert(user_info.email);
+                //alert(user_info.email);
             })
             .fail(function (error) {
                 // handle errors here
@@ -642,7 +642,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             //handle error with error
             //use result.access_token in your API request
             //alert(error);
-            alert(result);
+            //alert(result);
             result.get("https://www.googleapis.com/plus/v1/people/me")
             .done(function (user_info) {
                 //alert(JSON.stringify(user_info));
@@ -670,7 +670,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
                 // user_info.raw contains the original response
-                alert(user_info.email);
+                //alert(user_info.email);
             })
             .fail(function (error) {
                 // handle errors here
@@ -751,7 +751,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 //Make the REST call
                 //Call the signalr-based real time post sender
                 if (social == true) {
-                    alert(provider);
+                    //alert(provider);
                     var url = "http://kudevolvemain.azurewebsites.net/api/v1/users/register/" + provider + "/" + providerid;
                     $.ajax({
                         url: url,
