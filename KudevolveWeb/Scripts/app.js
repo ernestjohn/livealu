@@ -361,7 +361,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             //handle error with error
             //use result.access_token in your API request
             //alert(error);
-            alert(result);
+            //alert(result);
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
                 
@@ -383,8 +383,8 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             //handle error with error
             //use result.access_token in your API request
             //alert(error);
-            alert(result);
-            alert(JSON.stringify(result));
+            ////alert(result);
+            //alert(JSON.stringify(result));
             result.get("https://api.linkedin.com/v1/people/~:(id,first-name,last-name,industry,headline,summary)?format=json")
             .done(function (user_info) {
                // var data = jQuery.parseXML(user_info);
@@ -408,7 +408,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             //handle error with error
             //use result.access_token in your API request
             //alert(error);
-            alert(result);
+            //alert(result);
             result.get("https://www.googleapis.com/plus/v1/people/me")
             .done(function (user_info) {
                 
