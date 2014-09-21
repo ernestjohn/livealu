@@ -259,7 +259,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         //Make the REST call
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/users/login',
+            url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/login',
             async: true,
             type: 'POST',
             data: JSON.stringify(loginData),
@@ -601,32 +601,21 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     $scope.register = function () {
 
-        alert($scope.County);
-        alert($scope.DateOfBirth);
-
-        var regobj = new Object();
-        regobj.FirstName = $scope.FirstName;
-        regobj.SecondName = $scope.LastName;
-        regobj.Email = $scope.Email;
-        regobj.County = $scope.County;
-        regobj.UserName = $scope.UserName;
-        regobj.PhoneNumber = $scope.PhoneNumber;
-        regobj.DateOfBirth = $scope.DateOfBirth;
-        regobj.Password = $scope.Password;
-
-        alert(JSON.stringify(regobj));
-        //Make the REST call
-        //Call the signalr-based real time post sender
-        $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/register',
-            async: true,
-            type: 'POST',
-            data: JSON.stringify(regobj),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                alert(data);
+        if ($scope.FirstName == null || $scope.LastName == null || $scope.Email == null || $scope.County == null || $scope.UserName == null || $scope.PhoneNumber == null || $scope.DateOfBirth == null || $scope.Password == null || $scope.ConfirmPassword == null) {
+            new $.flavr({
+                content: 'Data Entry<br/>Please fill in the data below.<br/> It\s required to register on Kudevolve',
+                iconPath: '~/icons/',
+                icon: 'star.png',
+                buttons: {
+                    read: { style: 'info' },
+                    later: { style: 'danger' }
+                }
+            });
+        }
+        else {
+            if ($scope.Password != $scope.ConfirmPassword) {
                 new $.flavr({
-                    content: 'Thank you <br/>You have successfuly registered',
+                    content: 'Passwords do not match<br/>Please input matching passwords',
                     iconPath: '~/icons/',
                     icon: 'star.png',
                     buttons: {
@@ -634,22 +623,60 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                         later: { style: 'danger' }
                     }
                 });
-                window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
-               
-            },
-            error: function (x, y, z) {
-                new $.flavr({
-                    content: 'Something happened<br/>Please try again',
-                    iconPath: '~/icons/',
-                    icon: 'star.png',
-                    buttons: {
-                        read: { style: 'info' },
-                        later: { style: 'danger' }
-                    }
-                });
-                alert('Oooops!!' + x + '\n' + y + '\n' + z);
             }
-        });
-    }
+            else {
 
+                alert($scope.County);
+                alert($scope.DateOfBirth);
+
+                var regobj = new Object();
+                regobj.FirstName = $scope.FirstName;
+                regobj.SecondName = $scope.LastName;
+                regobj.Email = $scope.Email;
+                regobj.County = $scope.County;
+                regobj.UserName = $scope.UserName;
+                regobj.PhoneNumber = $scope.PhoneNumber;
+                regobj.DateOfBirth = $scope.DateOfBirth;
+                regobj.Password = $scope.Password;
+
+                alert(JSON.stringify(regobj));
+                //Make the REST call
+                //Call the signalr-based real time post sender
+                $.ajax({
+                    url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/register',
+                    async: true,
+                    type: 'POST',
+                    data: JSON.stringify(regobj),
+                    contentType: "application/json;charset=utf-8",
+                    success: function (data) {
+                        alert(data);
+                        new $.flavr({
+                            content: 'Thank you <br/>You have successfuly registered',
+                            iconPath: '~/icons/',
+                            icon: 'star.png',
+                            buttons: {
+                                read: { style: 'info' },
+                                later: { style: 'danger' }
+                            }
+                        });
+                        window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
+
+                    },
+                    error: function (x, y, z) {
+                        new $.flavr({
+                            content: 'Something happened<br/>Please try again',
+                            iconPath: '~/icons/',
+                            icon: 'star.png',
+                            buttons: {
+                                read: { style: 'info' },
+                                later: { style: 'danger' }
+                            }
+                        });
+                        alert('Oooops!!' + x + '\n' + y + '\n' + z);
+                    }
+                });
+            }
+
+        }
+    }
 }]);
