@@ -308,6 +308,8 @@
     <Compile Include="RealTime\ChatHub.cs" />
     <Compile Include="RealTime\NotificationStreamer.cs" />
     <Compile Include="RealTime\UserConnections.cs" />
+    <Compile Include="ServiceOperations\CountiesIndexer.cs" />
+    <Compile Include="ServiceOperations\CountyData.cs" />
     <Compile Include="ServiceOperations\Emailer.cs" />
     <Compile Include="ServiceOperations\SmsSender.cs" />
     <Compile Include="Startup.cs" />

@@ -40,8 +40,9 @@ namespace KudevolveWeb.APIS
                     Email = usera.Email,
                     PhoneNumber = usera.PhoneNumber,
                     ImageUrl= usera.ImageUrl,
-                    DateOfBirth = usera.DateOfBirth
-                    
+                    DateOfBirth = usera.DateOfBirth,
+                    County = usera.County
+                   
                 };
                 Users.Add(use);
                 
@@ -60,10 +61,11 @@ namespace KudevolveWeb.APIS
             {
                 return Ok(connections);
             }
-            else
+            else 
+            {
+                return BadRequest("No user connections exist unfortunately");
+            }
            
-              return BadRequest("No user connections exist unfortunately");
-            
         }
 
         //Code to post a user Signalr Connection
@@ -73,13 +75,14 @@ namespace KudevolveWeb.APIS
         {
             try
             {
+                connectionManager.AddConnection(userid);
                 connectionManager.AddUserConnection(viewModel.userid, viewModel.connectionid);
                 return Ok("Connection addition Successful");
             }
             catch (Exception)
             {
 
-                return BadRequest();
+                return BadRequest("Something went wrong adding the user connection");
             }
             
         }
@@ -99,8 +102,9 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         public IHttpActionResult RegisterUser(RegisterViewModel viewModel)
         {
+                 //Instantiate a new empty user object
                  AppUser newUser = new AppUser();
-            
+                 
                  newUser.Id = Guid.NewGuid().ToString();
                  newUser.County = viewModel.County;
                  newUser.DateOfBirth = viewModel.DateOfBirth;
@@ -113,9 +117,18 @@ namespace KudevolveWeb.APIS
 
                  try
                  {
-                     db.Users.Add(newUser);
-                     db.SaveChanges();
-                     return Ok(newUser);
+                     //First check if the user already exists in the database with that email
+                     if (db.Users.Count(u => u.Email == newUser.Email) > 0)
+                     {
+                         return BadRequest("Sorry!A user with the email already exists");
+                     }
+                     else
+                     {
+                         db.Users.Add(newUser);
+                         db.SaveChanges();
+                         return Ok(newUser);
+                     }
+                    
                  }
                  catch (Exception e)
                  {
@@ -332,7 +345,7 @@ namespace KudevolveWeb.APIS
         public IHttpActionResult LoginUser(LoginViewModel viewModel)
         {
             var user = db.Users.Where(usr => usr.Email == viewModel.Email && usr.Password == viewModel.Password)
-                .Include(u => u.Groups);
+                .Include(u => u.Groups).FirstOrDefault();
 
             if (user != null)
             {

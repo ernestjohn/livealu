@@ -47,8 +47,12 @@ namespace KudevolveWeb.APIS
             {
                 return NotFound();
             }
+            else
+            {
+                return Ok(post);
+            }
 
-            return Ok(post);
+            
         }
 
         [HttpGet]

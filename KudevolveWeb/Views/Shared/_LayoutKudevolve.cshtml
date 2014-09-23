@@ -22,22 +22,12 @@
 
     <script type="text/javascript">
         //Check whether the user is logged in or not through the log object
-        if (!(sessionStorage.getItem("userlogged"))) {
-            window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
-        }
-        else {
-            var user = sessionStorage.getItem("user");
-
-            var name = user.FirstName + " " + user.LastName;
-            var county = user.County;
-
-            $(document).ready(function () {
-                $("#fullname").text(name);
-                $("#usercounty").text(county);
-            });
-
-
-        }
+        //if (!(sessionStorage.getItem("userlogged"))) {
+        //    window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
+        //}
+        //else {
+        //    var user = sessionStorage.getItem("user");
+        //}
     </script>
 
 </head>
@@ -60,8 +50,19 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                     <span class="block m-t-xs">
-                                        <strong class="font-bold" id="fullname">Full name</strong>
-                                    </span> <span class="text-muted text-xs block" id="usercounty">County <b class="caret"></b></span>
+                                        <strong class="font-bold" id="fullname">
+                                        <script>
+                                            var name = sessionStorage.getItem("name");
+                                            
+                                            document.write(name);
+                                        </script>
+                                        </strong>
+                                    </span> <span class="text-muted text-xs block" id="usercounty">
+                                    <script>
+                                        var county = sessionStorage.getItem("county");
+                                        
+                                        document.write(county);
+                                </script><b class="caret"></b></span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">

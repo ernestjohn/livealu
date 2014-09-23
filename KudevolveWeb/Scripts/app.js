@@ -6,6 +6,11 @@
 // Declares how the application should be bootstrapped. See: http://docs.angularjs.org/guide/module
 var app = angular.module('app', []);
 
+app.filter('reverse', function () {
+    return function (items) {
+        return items.slice().reverse();
+    };
+});
 
 // Path: /
 app.controller('DashboardCtrl', ['$scope', function ($scope) {
@@ -20,20 +25,20 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     });
 
 
-    $.get("http://kudevolvemain.azurewebsites.net/api/v1/discussions", function (data) {
-        //Update the Scope object data
-        $scope.discussions = data;
-    });
+    //$.get("http://kudevolvemain.azurewebsites.net/api/v1/discussions", function (data) {
+    //    //Update the Scope object data
+    //    $scope.discussions = data;
+    //});
 
     $.get("http://kudevolvemain.azurewebsites.net/api/v1/petitions", function (data) {
         //Update the Scope object data
         $scope.petitions = data;
     });
 
-    $.get("http://kudevolvemain.azurewebsites.net/api/v1/suggestions", function (data) {
-        //Update the Scope object data
-        $scope.suggestions = data;
-    });
+    //$.get("http://kudevolvemain.azurewebsites.net/api/v1/suggestions", function (data) {
+    //    //Update the Scope object data
+    //    $scope.suggestions = data;
+    //});
 
     $.get("http://kudevolvemain.azurewebsites.net/api/v1/articles", function (data) {
         //Update the Scope object data
@@ -88,6 +93,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         //Log the connection beginning
         console.log("Signalr is Online");
         //Add the user signalr connections
+
         var userconn = new Object();
         userconn.userid = loggedUserId;
         userconn.connectionid = $.connection.id;
@@ -98,7 +104,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
             url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/' + loggedUserId + '/signalrconnections',
             async: true,
             type: 'POST',
-            data: JSON.stringify(usercon),
+            data: usercon,
             contentType: "application/json;charset=utf-8",
             success: function (data) {
                 toastr.info("You have successfully connected your user id to signalr and your groups")
@@ -264,7 +270,8 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
              success: function (data) {
                  sessionStorage.setItem("user",data);
                  sessionStorage.setItem("userid", data.Id);
-                 sessionStorage.setItem("name", data.FirstName);
+                 sessionStorage.setItem("name", data.FirstName + " " + data.SecondName);
+                 sessionStorage.setItem("county", data.County);
                  sessionStorage.setItem("userlogged", true);
                  window.location = "http://kudevolvemain.azurewebsites.net/dashboard/index";
                  toastr.info("You have successfully Logged In")
@@ -281,6 +288,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         var loginObject = new Object();
         loginObject.Email = $scope.email;
         loginObject.Password = $scope.password;
+        loginObject.RememberMe = false;
 
         var loginData = JSON.stringify(loginObject);
 
@@ -290,11 +298,13 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/login',
             async: true,
             type: 'POST',
-            data: JSON.stringify(loginData),
+            data: loginData,
             contentType: "application/json;charset=utf-8",
             success: function (data) {
-                sessionstorage.setItem("user",data);
+                sessionStorage.setItem("user", data);
                 sessionStorage.setItem("userid", data.Id);
+                sessionStorage.setItem("name", data.FirstName + " " + data.SecondName);
+                sessionStorage.setItem("county", data.County);
                 sessionStorage.setItem("userlogged", true);
                 window.location = "http://kudevolvemain.azurewebsites.net/dashboard/index";
                 toastr.info("You have successfully Logged In")
@@ -340,11 +350,11 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             //handle error with error
             //use result.access_token in your API request
             //alert(error);
-            alert(result);
+            //alert(result);
             result.get("https://api.twitter.com/1.1/account/verify_credentials.json")
             .done(function (user_info) {
                 
-                socialLogin("twitter", user_info.id);
+                socialLogin("twitter", user_info.id_str);
             })
             .fail(function (error) {
                 // handle errors here
@@ -365,7 +375,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             result.get("https://api.instagram.com/v1/users/self")
             .done(function (user_info) {
                 
-                socialLogin("instagram", user_info.data.id);
+                socialLogin("instagram", String(user_info.data.id));
 
             })
             .fail(function (error) {
@@ -389,7 +399,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             .done(function (user_info) {
                // var data = jQuery.parseXML(user_info);
                
-                socialLogin("linkedin", user_info.id);
+                socialLogin("linkedin", String(user_info.id));
 
 
             })
@@ -412,7 +422,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             result.get("https://www.googleapis.com/plus/v1/people/me")
             .done(function (user_info) {
                 
-                socialLogin("google", user_info.id);
+                socialLogin("google", String(user_info.id));
 
             })
             .fail(function (error) {
@@ -511,7 +521,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             //handle error with error
             //use result.access_token in your API request
             //alert(error);
-            alert(result);
+            //alert(result);
             result.get("https://api.twitter.com/1.1/account/verify_credentials.json")
             .done(function (user_info) {
 

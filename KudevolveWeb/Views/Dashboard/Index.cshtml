@@ -70,14 +70,15 @@
         <div class="ibox-content">
 
             <div>
-                <div ng-repeat="post in posts">
-                    <div class="feed-element">
+                <div ng-repeat="post in posts | reverse">
+
+                    <div class="feed-element animated bounceIn"  style="margin-top: 8px;margin-bottom: 8px;">
                         <a href="#" class="pull-left">
                             <img alt="image" class="img-circle" src="~/KudevolveUI/img/a1.jpg">
                         </a>
                         <div class="media-body ">
                             <small class="pull-right text-navy">1m ago</small>
-                            <strong>Chris bartonjo</strong> started following <strong>Collins Omwenga</strong>. <br>
+                            <strong>{{post.Owner.UserName}}</strong>  <br>
                             <small class="text-muted">{{post.DateCreated}}</small><br />
                             <div class="well">
                                {{post.Content}}
@@ -95,7 +96,7 @@
                                     <li class="cmmnt">
                                         <div class="avatar"><a href="javascript:void(0);"><img src="~/KudevolveUI/img/a1.jpg" class="img-circle" alt="DarkCubes photo avatar"></a></div>
                                         <div class="cmmnt-content">
-                                            <header><a href="javascript:void(0);" class="userlink">{{comment.postuser}}</a> - <span class="pubdate">commented 6 days ago</span></header>
+                                            <header><a href="javascript:void(0);" class="userlink">{{comment.PostUser}}</a> - <span class="pubdate">commented 6 days ago</span></header>
                                             <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
                                             <div class="well">
                                                {{comment.Content}}
@@ -113,7 +114,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control input-lg" ng-model="newcomment" name="name" placeholder="Add Comment" />
-                                <input type="submit" class="btn btn-primary" ng-click="posts.addComment(post)" value="Post Comment " />
+                                <input type="button" class="btn btn-xs btn-rounded btn-info"  ng-click="posts.addComment(post)" value="Post Comment " />
                             </div>
 
                         </div>

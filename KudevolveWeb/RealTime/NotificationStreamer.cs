@@ -48,7 +48,7 @@ namespace KudevolveWeb.RealTime
         public void AddGroupMessage(string grpname, string message)
         {
             //Notify the Clients in the Group
-            Clients.Group(grpname).addMessage(message);
+            Clients.Group(grpname).addGroupMessage(grpname,message);
         }
 
         public void AddGroupMessageComment(string grpname, string postid, string comment)
@@ -56,10 +56,16 @@ namespace KudevolveWeb.RealTime
             Clients.All.addGroupMessageComment(grpname, postid, comment);
         }
 
+        public void AddUserToGroup(string connectionid, string groupname)
+        {
+            Groups.Add(connectionid, groupname);
+        }
+       
+
         //Override the connection methods
         public override System.Threading.Tasks.Task OnConnected()
         {
-            
+           
             Clients.Caller.notify("You have connected");
 
             return base.OnConnected();
