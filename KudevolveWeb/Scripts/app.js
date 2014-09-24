@@ -136,8 +136,80 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         }
     });
 
-    $scope.posts.addComment = function (post) {
+    $scope.feedback = function () {
+        var html =
+'   <div class="form-row">' +
+'       <textarea ng-model="commento" class="form-control" name="comm" rows="2" placeholder="Enter Feedback here" cols="*" style="margin: 0px; width: 295px; height: 89px; color: black;"></textarea>'
+        '   </div>';
+        var commen = "";
+
+        new $.flavr({
+            title: 'Send us feedback',
+            iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+            icon: 'chat-bubble.png',
+            content: post.Content,
+            dialog: 'form',
+            form: { content: html, addClass: 'form-html' },
+            onSubmit: function ($container, $form) {
+                var obj = $form.serialize();
+
+                var dta = $form.serialize();
+                var resp = dta.split("=", 2);
+                var re = resp[1];
+                commen = re;
+                alert(re);//This is the actual comment in the post
+
+                //alert($form.valueOf());
+                return false;
+            }
+
+        });
+
         var mypostid = post.PostId;
+
+        var com = new Object();
+        com.PostUser = loggedUserId;
+        com.Content = commen;
+
+
+        //Call the signalr-based real time post sender
+        $.ajax({
+            url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts/' + mypostid + '/comments',
+            async: true,
+            type: 'POST',
+            data: JSON.stringify(com),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                toastr.info("You have successfully made a comment")
+            },
+            error: function (x, y, z) {
+                alert('Oooops!!' + x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    $scope.posts.vote = function (post) {
+
+        var URL = "http://kudevolvemain.azurewebsites.net/api/v1/posts/" + mypostid + "/follow/" + loggedUserId;
+        //Call the signalr-based real time post sender
+        $.ajax({
+            url: URL,
+            async: true,
+            type: 'POST',
+            data: JSON.stringify(com),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                toastr.info("You have successfully made a vote to a post")
+            },
+            error: function (x, y, z) {
+                alert('Oooops!!' + x + '\n' + y + '\n' + z);
+            }
+        });
+
+    }
+
+    $scope.posts.addComment = function (post) {
+        
         var html =
 '   <div class="form-row">' +
 '       <textarea ng-model="commento" class="form-control" name="comm" rows="2" placeholder="Enter Comment here" cols="*" style="margin: 0px; width: 295px; height: 89px; color: black;"></textarea>'
@@ -160,12 +232,14 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
                 commen = re;
                 alert(re);//This is the actual comment in the post
                 
-                
                 //alert($form.valueOf());
                 return false;
             }
-           
+
         });
+
+        var mypostid = post.PostId;
+
         var com = new Object();
         com.PostUser = loggedUserId;
         com.Content = commen;
