@@ -84,13 +84,13 @@
                             <a class="btn btn-block btn-lg btn-social btn-google-plus" ng-click="google()">
                                 <i class="fa fa-google-plus"></i> Sign in with Google
                             </a>
-                            @*<a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
+                            <a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
                                 <i class="fa fa-instagram"></i> Sign in with Instagram
                             </a>
 
                             <a class="btn btn-block btn-lg btn-social btn-linkedin" ng-click="linkedin()">
                                 <i class="fa fa-linkedin"></i> Sign in with LinkedIn
-                            </a>*@
+                            </a>
 
                             <a class="btn btn-block btn-lg btn-social btn-twitter" ng-click="twitter()">
                                 <i class="fa fa-twitter"></i> Sign in with Twitter
@@ -98,7 +98,6 @@
                         </div>
 
                         @*</div>*@
-                        <br />
                         <center>
                             <h3>
                                 Alternatively
@@ -122,12 +121,15 @@
                             <button type="button" class="btn" data-color="info">Remember Me</button>
                             @*@Html.Bootstrap().CheckBoxFor(model => model.RememberMe).Class("hidden").IsChecked(true)*@
                              <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+
                             <a href="" class="btn btn-link pull-right">Forgot Password?</a>
+                            <br />
+
                         </span>
                         <hr class="colorgraph">
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
-                                <input type="submit" class="btn btn-lg btn-success btn-block" ng-click="simplelogin()" value="Sign In">
+                                <input type="button" class="btn btn-lg btn-success btn-block" ng-click="simplelogin()" value="Sign In">
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <a href="/Accounts/Register" class="btn btn-lg btn-primary btn-block">Register</a>

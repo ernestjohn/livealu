@@ -737,7 +737,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
         
 
-        if ($scope.FirstName == null || $scope.LastName == null || $scope.Email == null || $scope.County == null || $scope.UserName == null || $scope.PhoneNumber == null || $scope.DateOfBirth == null || $scope.Password == null || $scope.ConfirmPassword == null) {
+        if ($scope.FirstName == null || $scope.LastName == null || $scope.Email == null || $scope.County == null || $scope.UserName == null || $scope.DateOfBirth == null || $scope.Password == null || $scope.ConfirmPassword == null) {
             new $.flavr({
                 content: 'Data Entry<br/>Please fill in the data below.<br/> It\s required to register on Kudevolve',
                 iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
@@ -771,7 +771,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 regobj.Email = $scope.Email;
                 regobj.County = $scope.County;
                 regobj.UserName = $scope.UserName;
-                regobj.PhoneNumber = $scope.PhoneNumber;
+                regobj.PhoneNumber = "";
                 regobj.DateOfBirth = $scope.DateOfBirth;
                 regobj.Password = $scope.Password;
 

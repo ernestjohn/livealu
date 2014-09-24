@@ -78,13 +78,13 @@
         <a class="btn btn-block btn-lg btn-social btn-google-plus" ng-click="google()">
             <i class="fa fa-google-plus"></i> Sign up with Google
         </a>
-        @*<a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
+        <a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
             <i class="fa fa-instagram"></i> Sign up with Instagram
         </a>
 
         <a class="btn btn-block btn-lg btn-social btn-linkedin" ng-click="linkedin()">
             <i class="fa fa-linkedin"></i> Sign up with LinkedIn
-        </a>*@
+        </a>
 
         <a class="btn btn-block btn-lg btn-social btn-twitter" ng-click="twitter()">
             <i class="fa fa-twitter"></i> Sign up with Twitter
@@ -162,11 +162,10 @@
         <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="date" id="phone" class="form-control input-lg" placeholder="Date of Birth" ng-model="DateOfBirth">
     </div>
 
-                    <div class="form-group">
-                        @*@Html.Bootstrap().TextBoxFor(model => model.PhoneNumber).Class("form-control input-lg").Placeholder("Phone Number").Value("+254")
-                        @Html.ValidationMessageFor(model => model.PhoneNumber)*@
+                    @*<div class="form-group">
+                       
                         <input type="number" name="number" id="phone" class="form-control input-lg" ng-model="PhoneNumber" placeholder="Phone Number" value="+254" tabindex="4" >
-                    </div>
+                    </div>*@
 
                     <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3">
