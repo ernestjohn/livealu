@@ -1524,6 +1524,9 @@
     <Content Include="Views\Shared\_LayoutTouch.cshtml" />
     <Content Include="Views\Home\_LayoutTT.cshtml" />
     <Content Include="Views\Home\Sampeli.cshtml" />
+    <Content Include="Views\Dashboard\Friends.cshtml" />
+    <Content Include="Views\Dashboard\Profile.cshtml" />
+    <Content Include="Views\Dashboard\Petitions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

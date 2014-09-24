@@ -27,8 +27,6 @@
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/app.js"></script>
 
-   
-
     <meta name="viewport" content="width=device-width" />
     <title>Register</title>
 </head>
@@ -36,15 +34,23 @@
 
     <script type="text/javascript">
 
-    new $.flavr({
-        content: 'Welcome to Kudevolve<br/>Register to get involved with the best devolution platform',
-        iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
-        icon: 'star.png',
-        buttons: {
-            Ok: { style: 'info' },
-            Cancel: { style: 'danger' }
+        var count = 0;
+       
+        if (count == 0) {
+            new $.flavr({
+                content: 'Welcome to Kudevolve <br/> Sign in below using existing social accounts <br/> Or a Kudevolve account <br/> Have fun <br/> Admin(Sensei)',
+                iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                icon: 'star.png',
+                buttons: {
+                    Ok: { style: 'info' },
+                    Cancel: { style: 'danger' }
+                }
+            });
+            count = count + 1;
         }
-    });
+        else {
+
+        }
     </script>
 
     <div ng-controller="RegisterCtrl" class="container">
@@ -72,13 +78,13 @@
         <a class="btn btn-block btn-lg btn-social btn-google-plus" ng-click="google()">
             <i class="fa fa-google-plus"></i> Sign up with Google
         </a>
-        <a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
+        @*<a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
             <i class="fa fa-instagram"></i> Sign up with Instagram
         </a>
 
         <a class="btn btn-block btn-lg btn-social btn-linkedin" ng-click="linkedin()">
             <i class="fa fa-linkedin"></i> Sign up with LinkedIn
-        </a>
+        </a>*@
 
         <a class="btn btn-block btn-lg btn-social btn-twitter" ng-click="twitter()">
             <i class="fa fa-twitter"></i> Sign up with Twitter
@@ -139,8 +145,8 @@
 
                     <div class="form-group">
                        
-                        <select ng-model="County" class="form-control input-lg" title="" >
-                            <option selected="selected" disabled="disabled">Choose County</option>
+                        <select ng-model="County" class="form-control input-lg">
+                            <option selected="selected" disabled="disabled">Select County</option>
                             <option value="Kiambu">Kiambu</option>
                             <option value="Nairobi">Nairobi</option>
                             <option value="Muranga">Muranga</option>

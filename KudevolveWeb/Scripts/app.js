@@ -251,7 +251,25 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
 }]);
 
+app.controller('ProfileCtrl', ['$scope', function ($scope) {
 
+    //Initialize an angular array to hold users and another for friends
+    $scope.user = null;
+
+}]);
+
+app.controller('FriendsCtrl', ['$scope', function ($scope) {
+
+    //Initialize an angular array to hold users and another for friends
+    $scope.friends = [];
+    $scope.users = [];
+
+    $scope.addFriend = function (user) {
+        //Do a get Request here
+
+    }
+
+}]);
 app.controller('LoginCtrl', ['$scope', function ($scope) {
 
     var socialpost = new Object();

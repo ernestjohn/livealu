@@ -17,16 +17,22 @@
 <script src="~/Scripts/share.min.js"></script>
 
 <script type="text/javascript">
-   
-    new $.flavr({
-        content: 'Welcome to Kudevolve '+ sessionStorage.getItem("name") +' <br/> Please note that this is a test bed and not everything has been fully tested. <br/> Admin(Sensei)',
-        iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
-        icon: 'star.png',
-        buttons: {
-            Ok: { style: 'info' },
-            Cancel: { style: 'danger' }
-        }
-    });
+    var count = 0;
+    if (count == 0) {
+        new $.flavr({
+            content: 'Welcome to Kudevolve <br/> Sign in below using existing social accounts <br/> Or a Kudevolve account <br/> Have fun <br/> Admin(Sensei)',
+            iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+            icon: 'star.png',
+            buttons: {
+                Ok: { style: 'info' },
+                Cancel: { style: 'danger' }
+            }
+        });
+        count = count + 1;
+    }
+    else {
+
+    }
 </script>
 
 <div ng-app="app">
@@ -44,13 +50,13 @@
                        
                         <input type="text" ng-model="newpost" class="form-control input-lg" placeholder="What's on your mind?">
                        
-                        <span class="help-block m-b-none">Embed Items:</span>
+                        @*<span class="help-block m-b-none">Embed Items:</span>
 
                         <a href="#video-modal-form" class="btn btn-primary" data-toggle="modal" data-placement="top"><i class="fa fa-film"></i> Video</a>
                         <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-camera"></i> Image</a>
                         <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-file-text-o"></i> File</a>
                         <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-microphone"></i> Audio</a>
-                        <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-yh-list"></i> Large Post</a>
+                        <a href="mailbox.html" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-yh-list"></i> Large Post</a>*@
 
                     </div>
                 </div>
@@ -133,8 +139,10 @@
                             <strong>Ernest John</strong> started following <strong>Brian Kihara</strong>. <br>
                             <small class="text-muted">Today 4:21 pm - 12.06.2014</small><br />
                             <div class="well">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                    Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                                </p>
                             </div>
                             <div class="actions">
                                 <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
@@ -232,7 +240,7 @@
 
                   
 
-
+                   
                     <div class="feed-element">
                         <a href="#" class="pull-left">
                             <img alt="image" class="img-circle" src="~/KudevolveUI/img/a3.jpg">
