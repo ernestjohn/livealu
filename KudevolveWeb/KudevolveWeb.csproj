@@ -302,6 +302,7 @@
     <Compile Include="Models\Personality.cs" />
     <Compile Include="Models\Petition.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostResult.cs" />
     <Compile Include="Models\Suggestion.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

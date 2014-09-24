@@ -157,7 +157,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
                 var resp = dta.split("=", 2);
                 var re = resp[1];
                 commen = re;
-                alert(re);//This is the actual comment in the post
+                //alert(re);//This is the actual comment in the post
 
                 //alert($form.valueOf());
                 return false;
@@ -230,7 +230,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
                 var resp = dta.split("=", 2);
                 var re = resp[1];
                 commen = re;
-                alert(re);//This is the actual comment in the post
+                //alert(re);//This is the actual comment in the post
                 
                 //alert($form.valueOf());
                 return false;
@@ -553,7 +553,6 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
 }]);
 
 
-
 app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     var provider = "";
@@ -862,7 +861,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                         data: JSON.stringify(regobj),
                         contentType: "application/json;charset=utf-8",
                         success: function (data) {
-                            alert(data);
+                            //alert(data);
                             new $.flavr({
                                 content: 'Thank you <br/>You have successfuly registered',
                                 iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
@@ -897,7 +896,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                         data: JSON.stringify(regobj),
                         contentType: "application/json;charset=utf-8",
                         success: function (data) {
-                            alert(data);
+                           // alert(data);
                             new $.flavr({
                                 content: 'Thank you <br/>You have successfuly registered',
                                 iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',

@@ -22,12 +22,12 @@
 
     <script type="text/javascript">
         //Check whether the user is logged in or not through the log object
-        //if (!(sessionStorage.getItem("userlogged"))) {
-        //    window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
-        //}
-        //else {
-        //    var user = sessionStorage.getItem("user");
-        //}
+        if (!(sessionStorage.getItem("userlogged"))) {
+            window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
+        }
+        else {
+            var user = sessionStorage.getItem("user");
+        }
     </script>
 
 </head>

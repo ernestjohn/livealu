@@ -55,10 +55,10 @@
                                     <h3><strong>{{friend.UserName}}</strong></h3>
                                     <p><i class="fa fa-map-marker"></i>{{friend.County}}</p>
                                     <address>
-                                        <strong>Twitter, Inc.</strong><br>
-                                        795 Folsom Ave, Suite 600<br>
-                                        San Francisco, CA 94107<br>
-                                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                                        <strong>BIO</strong><br>
+                                                {{friend.BIO}}<br/>
+                                        <input type="button" class="btn btn-sm btn-primary" ng-click="friends.addfriend(friend)" name="name" value="Add" />
+                                       
                                     </address>
                                 </div>
                                 <div class="clearfix"></div>
