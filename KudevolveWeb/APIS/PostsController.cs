@@ -19,7 +19,7 @@ namespace KudevolveWeb.APIS
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();
-        public string BaseUrl = "http://kudevolve.azurewebsites.net";
+        public string BaseUrl = "http://kudevolvemain.azurewebsites.net";
         RealTimePostUpdater signalr = RealTimePostUpdater.GetInstance();
 
         //Make a public object to send updates to All signalr Clients
@@ -41,7 +41,7 @@ namespace KudevolveWeb.APIS
         [ResponseType(typeof(Post))]
         public IHttpActionResult GetPost(string id)
         {
-            Post post = db.Posts.Find(id);
+            Post post = db.Posts.Where( p => p.PostId == id).Include( p => p.Comments).Include( p => p.Owner).FirstOrDefault();
             if (post == null)
             {
                 return NotFound();
@@ -55,31 +55,47 @@ namespace KudevolveWeb.APIS
         public List<Comment> GetPostComments(string id)
         {
             //Get the Comments from the post here
-            return db.Posts.Where(pst => pst.PostId == id).FirstOrDefault().Comments.ToList();
+            return db.Posts.Where(pst => pst.PostId == id).Include(p => p.Comments).FirstOrDefault().Comments.ToList();
 
         }
 
-        [HttpPost]
+        
         [Route("{id}/comments")]
+        [HttpPost]
         //Code to add comment here as a POST request
         public IHttpActionResult PostComment(string id, KudevolveWeb.ViewModels.CommentViewModel comment)
         {
             //Serialize the string into a comment
             // var comment = JsonConvert.SerializeObject(commentContent);
-            var post = db.Posts.Find(id);
-            if (post == null)
+            var psto = db.Posts.Where(pst => pst.PostId == id).Include(p => p.Comments).FirstOrDefault();
+
+            if (psto == null)
             {
-                return BadRequest();
+                return BadRequest("Post does not exist");
             }
             Comment newComment = new Comment();
             newComment.CommentId = Guid.NewGuid().ToString();
             newComment.Content = comment.Content;
             newComment.PostUser = comment.PostUser;
 
-            db.Posts.Find(id).Comments.Add(newComment);
-            db.SaveChanges();
+            try
+            {
+               
+                psto.Comments.Add(newComment);
+                db.Entry(psto).State = EntityState.Modified;
+                db.SaveChanges();
+              
+                signalr.UpdatePostComment(id,newComment);
+                return Ok("Comment addition successful");
+            }
+            catch (Exception)
+            {
 
-            return Ok("Comment addition successful");
+                return BadRequest("something happened");
+            }
+            
+
+            
         }
 
         //Code to get Followers of a post

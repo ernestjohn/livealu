@@ -27,10 +27,10 @@ namespace KudevolveWeb.RealTime
         }
 
         //Code to push a comment in the Angular Scope post comments
-        public void AddComment(string postid, string comment)
+        public void AddComment( string comment)
         {
             //Call the Client method to do so
-            Clients.All.addPostComment(postid,comment);
+            Clients.All.addPostComment(comment);
         }
 
         //Code to Notify user by passing a user id

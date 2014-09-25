@@ -17,6 +17,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     $scope.posts = [];
 
     var loggedUserId = sessionStorage.getItem("userid");
+    var userName = sessionStorage.getItem("name");
 
     //First Hit a APi request to get data into the scope
     $.get("http://kudevolvemain.azurewebsites.net/api/v1/posts", function (data) {
@@ -52,6 +53,8 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         var arr = data.split("|", 2);
         postid = arr[0];
         comment = arr[1];
+
+        alert(data);
 
         var index = Enumerable.From($scope.posts).IndexOf( Enumerable.From($scope.posts).Where(function (pst) {
             pst.PostId == postid
@@ -208,7 +211,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
     }
 
-    $scope.posts.addComment = function (post) {
+    $scope.addComment = function (post) {
         
         var html =
 '   <div class="form-row">' +
@@ -231,34 +234,34 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
                 var re = resp[1];
                 commen = re;
                 //alert(re);//This is the actual comment in the post
-                
+                var mypostid = post.PostId;
+
+                var com = new Object();
+                //com.postid = mypostid;
+                com.PostUser = userName;
+                com.Content = commen;
+
+                //Call the signalr-based real time post sender
+                $.ajax({
+                    url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts/' + mypostid + '/comments',
+                    async: true,
+                    type: 'POST',
+                    data: JSON.stringify(com),
+                    contentType: "application/json;charset=utf-8",
+                    success: function (data) {
+                        toastr.info("You have successfully made a comment")
+                    },
+                    error: function (x, y, z) {
+                        alert('Oooops!!' + x + '\n' + y + '\n' + z);
+                    }
+                });
                 //alert($form.valueOf());
                 return false;
             }
 
         });
 
-        var mypostid = post.PostId;
-
-        var com = new Object();
-        com.PostUser = loggedUserId;
-        com.Content = commen;
-
-
-        //Call the signalr-based real time post sender
-        $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts/' + mypostid + '/comments',
-            async: true,
-            type: 'POST',
-            data: JSON.stringify(com),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                toastr.info("You have successfully made a comment")
-            },
-            error: function (x, y, z) {
-                alert('Oooops!!' + x + '\n' + y + '\n' + z);
-            }
-        });
+        
 
     }
 
@@ -286,10 +289,6 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
                 Cancel: { style: 'danger' }
             }
         });
-
-    }
-
-    $scope.addComment = function (postid, comment) {
 
     }
 
@@ -845,7 +844,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 regobj.County = $scope.County;
                 regobj.UserName = $scope.UserName;
                 regobj.PhoneNumber = "";
-                regobj.DateOfBirth = $scope.DateOfBirth;
+                regobj.DateOfBirth = "";
                 regobj.Password = $scope.Password;
 
                // alert(JSON.stringify(regobj));

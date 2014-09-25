@@ -509,9 +509,20 @@ namespace KudevolveWeb.APIS
             {
                 return BadRequest();
             }
-            db.Users.Find(friender.UserId).Friends.Add(friend);
-            db.SaveChanges();
-            return StatusCode(HttpStatusCode.NoContent);
+            try
+            {
+                var user = db.Users.Find(friender.UserId);
+                user.Friends.Add(friend);
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                return Ok("Friend Added Successful");
+            }
+            catch (Exception)
+            {
+
+                return BadRequest("Something happened");
+            }
+           
         }
 
         //Code to delete friends from a user

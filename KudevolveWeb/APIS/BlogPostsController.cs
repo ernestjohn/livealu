@@ -55,7 +55,7 @@ namespace KudevolveWeb.APIS
             {
                 CommentId = Guid.NewGuid().ToString(),
                 Content = viewModel.Content,
-                PostUser = db.Users.Find(viewModel.PostUser).Id
+                PostUser = db.Users.Find(viewModel.PostUser).UserName
             };
 
             db.BlogPosts.Find(id).Comments.Add(newComment);

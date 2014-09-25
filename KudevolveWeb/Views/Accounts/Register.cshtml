@@ -156,11 +156,10 @@
                         </select>
                     </div>
 
-    <div class="form-group">
-        @*@Html.Bootstrap().TextBoxFor(model => model.PhoneNumber).Class("form-control input-lg").Placeholder("Phone Number").Value("+254")
-            @Html.ValidationMessageFor(model => model.PhoneNumber)*@
+    @*<div class="form-group">
+       
         <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="date" id="phone" class="form-control input-lg" placeholder="Date of Birth" ng-model="DateOfBirth">
-    </div>
+    </div>*@
 
                     @*<div class="form-group">
                        
@@ -169,13 +168,13 @@
 
                     <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3">
-                            <span class="button-checkbox">
+                            @*<span class="button-checkbox">
                                 <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
                                 <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
-                            </span>
+                            </span>*@
                         </div>
                         <div class="col-xs-9 col-sm-9 col-md-9">
-                            By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                            Already have an account?<a href="http://www.kudevolve.com/accounts/login" data-toggle="modal" data-target="#t_and_c_m">Login</a> 
                         </div>
                     </div>
     
