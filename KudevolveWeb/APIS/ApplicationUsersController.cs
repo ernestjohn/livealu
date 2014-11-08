@@ -344,6 +344,7 @@ namespace KudevolveWeb.APIS
         [HttpPost]
         public IHttpActionResult LoginUser(LoginViewModel viewModel)
         {
+            
             var user = db.Users.Where(usr => usr.Email == viewModel.Email && usr.Password == viewModel.Password)
                 .Include(u => u.Groups).FirstOrDefault();
 
@@ -501,7 +502,7 @@ namespace KudevolveWeb.APIS
         //Api Action to add friend as a POST request
         [Route("{id}/friends")]
         [HttpPost]
-        public IHttpActionResult PostUserFriend(FrienderViewModel friender)
+        public IHttpActionResult PostUserFriend(string id,FrienderViewModel friender)
         {
             //Get the User and add the friend
             var friend = db.Users.Find(friender.FriendId);

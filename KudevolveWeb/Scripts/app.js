@@ -20,28 +20,28 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     var userName = sessionStorage.getItem("name");
 
     //First Hit a APi request to get data into the scope
-    $.get("http://kudevolvemain.azurewebsites.net/api/v1/posts", function (data) {
+    $.get("http://www.kudevolve.com/api/v1/posts", function (data) {
         //Update the Scope object data
         $scope.posts = data;
     });
 
 
-    //$.get("http://kudevolvemain.azurewebsites.net/api/v1/discussions", function (data) {
+    //$.get("http://www.kudevolve.com/api/v1/discussions", function (data) {
     //    //Update the Scope object data
     //    $scope.discussions = data;
     //});
 
-    $.get("http://kudevolvemain.azurewebsites.net/api/v1/petitions", function (data) {
+    $.get("http://www.kudevolve.com/api/v1/petitions", function (data) {
         //Update the Scope object data
         $scope.petitions = data;
     });
 
-    //$.get("http://kudevolvemain.azurewebsites.net/api/v1/suggestions", function (data) {
+    //$.get("http://www.kudevolve.com/api/v1/suggestions", function (data) {
     //    //Update the Scope object data
     //    $scope.suggestions = data;
     //});
 
-    $.get("http://kudevolvemain.azurewebsites.net/api/v1/articles", function (data) {
+    $.get("http://www.kudevolve.com/api/v1/articles", function (data) {
         //Update the Scope object data
         $scope.articles = data;
     });
@@ -61,7 +61,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         }).FirstOrDefault());
 
         //Add the comment to the actual post
-        $scope.posts[index].comments.push(comment);
+        $scope.posts[index].comments.unshift(comment);
         $scope.$apply();
     }
 
@@ -69,7 +69,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         post = JSON.parse(mypost);
        // alert("From Signalr Server" + post);
         console.log("New post added");
-        $scope.posts.push(post);
+        $scope.posts.unshift(post);
         //alert(JSON.stringify($scope.posts));
         console.log("Scope push no error!");
         $scope.$apply();
@@ -85,7 +85,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     }
 
     kuhub.client.notify = function (message) {
-        toastr.info("Online message: " + message);
+        toastr.info("Message: " + message);
         //$scope.newpost = message;
         $scope.$apply();
         //alert($scope.newpost);
@@ -104,13 +104,13 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/' + loggedUserId + '/signalrconnections',
+            url: 'http://www.kudevolve.com/api/v1/users/' + loggedUserId + '/signalrconnections',
             async: true,
             type: 'POST',
             data: usercon,
             contentType: "application/json;charset=utf-8",
             success: function (data) {
-                toastr.info("You have successfully connected your user id to signalr and your groups")
+                //toastr.info("You have successfully connected your user id to signalr and your groups")
             },
             error: function (x, y, z) {
                 alert('Oooops!!' + x + '\n' + y + '\n' + z);
@@ -148,7 +148,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         new $.flavr({
             title: 'Send us feedback',
-            iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+            iconPath: 'http://www.kudevolve.com/icons/',
             icon: 'chat-bubble.png',
             content: post.Content,
             dialog: 'form',
@@ -177,7 +177,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts/' + mypostid + '/comments',
+            url: 'http://www.kudevolve.com/api/v1/posts/' + mypostid + '/comments',
             async: true,
             type: 'POST',
             data: JSON.stringify(com),
@@ -193,7 +193,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
     $scope.posts.vote = function (post) {
 
-        var URL = "http://kudevolvemain.azurewebsites.net/api/v1/posts/" + mypostid + "/follow/" + loggedUserId;
+        var URL = "http://www.kudevolve.com/api/v1/posts/" + mypostid + "/follow/" + loggedUserId;
         //Call the signalr-based real time post sender
         $.ajax({
             url: URL,
@@ -221,7 +221,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
         
         new $.flavr({
             title: 'Make a comment on post',
-            iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+            iconPath: 'http://www.kudevolve.com/icons/',
             icon: 'chat-bubble.png',
             content: post.Content,
             dialog: 'form',
@@ -243,7 +243,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
                 //Call the signalr-based real time post sender
                 $.ajax({
-                    url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts/' + mypostid + '/comments',
+                    url: 'http://www.kudevolve.com/api/v1/posts/' + mypostid + '/comments',
                     async: true,
                     type: 'POST',
                     data: JSON.stringify(com),
@@ -255,6 +255,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
                         alert('Oooops!!' + x + '\n' + y + '\n' + z);
                     }
                 });
+                
                 //alert($form.valueOf());
                 return false;
             }
@@ -272,7 +273,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
     //The Refresh Function
     $scope.refreshPosts = function () {
 
-        $.get("http://kudevolvemain.azurewebsites.net/api/v1/posts", function (data) {
+        $.get("http://www.kudevolve.com/api/v1/posts", function (data) {
             //Update the Scope object data
             $scope.posts = data;
         });
@@ -282,7 +283,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         new $.flavr({
             content: 'Welcome to Kudevolve',
-            iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+            iconPath: 'http://www.kudevolve.com/icons/',
             icon: 'star.png',
             buttons: {
                 Ok: { style: 'info' },
@@ -306,7 +307,7 @@ app.controller('DashboardCtrl', ['$scope', function ($scope) {
 
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/v1/posts',
+            url: 'http://www.kudevolve.com/api/v1/posts',
             async: true,
             type: 'POST',
             data: JSON.stringify(postToPost),
@@ -337,23 +338,33 @@ app.controller('FriendsCtrl', ['$scope', function ($scope) {
     $scope.friends = [];
     $scope.users = [];
 
+    //First Hit a APi request to get data into the scope
+    $.get("http://www.kudevolve.com/api/v1/users", function (data) {
+        //Update the Scope object data
+        $scope.users = data;
+    });
+
+
+
     $scope.addFriend = function (user) {
         //Do a get Request here
 
     }
 
 }]);
+
 app.controller('LoginCtrl', ['$scope', function ($scope) {
 
     var socialpost = new Object();
     socialpost.identity = "";
 
+    
 
     //Generic social login function
     function socialLogin(provider, theid) {
         socialpost.identity = theid;
          $.ajax({
-             url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/login/social/'+ provider,
+             url: 'http://www.kudevolve.com/api/v1/users/login/social/'+ provider,
              async: true,
              type: 'POST',
              data: JSON.stringify(socialpost),
@@ -364,7 +375,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
                  sessionStorage.setItem("name", data.FirstName + " " + data.SecondName);
                  sessionStorage.setItem("county", data.County);
                  sessionStorage.setItem("userlogged", true);
-                 window.location = "http://kudevolvemain.azurewebsites.net/dashboard/index";
+                 window.location = "http://www.kudevolve.com/dashboard/index";
                  toastr.info("You have successfully Logged In")
              },
              error: function (x, y, z) {
@@ -386,7 +397,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
         //Make the REST call
         //Call the signalr-based real time post sender
         $.ajax({
-            url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/login',
+            url: 'http://www.kudevolve.com/api/v1/users/login',
             async: true,
             type: 'POST',
             data: loginData,
@@ -397,7 +408,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
                 sessionStorage.setItem("name", data.FirstName + " " + data.SecondName);
                 sessionStorage.setItem("county", data.County);
                 sessionStorage.setItem("userlogged", true);
-                window.location = "http://kudevolvemain.azurewebsites.net/dashboard/index";
+                window.location = "http://www.kudevolve.com/dashboard/index";
                 toastr.info("You have successfully Logged In")
             },
             error: function (x, y, z) {
@@ -408,7 +419,7 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
     }
 
     //Code to be the listener after the user logs into the app. Gets the users profile
-    OAuth.initialize('Vyvllf3OhAQrHCFhXfIiYG_iz20');
+        OAuth.initialize('1hHQHdn7SUcpw_Y_nGg06tE3byU');
 
     $scope.facebook = function () {
 
@@ -422,7 +433,6 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
             //use result.access_token in your API request
             result.get("https://graph.facebook.com/v2.0/me")
             .done(function (user_info) {
-                
                 
                 socialLogin("facebook", user_info.id);
               
@@ -551,7 +561,6 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
 
 }]);
 
-
 app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
     var provider = "";
@@ -559,7 +568,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
     var social = false;
 
     $scope.newuser = null;
-    OAuth.initialize('Vyvllf3OhAQrHCFhXfIiYG_iz20');
+    OAuth.initialize('1hHQHdn7SUcpw_Y_nGg06tE3byU');
 
     $scope.facebook = function () {
         social = true;
@@ -569,6 +578,8 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         OAuth.popup('facebook', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
+            //alert(result);
+            //alert(JSON.stringify(result));
             result.get("https://graph.facebook.com/v2.1/me?fields=id,name,bio,about,email,birthday,first_name,gender,last_name,middle_name,timezone,is_verified,link,locale")
             .done(function (user_info) {
                 // user_info contains the user information (e.g. user_info.email, or user_info.avatar)
@@ -588,7 +599,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 new $.flavr({
                     content: 'Facebook Connection <br/> Thank you for connecting Kudevolve with your facebook account. <br/> However more info is required <br/> Admin(Sensei)',
-                    iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                    iconPath: 'http://www.kudevolve.com/icons/',
                     icon: 'facebook.png',
                     buttons: {
                         Ok: { style: 'info' }
@@ -627,7 +638,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 new $.flavr({
                     content: 'Twitter Connection <br/> Thank you for connecting Kudevolve with your facebook account. <br/> However more info is required <br/> Admin(Sensei)',
-                    iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                    iconPath: 'http://www.kudevolve.com/icons/',
                     icon: 'twitter.png',
                     buttons: {
                         Ok: { style: 'info' }
@@ -671,7 +682,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 new $.flavr({
                     content: 'Instagram Connection <br/> Thank you for connecting Kudevolve with your facebook account. <br/> However more info is required <br/> Admin(Sensei)',
-                    iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                    iconPath: 'http://www.kudevolve.com/icons/',
                     icon: 'star.png',
                     buttons: {
                         Ok: { style: 'info' }
@@ -715,7 +726,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 new $.flavr({
                     content: 'Linkedin Connection <br/> Thank you for connecting Kudevolve with your facebook account. <br/> However more info is required <br/> Admin(Sensei)',
-                    iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                    iconPath: 'http://www.kudevolve.com/icons/',
                     icon: 'linkedin.png',
                     buttons: {
                         Ok: { style: 'info' }
@@ -760,7 +771,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
                 new $.flavr({
                     content: 'Google Connection <br/> Thank you for connecting Kudevolve with your facebook account. <br/> However more info is required <br/> Admin(Sensei)',
-                    iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                    iconPath: 'http://www.kudevolve.com/icons/',
                     icon: 'google+.png',
                     buttons: {
                         Ok: { style: 'info' }
@@ -787,8 +798,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         OAuth.popup('live', function (error, result) {
             //handle error with error
             //use result.access_token in your API request
-            alert(error);
-            alert(result);
+           
             result.get("https://apis.live.net/v5.0/me")
             .done(function (user_info) {
                 alert(JSON.stringify(user_info));
@@ -809,10 +819,10 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
 
         
 
-        if ($scope.FirstName == null || $scope.LastName == null || $scope.Email == null || $scope.County == null || $scope.UserName == null || $scope.DateOfBirth == null || $scope.Password == null || $scope.ConfirmPassword == null) {
+        if ($scope.FirstName == null || $scope.LastName == null || $scope.Email == null || $scope.County == null || $scope.UserName == null || $scope.Password == null || $scope.ConfirmPassword == null) {
             new $.flavr({
                 content: 'Data Entry<br/>Please fill in the data below.<br/> It\s required to register on Kudevolve',
-                iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                iconPath: 'http://www.kudevolve.com/icons/',
                 icon: 'star.png',
                 buttons: {
                     ok: { style: 'info' },
@@ -824,7 +834,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
             if ($scope.Password != $scope.ConfirmPassword) {
                 new $.flavr({
                     content: 'Passwords do not match<br/>Please input matching passwords',
-                    iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                    iconPath: 'http://www.kudevolve.com/icons/',
                     icon: 'star.png',
                     buttons: {
                         ok: { style: 'info' },
@@ -852,7 +862,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 //Call the signalr-based real time post sender
                 if (social == true) {
                     //alert(provider);
-                    var url = "http://kudevolvemain.azurewebsites.net/api/v1/users/register/" + provider + "/" + providerid;
+                    var url = "http://www.kudevolve.com/api/v1/users/register/" + provider + "/" + providerid;
                     $.ajax({
                         url: url,
                         async: true,
@@ -863,20 +873,20 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                             //alert(data);
                             new $.flavr({
                                 content: 'Thank you <br/>You have successfuly registered',
-                                iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                                iconPath: 'http://www.kudevolve.com/icons/',
                                 icon: 'star.png',
                                 buttons: {
                                     ok: { style: 'info' },
                                     cancel: { style: 'danger' }
                                 }
                             });
-                            window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
+                            window.location = "http://www.kudevolve.com/accounts/login";
 
                         },
                         error: function (x, y, z) {
                             new $.flavr({
                                 content: 'Something happened<br/>Please try again',
-                                iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                                iconPath: 'http://www.kudevolve.com/icons/',
                                 icon: 'star.png',
                                 buttons: {
                                     ok: { style: 'info' },
@@ -889,7 +899,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                 }
                 else {
                     $.ajax({
-                        url: 'http://kudevolvemain.azurewebsites.net/api/v1/users/register',
+                        url: 'http://www.kudevolve.com/api/v1/users/register',
                         async: true,
                         type: 'POST',
                         data: JSON.stringify(regobj),
@@ -898,20 +908,20 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
                            // alert(data);
                             new $.flavr({
                                 content: 'Thank you <br/>You have successfuly registered',
-                                iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                                iconPath: 'http://www.kudevolve.com/icons/',
                                 icon: 'star.png',
                                 buttons: {
                                     ok: { style: 'info' },
                                     cancel: { style: 'danger' }
                                 }
                             });
-                            window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
+                            window.location = "http://www.kudevolve.com/accounts/login";
 
                         },
                         error: function (x, y, z) {
                             new $.flavr({
                                 content: 'Something happened<br/>Please try again',
-                                iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                                iconPath: 'http://www.kudevolve.com/icons/',
                                 icon: 'star.png',
                                 buttons: {
                                     ok: { style: 'info' },

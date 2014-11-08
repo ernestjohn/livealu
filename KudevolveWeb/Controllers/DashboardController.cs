@@ -69,7 +69,7 @@ namespace KudevolveWeb.Controllers
         {
                 Post newPost = new Post()
                 {
-                    PostId = Guid.NewGuid().ToString(),
+                    //PostId = Guid.NewGuid().ToString(),
                     Content = post.Content,
                     Hashtag = "#Kudevolve",
                     DateCreated = DateTime.Today.ToString()

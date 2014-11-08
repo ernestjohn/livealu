@@ -109,9 +109,15 @@
     <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.2.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.WindowsAzure.Storage, Version=3.1.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\WindowsAzure.Storage.3.1.0.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <HintPath>..\packages\WindowsAzure.Storage.4.0.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
     <Reference Include="Nest">
       <HintPath>..\packages\NEST.1.1.1\lib\Nest.dll</HintPath>
@@ -270,22 +276,23 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\BlogPostsController.cs" />
-    <Compile Include="Controllers\CountiesController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PetitionsController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201407140306344_NewDBStuff.cs" />
-    <Compile Include="Migrations\201407140306344_NewDBStuff.Designer.cs">
-      <DependentUpon>201407140306344_NewDBStuff.cs</DependentUpon>
+    <Compile Include="Migrations\201410261829584_initial.cs" />
+    <Compile Include="Migrations\201410261829584_initial.Designer.cs">
+      <DependentUpon>201410261829584_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201409180218120_schema_update.cs" />
-    <Compile Include="Migrations\201409180218120_schema_update.Designer.cs">
-      <DependentUpon>201409180218120_schema_update.cs</DependentUpon>
+    <Compile Include="Migrations\201411082001405_bambina.cs" />
+    <Compile Include="Migrations\201411082001405_bambina.Designer.cs">
+      <DependentUpon>201411082001405_bambina.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -434,6 +441,8 @@
     <Content Include="KudevolveUI\img\a5.jpg" />
     <Content Include="KudevolveUI\img\a6.jpg" />
     <Content Include="KudevolveUI\img\a7.jpg" />
+    <Content Include="KudevolveUI\img\ico128.png" />
+    <Content Include="KudevolveUI\img\icon.png" />
     <Content Include="KudevolveUI\img\p1.jpg" />
     <Content Include="KudevolveUI\img\p2.jpg" />
     <Content Include="KudevolveUI\img\p3.jpg" />
@@ -708,6 +717,10 @@
     <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\kudevolve2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvelive - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvelive - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvelive - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\kudevolvelive - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\kudevolvemain - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\kudevolvemain - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\kudevolvemain - Web Deploy %282%29.pubxml" />
@@ -982,6 +995,7 @@
     <Content Include="Scripts\linq.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\oauth.js" />
+    <Content Include="Scripts\oauth.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\share.js" />
@@ -1329,11 +1343,6 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Counties\Create.cshtml" />
-    <Content Include="Views\Counties\Delete.cshtml" />
-    <Content Include="Views\Counties\Details.cshtml" />
-    <Content Include="Views\Counties\Edit.cshtml" />
-    <Content Include="Views\Counties\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutTouch.cshtml" />
     <Content Include="Views\Home\_LayoutTT.cshtml" />
     <Content Include="Views\Home\Sampeli.cshtml" />
@@ -1343,7 +1352,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Posts\" />
+    <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1353,11 +1364,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201407140306344_NewDBStuff.resx">
-      <DependentUpon>201407140306344_NewDBStuff.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201410261829584_initial.resx">
+      <DependentUpon>201410261829584_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201409180218120_schema_update.resx">
-      <DependentUpon>201409180218120_schema_update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201411082001405_bambina.resx">
+      <DependentUpon>201411082001405_bambina.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

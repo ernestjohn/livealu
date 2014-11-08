@@ -17,7 +17,7 @@ namespace KudevolveWeb.Models
         public DbSet<Article> Articles { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public DbSet<County> Counties { get; set; }
+        //public DbSet<County> Counties { get; set; }
         public DbSet<Discussion> Discussions { get; set; }
         public DbSet<Personality> Personalities { get; set; }
         public DbSet<Petition> Petitions { get; set; }

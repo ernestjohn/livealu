@@ -10,7 +10,7 @@ namespace KudevolveWeb
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            string connectionString = "Endpoint=sb://kudevolvebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=tI3+axjKEj2bedolWuzMc7mKEvTeqQppvso0vvxSRHA=";
+            string connectionString = "Endpoint=sb://kudevolvelive.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=hIJkHB97djSnVuprYzMZk2+UXgw517MyWkBd+FdwiqU=";
             GlobalHost.DependencyResolver.UseServiceBus(connectionString, "Kudevolve");
 
             app.MapSignalR();

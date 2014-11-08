@@ -19,7 +19,7 @@ namespace KudevolveWeb.APIS
     {
 
         private ApplicationDbContext db = new ApplicationDbContext();
-        public string BaseUrl = "http://kudevolvemain.azurewebsites.net";
+        public string BaseUrl = "http://kudevolvelive.azurewebsites.net";
         RealTimePostUpdater signalr = RealTimePostUpdater.GetInstance();
 
         //Make a public object to send updates to All signalr Clients
@@ -28,9 +28,9 @@ namespace KudevolveWeb.APIS
         // GET: api/Posts
         [Route("")]
         [HttpGet]
-        public IQueryable<Post> GetPosts()
+        public IHttpActionResult GetPosts()
         {
-            return db.Posts.Include(p => p.Owner).Include(p => p.Comments);
+            return Ok(db.Posts.Include(p => p.Owner).Include(p => p.Comments).OrderByDescending(o => o.PostId).ToList());
         }
 
 
@@ -39,7 +39,7 @@ namespace KudevolveWeb.APIS
         [Route("{id}")]
         [HttpGet]
         [ResponseType(typeof(Post))]
-        public IHttpActionResult GetPost(string id)
+        public IHttpActionResult GetPost(int id)
         {
             Post post = db.Posts.Where( p => p.PostId == id).Include( p => p.Comments).Include( p => p.Owner).FirstOrDefault();
             if (post == null)
@@ -52,7 +52,7 @@ namespace KudevolveWeb.APIS
 
         [HttpGet]
         [Route("{id}/comments")]
-        public List<Comment> GetPostComments(string id)
+        public List<Comment> GetPostComments(int id)
         {
             //Get the Comments from the post here
             return db.Posts.Where(pst => pst.PostId == id).Include(p => p.Comments).FirstOrDefault().Comments.ToList();
@@ -63,7 +63,7 @@ namespace KudevolveWeb.APIS
         [Route("{id}/comments")]
         [HttpPost]
         //Code to add comment here as a POST request
-        public IHttpActionResult PostComment(string id, KudevolveWeb.ViewModels.CommentViewModel comment)
+        public IHttpActionResult PostComment(int id, KudevolveWeb.ViewModels.CommentViewModel comment)
         {
             //Serialize the string into a comment
             // var comment = JsonConvert.SerializeObject(commentContent);
@@ -156,7 +156,7 @@ namespace KudevolveWeb.APIS
         // PUT: api/Posts/5
         [HttpPut]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPost(string id, Post post)
+        public IHttpActionResult PutPost(int id, Post post)
         {
             if (!ModelState.IsValid)
             {
@@ -195,10 +195,10 @@ namespace KudevolveWeb.APIS
             Post post = new Post();
             //var user = new AppUser();
             var user = db.Users.Find(viewModel.Ownerid);
-            post.PostId = Guid.NewGuid().ToString();
+           // post.PostId = Guid.NewGuid().ToString();
             post.Owner = user;
             post.Content = viewModel.Content;
-            post.PostId = Guid.NewGuid().ToString();
+            //post.PostId = Guid.NewGuid().ToString();
             post.URL = BaseUrl + "/posts/" + post.PostId;
             post.DateCreated = DateTime.Today.ToString();
             // db.Posts.Add(post);
@@ -246,7 +246,7 @@ namespace KudevolveWeb.APIS
             base.Dispose(disposing);
         }
 
-        private bool PostExists(string id)
+        private bool PostExists(int id)
         {
             return db.Posts.Count(e => e.PostId == id) > 0;
         }

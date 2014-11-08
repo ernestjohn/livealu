@@ -20,10 +20,12 @@
     <link href="~/Content/RegAndLog/toastr.min.css" rel="stylesheet" />
     <script src="~/KudevolveUI/toastr.js"></script>
    
-    
-    <script src="http://kudevolvestuff.cloudapp.net:6284/download/latest/oauth.js"></script>
+
+    @*<script src="http://kudevolvestuff.cloudapp.net:6284/download/latest/oauth.js"></script>*@
    
     <script src="~/Scripts/angular.min.js"></script>
+
+    <script src="~/Scripts/oauth.min.js"></script>
     <link href="~/Scripts/flavr.css" rel="stylesheet" />
     <script src="~/Scripts/flavr.min.js"></script>
     <script src="~/Scripts/app.js"></script>
@@ -44,7 +46,7 @@
         if (count == 0) {
             new $.flavr({
                 content: 'Welcome to Kudevolve <br/> Sign in below using existing social accounts <br/> Or a Kudevolve account <br/> Have fun <br/> Admin(Sensei)',
-                iconPath: 'http://kudevolvemain.azurewebsites.net/icons/',
+                iconPath: 'http://kudevolvelive.azurewebsites.net/icons/',
                 icon: 'star.png',
                 buttons: {
                     Ok: { style: 'info' },
@@ -72,6 +74,7 @@
                         <h2>Please Sign In - Kudevolve</h2>
                         <hr class="colorgraph">
 
+
                         <br />
 
                         @*<div class="col-sm-4 social-buttons">*@
@@ -84,13 +87,13 @@
                             <a class="btn btn-block btn-lg btn-social btn-google-plus" ng-click="google()">
                                 <i class="fa fa-google-plus"></i> Sign in with Google
                             </a>
-                            <a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
+                            @*<a class="btn btn-block btn-lg btn-social btn-instagram" ng-click="instagram()">
                                 <i class="fa fa-instagram"></i> Sign in with Instagram
                             </a>
 
                             <a class="btn btn-block btn-lg btn-social btn-linkedin" ng-click="linkedin()">
                                 <i class="fa fa-linkedin"></i> Sign in with LinkedIn
-                            </a>
+                            </a>*@
 
                             <a class="btn btn-block btn-lg btn-social btn-twitter" ng-click="twitter()">
                                 <i class="fa fa-twitter"></i> Sign in with Twitter
@@ -121,8 +124,8 @@
                             @*<button type="button" class="btn" data-color="info">Remember Me</button>
                            
                              <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">*@
-                            Don't have an acount? 
-                            <a href="www.kudevolve.com/accounts/register" class="btn btn-link pull-right">Register</a>
+                            Don't have an account? 
+                            <a href="http://www.kudevolve.com/accounts/register" class="btn btn-link pull-right">Register</a>
                             <br />
 
                         </span>

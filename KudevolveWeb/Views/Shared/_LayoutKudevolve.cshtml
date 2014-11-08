@@ -22,12 +22,12 @@
 
     <script type="text/javascript">
         //Check whether the user is logged in or not through the log object
-        //if (!(sessionStorage.getItem("userlogged"))) {
-        //    window.location = "http://kudevolvemain.azurewebsites.net/accounts/login";
-        //}
-        //else {
-        //    var user = sessionStorage.getItem("user");
-        //}
+        if (!(sessionStorage.getItem("userlogged"))) {
+            window.location = "http://www.kudevolve.com/accounts/login";
+        }
+        else {
+            var user = sessionStorage.getItem("user");
+        }
     </script>
 
 </head>
@@ -44,7 +44,7 @@
                         <div class="dropdown profile-element" ng-controller="">
                            
                                 <span>
-                                    <img alt="image" class="img-circle" src="~/KudevolveUI/img/profile_small.jpg">
+                                    <img alt="image" class="img-circle" src="~/KudevolveUI/img/icon.png">
                                 </span>
                            
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -78,16 +78,16 @@
 
                     </li>
                     <li>
-                        <a href="http://kudevolvemain.azurewebsites.net/Dashboard/Index"><i class="fa fa-th-large"></i> <span class="nav-label">Noticeboard</span> </a>
+                        <a href="http://www.kudevolve.com/Dashboard/Index"><i class="fa fa-th-large"></i> <span class="nav-label">Noticeboard</span> </a>
 
                     </li>
                     <li>
-                        <a href="http://kudevolvemain.azurewebsites.net/Dashboard/Friends"><i class="fa fa-th-large"></i> <span class="nav-label">Friends/Influencers</span> </a>
+                        <a href="http://www.kudevolve.com/Dashboard/Friends"><i class="fa fa-th-large"></i> <span class="nav-label">Friends/Influencers</span> </a>
 
                     </li>
 
                     <li>
-                        <a href="http://kudevolvemain.azurewebsites.net/Dashboard/Counties"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Counties</span><span class="fa arrow"></span></a>
+                        <a href="http://www.kudevolve.com/Dashboard/Counties"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Counties</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             
                             <li><a href="/">Kiambu</a></li>
@@ -112,10 +112,10 @@
 
                     </li>*@
                     <li>
-                        <a href="http://kudevolvemain.azurewebsites.net/Dashboard/Petitions"><i class="fa fa-desktop"></i> <span class="nav-label">Petitions</span> <span class="pull-right label label-primary">SPECIAL</span></a>
+                        <a href="http://www.kudevolve.com/Dashboard/Petitions"><i class="fa fa-desktop"></i> <span class="nav-label">Petitions</span> <span class="pull-right label label-primary">SPECIAL</span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="contacts.html">My Petitions</a></li>
-                            <li><a href="profile.html">In My County</a></li>
+                            <li><a href="/">My Petitions</a></li>
+                            <li><a href="/">In My County</a></li>
                         </ul>
                     </li>
 
@@ -270,7 +270,7 @@
 
 
                         <li>
-                            <a href="http://kudevolvemain.azurewebsites.net/Accounts/Login">
+                            <a href="http://www.kudevolve.com/Accounts/Login">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
                         </li>
@@ -283,7 +283,7 @@
 
             <div class="wrapper wrapper-content" style="padding-top: 0px;">
                 <div class="row animated fadeInRight">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <div class="ibox float-e-margins">
                             @RenderBody()
                         </div>
@@ -299,9 +299,10 @@
                                         <h5>Group Notifications</h5>
                                       
                                     </div>
+
                                     <div class="ibox-content no-padding">
                                         <ul class="list-group">
-                                            <li class="list-group-item">
+                                            @*<li class="list-group-item">
                                                 <p><a class="text-info" href="#">@@Alan Marry</a> I belive that. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                                                 <small class="block text-muted"><i class="fa fa-clock-o"></i> 1 minuts ago</small>
                                             </li>
@@ -315,7 +316,7 @@
                                             <li class="list-group-item">
                                                 <p><a class="text-info" href="#">@@Kevin Smith</a> Lorem ipsum unknown printer took a galley </p>
                                                 <small class="block text-muted"><i class="fa fa-clock-o"></i> 2 minuts ago</small>
-                                            </li>
+                                            </li>*@
                                            
                                         </ul>
                                     </div>

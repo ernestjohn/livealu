@@ -18,7 +18,7 @@ namespace KudevolveWeb.APIS
         private IHubProxy postsHubProxy;
         public RealTimePostUpdater ()
 	        {
-                hubConnection = new HubConnection("http://kudevolvemain.azurewebsites.net");
+                hubConnection = new HubConnection("http://kudevolvelive.azurewebsites.net");
                 hubConnection.StateChanged += hubConnection_StateChanged;
                 hubConnection.Received += hubConnection_Received;
              
@@ -61,10 +61,10 @@ namespace KudevolveWeb.APIS
            await postsHubProxy.Invoke("Update", post);
         }
 
-        public async Task UpdatePostComment(string postid, Comment thePost)
+        public async Task UpdatePostComment(int postid, Comment thePost)
         {
             var post = JsonConvert.SerializeObject(thePost);
-           await postsHubProxy.Invoke("addPostComment",postid + "|"+ post);
+           await postsHubProxy.Invoke("addComment",postid + "|"+ post);
         }
 
         public static void NotifyUser(AppUser user)
