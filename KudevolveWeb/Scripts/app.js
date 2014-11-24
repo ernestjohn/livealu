@@ -359,7 +359,6 @@ app.controller('LoginCtrl', ['$scope', function ($scope) {
     socialpost.identity = "";
 
     
-
     //Generic social login function
     function socialLogin(provider, theid) {
         socialpost.identity = theid;
@@ -616,6 +615,7 @@ app.controller('RegisterCtrl', ['$scope', function ($scope) {
         });
 
     }
+
     $scope.twitter = function () {
         social = true;
         OAuth.popup('twitter', function (error, result) {
