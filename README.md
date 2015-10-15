@@ -1,6 +1,5 @@
-This is the official Git Repository for Kudevolve
+This is the official Git Repository for
 
 Development Team
-Ernest John Ndungu
-Collins Omwenga
 
+Ernest John Ndungu
