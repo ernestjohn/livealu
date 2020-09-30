@@ -12,7 +12,7 @@ namespace TwitterStream
         public void Start()
         {
 
-            var session = OAuth.Authorize("CWfPQ6dvtFMCgrnslLvaxsexH", "GAV5MtpCpzWjuzE54sJR3xR5WVouuWJ1eAwrYeW7dngBNhbU6T");
+            var session = OAuth.Authorize("", "");
             
             var tokens = OAuth.GetTokens(session, "PINCODE");
            
